@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
+import Comment from "./Comment.js"
 import { addLike, grabLikes, removeLike } from "../store/like";
 import { grabPhoto } from '../store/photos'
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
@@ -130,17 +131,18 @@ function Post() {
               comments.map(commentInfoObj => {
                 console.log(commentInfoObj)
                 return (
-                  <div className="SingleComment" key={commentInfoObj.comment.id}>
-                  <div className="CommenterName">{commentInfoObj.user.username}:</div>
-                  <div className="SingleCommentText">
-                    {commentInfoObj.comment.commentText} 
-                  </div>
-                  { sessionUser && commentInfoObj.user.id === sessionUser.id &&
-                    ( <div>
-                        <button onClick={(e) => onDeleteComment(e, commentInfoObj.comment.id, postId)} className="delBtn"> DELETE </button>
-                      </div> )
-                  }
-                  </div>
+                  <Comment comment={commentInfoObj} />
+                  // <div className="SingleComment" key={commentInfoObj.comment.id}>
+                  // <div className="CommenterName">{commentInfoObj.user.username}:</div>
+                  // <div className="SingleCommentText">
+                  //   {commentInfoObj.comment.commentText} 
+                  // </div>
+                  // { sessionUser && commentInfoObj.user.id === sessionUser.id &&
+                  //   ( <div>
+                  //       <button onClick={(e) => onDeleteComment(e, commentInfoObj.comment.id, postId)} className="delBtn"> DELETE </button>
+                  //     </div> )
+                  // }
+                  // </div>
                   )
               })
             }
