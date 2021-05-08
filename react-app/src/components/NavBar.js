@@ -27,6 +27,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/create" exact={true} activeClassName="active">
+            Create Post
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton  />
         </li>
       </ul>

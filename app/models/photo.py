@@ -15,3 +15,5 @@ class Photo(db.Model):
             "postid": self.postid,
             "imageURL": self.imageURL
         }
+
+    

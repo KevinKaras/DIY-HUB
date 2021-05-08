@@ -1,24 +1,30 @@
-import reducer from "./session";
 
-// const OBTAIN = 'posts/OBTAIN'
 
-// const obtainPosts = () => {
-//     type: OBTAIN
-// }
+const OBTAIN = 'posts/OBTAIN'
 
-// export default grabPosts = () => async dispatch => {
-//     const response = await fetch('/api/posts', {
-//         headers: {
-//         'Content-Type': 'application/json'
-//       }})
-//     const posts = await response.json();
-// }
+const obtainPosts = (posts) => ({
+    type: OBTAIN,
+    posts
+})
+
+
+
+export const grabPosts = () => async dispatch => {
+    const response = await fetch('/api/posts', {
+        headers: {
+        'Content-Type': 'application/json'
+      }})
+    const data = await response.json();
+    dispatch(obtainPosts(data.posts))
+}
 
 
 export default function reducer(state = {}, action){
     switch(action.type){
         case OBTAIN: 
-        return {...state, }
+            return {...state, ...action.posts}
+        default:
+            return state
     }
 
 }

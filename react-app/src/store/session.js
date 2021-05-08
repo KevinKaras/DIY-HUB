@@ -8,9 +8,7 @@ const createSession = user => ({
   type: CREATE,
   user
 })
-const destroySession = () => ({
-  type: DESTROY
-})
+
 
 
 

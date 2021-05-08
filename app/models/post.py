@@ -15,3 +15,5 @@ class Post(db.Model):
             "name": self.name,
             "instructions": self.instructions
         }
+
+    
