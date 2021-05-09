@@ -12,11 +12,16 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   
-  const onLogin =  (e) => {
+  const onLogin =  async (e) => {
     
     e.preventDefault();
-    dispatch(login(email, password))
-      .catch(err => setErrors(err.errors));
+    const data = await dispatch(login(email, password))
+    if(data.errors){
+      setErrors(data.errors)
+      console.log(data)
+      
+    }
+      
   };
 
   const updateEmail = (e) => {
@@ -27,8 +32,8 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (authenticate) {
-    return <Redirect to="/" />;
+  if (user) {
+    return <Redirect to="/" />;                
   }
 
   return (

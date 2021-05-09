@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from "./components/Home"
 import Post from "./components/Post"
+import CreatePost from './components/CreatePost'
 import { authenticate } from "./store/session"
 
 
@@ -41,11 +42,14 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path="/" exact={true} >
+        <Route path="/" exact={true}>
           <Home />
         </Route>
         <Route path='/post/:id' exact={true}>
           <Post />
+        </Route>
+        <Route path='/create' exact={true}>
+          <CreatePost />
         </Route>
       </Switch>
     </BrowserRouter>
