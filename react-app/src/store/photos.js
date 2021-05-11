@@ -10,6 +10,7 @@ const obtainPhotos = (photos) => ({
 export const grabPhoto = (id) => async dispatch => {
     
     const response = await fetch(`/api/photos/${id}`)
+    
     const data = await response.json();
         
     dispatch(obtainPhotos(data))
