@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from ..forms.post_form import PostForm
-from app.models import Post, Photo, db
+from ..forms.comment_form import CommentForm
+from app.models import Post, Photo, db, Comment
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -29,6 +30,27 @@ def create():
         db.session.add(post)
         db.session.commit()
         return post.to_dict()
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+
+@posts_routes.route('/<int:postId>/comments')
+def comment(postId):
+    comments = Comment.query.filter_by(postid = postId).all()
+    return {"comments": [comment.to_dict() for comment in comments]}
+
+@posts_routes.route('/<int:postid>/comments/create', methods=["POST"])
+def createComment(postid):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment(
+            userid = form.data["userid"],
+            postid = form.data["postid"],
+            commentText = form.data["commentText"]
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @posts_routes.route('/<int:postId>/delete', methods=['DELETE'])

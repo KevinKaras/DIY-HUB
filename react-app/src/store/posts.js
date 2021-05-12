@@ -71,22 +71,17 @@ export default function reducer(state = {}, action){
     switch(action.type){
         case OBTAIN: 
             newState = {}
-            
             for(let i = 0; i < action.posts.length; i++){
                 const post = action.posts[i]
                 newState[post.id] = post
-                
             }
-            console.log(newState)
             return newState
         case CREATE: 
             newState = {...state}
-            console.log("CREATE")
             newState[action.post.id] = action.post
             return newState
         case DELETE: 
             newState = {...state}
-            console.log("DELETE")
             delete newState[action.postId] 
             return newState
         default:

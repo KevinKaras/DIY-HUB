@@ -12,13 +12,9 @@ function Home() {
 
   useEffect(() => {
     async function fetchPosts(){
-        // const response = await fetch('/api/posts');
-        // const responseData = await response.json();
-        // console.log(responseData.posts)
-        // await setPosts(responseData)
+        
         dispatch(grabPosts())
-        // await setPosts(responseData.posts)
-        // console.log(responseData.posts)
+        
     
     return
     }
