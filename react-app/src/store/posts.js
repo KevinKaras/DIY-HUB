@@ -25,7 +25,7 @@ const obtainPosts = (posts) => ({
 
 
 export const grabPosts = () => async dispatch => {
-    const response = await fetch('/api/posts', {
+    const response = await fetch('/api/posts/', {
         headers: {
         'Content-Type': 'application/json'
       }})
