@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
 import { grabPhoto } from '../store/photos'
-import { grabComments, addComment } from '../store/comment'
+import { grabComments, addComment, deleteComment } from '../store/comment'
 
 
 function Post() {
@@ -23,7 +23,8 @@ function Post() {
 
     const comments = useSelector(state => state.CommentsOfPost)
 
-    console.log(comment)
+    console.log(comments)
+    console.log(sessionUser)
     
 
     
@@ -43,6 +44,11 @@ function Post() {
       e.preventDefault()
       await dispatch(addComment(sessionUser.id, postId, comment))
       setComment("")
+    }
+
+    const onDeleteComment = async (e, commentId, postId) => {
+      e.preventDefault()
+      await dispatch(deleteComment(postId, commentId))
     }
     
 
@@ -80,13 +86,34 @@ function Post() {
 
         <div className="commentsDiv">
           Comments:
-          {comments && 
+          {comments &&
             comments.map(comment => {
-              return <div>
-                {comment.commentText}
-              </div>
+              return (
+                <div className="singleComment">
+                <div>
+                  {comment.commentText}
+                </div>
+                { sessionUser && comment.userid === sessionUser.id &&
+                  ( <div>
+                      <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
+                    </div> )
+                }
+                </div>
+                )
             })
           }
+          
+          {comments && sessionUser && comment.userid == sessionUser.id &&
+            comments.map(comment => {
+              return <button type='submit' className="deleteCommBtn">
+                        Delete
+                      </button>
+            })
+          
+                      
+                    
+          }
+          
         </div>
         <div>
           <form className="commentForm" onSubmit={onCreateComm}>

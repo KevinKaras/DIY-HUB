@@ -53,6 +53,11 @@ def createComment(postid):
         return comment.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
+# @posts_routes.route("/<int:postId>/comments/<int:commentId/delete")
+
+
+
+
 @posts_routes.route('/<int:postId>/delete', methods=['DELETE'])
 def delete(postId):
     post = Post.query.get(postId)

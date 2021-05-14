@@ -1,5 +1,6 @@
 const OBTAIN = "comments/OBTAIN"
 const CREATE = "comments/CREATE"
+const DELETE = "comments/DELETE"
 
 
 const obtainComm = (comments) => ({
@@ -10,6 +11,11 @@ const obtainComm = (comments) => ({
 const addComm = (comment) => ({
     type: CREATE,
     comment
+})
+
+const delComm = (commentId) => ({
+    type: DELETE,
+    commentId
 })
 
 export const addComment = (userid, postid, commentText) => async dispatch => {
@@ -42,6 +48,17 @@ export const grabComments = (postId) => async dispatch =>{
     dispatch(obtainComm(commentData.comments))
 }
 
+export const deleteComment = (postId, commentId) => async dispatch => {
+    const response = await fetch(`/api/${postId}/comments/${commentId}/delete`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const deletedComment = await response.json()
+    dispatch(delComm(commentId))
+}
+
 
 export default function reducer(state = [], action){
     switch(action.type){
@@ -49,6 +66,8 @@ export default function reducer(state = [], action){
             return action.comments
         case CREATE: 
             return [...state, action.comment]
+        case DELETE:
+            return 
         default:
             return state;
     }
