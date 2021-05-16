@@ -1,0 +1,23 @@
+.NavContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px;
+    margin: 5px;
+}
+
+.NavButton {
+    padding: 5px;
+    /* margin: 5px 2.5px 5px 2.5px; */
+    background-color: rgb(246, 94, 94);
+    border: 1px solid black;
+    border-radius: 0.25px;
+}
+
+.LogOut {
+    
+    background-color: rgb(246, 94, 94);
+    border: 1px solid black;
+    border-radius: 0.25px;
+}
+
+

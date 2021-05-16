@@ -53,7 +53,12 @@ def createComment(postid):
         return comment.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
-# @posts_routes.route("/<int:postId>/comments/<int:commentId/delete")
+@posts_routes.route("/<int:postId>/comments/<int:commentId>/delete", methods=['DELETE'])
+def deleteComment(postId, commentId):
+    comment = Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+    return {"message" : "If you see this, IT WORKED!"}
 
 
 

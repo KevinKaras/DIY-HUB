@@ -49,7 +49,7 @@ export const grabComments = (postId) => async dispatch =>{
 }
 
 export const deleteComment = (postId, commentId) => async dispatch => {
-    const response = await fetch(`/api/${postId}/comments/${commentId}/delete`, {
+    const response = await fetch(`/api/posts/${postId}/comments/${commentId}/delete`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -67,7 +67,7 @@ export default function reducer(state = [], action){
         case CREATE: 
             return [...state, action.comment]
         case DELETE:
-            return 
+            return [...state.filter(state => state.id !== Number(action.commentId))]
         default:
             return state;
     }

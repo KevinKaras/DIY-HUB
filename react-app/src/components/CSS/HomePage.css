@@ -1,0 +1,41 @@
+.PostItem {
+    padding: 10px;
+    text-align: left;
+    
+}
+
+.NavLinkText {
+    color: rgb(57, 55, 55)
+}
+
+.PostItemContainer {
+    font-family:Arial, Helvetica, sans-serif;
+    color:skyblue;
+    display: flex;
+    align-items: flex-end;
+    height: 125px;
+    width: 650px;
+    border: 0.5px solid;
+    background-color:rgb(243, 242, 242);
+    border-color: black;
+    padding: 175px 5px 10px 5px;
+    margin: 25px;
+    max-width: 650px;
+    max-height: 500px;
+    box-shadow: 2.5px 1.5px 2px rgb(57, 55, 55);
+    
+}
+
+.Title {
+    display: flexbox;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.PostHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+

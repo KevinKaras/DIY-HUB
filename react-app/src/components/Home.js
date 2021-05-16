@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
+import "./CSS/HomePage.css"
 
 function Home() {
 
@@ -25,9 +26,11 @@ function Home() {
   useEffect(() => {
       setPostComponents(Object.values(posts).map((post)=>{
             return (
-                <li className="PostItem" key={post.id}>
-                    <NavLink to={`/post/${post.id}`}>{post.name}</NavLink>
-                </li>
+              <div className="PostItemContainer">
+                <div className="PostItem" key={post.id}>
+                    <NavLink className="NavLinkText" to={`/post/${post.id}`}>{post.name}</NavLink>
+                </div>
+              </div>
             )
         }))
   }, [posts])
@@ -35,9 +38,11 @@ function Home() {
 
   return (
 
-    <div>
-        <h1>DIY HUB</h1>
-        <h2>{postComponents}</h2>
+    <div className="">
+        
+        <h1 className="Title">DIY HUB</h1>
+        
+        <h2 className="PostHolder">{postComponents}</h2>
     </div>
 
   )

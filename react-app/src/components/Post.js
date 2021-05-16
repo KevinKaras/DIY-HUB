@@ -89,7 +89,7 @@ function Post() {
           {comments &&
             comments.map(comment => {
               return (
-                <div className="singleComment">
+                <div className="singleComment" key={comment.id}>
                 <div>
                   {comment.commentText}
                 </div>
