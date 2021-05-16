@@ -27,7 +27,7 @@ function Post() {
     console.log(sessionUser)
     
 
-    
+  
    
 
     
@@ -101,17 +101,6 @@ function Post() {
                 </div>
                 )
             })
-          }
-          
-          {comments && sessionUser && comment.userid == sessionUser.id &&
-            comments.map(comment => {
-              return <button type='submit' className="deleteCommBtn">
-                        Delete
-                      </button>
-            })
-          
-                      
-                    
           }
           
         </div>
