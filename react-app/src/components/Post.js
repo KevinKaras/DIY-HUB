@@ -4,7 +4,7 @@ import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
 import { grabPhoto } from '../store/photos'
 import { grabComments, addComment, deleteComment } from '../store/comment'
-
+import './CSS/PostPage.css'
 
 function Post() {
 
@@ -74,50 +74,55 @@ function Post() {
 
   return posts && (
     <>
-        <h1>POST PAGE</h1>
-        <div>{pagePost?.name}</div>
-        <div>{pagePost?.instructions}</div>
-        <div>{photo?.imageURL}</div>
+        <div className="PostContainer">
+          <div className="TitlePost">{pagePost?.name}</div>
+          <div className="Image">{photo?.imageURL}</div>
+          <div className="TextBody">{pagePost?.instructions}</div>
+        </div>
         {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
           <form>
             <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
           </form>
           }
-
-        <div className="commentsDiv">
-          Comments:
-          {comments &&
-            comments.map(comment => {
-              return (
-                <div className="singleComment" key={comment.id}>
-                <div>
-                  {comment.commentText}
-                </div>
-                { sessionUser && comment.userid === sessionUser.id &&
-                  ( <div>
-                      <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
-                    </div> )
-                }
-                </div>
-                )
-            })
-          }
-          
-        </div>
-        <div>
-          <form className="commentForm" onSubmit={onCreateComm}>
-            <input
-            className="commentInput"
-            type="text"
-            name="comment"
-            onChange={(e) => setComment(e.target.value)}
-            value={comment}
-            >
-            </input>
-            <button type="submit" className="submitCommBtn">
-              Post Comment
-            </button>
-          </form>
+        <div className="CommentSection">
+          <div className="CommentsDiv">
+            Comment Section:
+            {comments &&
+              comments.map(comment => {
+                return (
+                  <div className="SingleComment" key={comment.id}>
+                  <div className="SingleCommentText">
+                    {comment.commentText}
+                  </div>
+                  { sessionUser && comment.userid === sessionUser.id &&
+                    ( <div>
+                        <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
+                      </div> )
+                  }
+                  </div>
+                  )
+              })
+            }
+            
+          </div>
+          {sessionUser && 
+            <div className="AddCommentForm">
+              <div className="AddCommentTitle">Add a Comment:</div>
+              <form className="CommentForm" onSubmit={onCreateComm}>
+                <input
+                className="CommentInput"
+                type="text"
+                name="comment"
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
+                >
+                </input>
+                <button type="submit" className="SubmitCommBtn">
+                  Post Comment
+                </button>
+              </form>
+            </div>
+            }
         </div>
     </>
 

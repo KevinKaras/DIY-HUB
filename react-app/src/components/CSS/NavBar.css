@@ -5,19 +5,39 @@
     margin: 5px;
 }
 
-.NavButton {
-    padding: 5px;
-    /* margin: 5px 2.5px 5px 2.5px; */
-    background-color: rgb(246, 94, 94);
+.NavButtonDiv {
+    padding: 6px 5px 0px 5px;
+    margin: 0px 0px 0px 0px;
+    background-color: rgb(194, 194, 194);
     border: 1px solid black;
     border-radius: 0.25px;
+    opacity: 0.45;
+}
+.NavButtonDiv:hover {
+    opacity: 1;
 }
 
-.LogOut {
-    
-    background-color: rgb(246, 94, 94);
+.NavButtonDivLogOut {
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    background-color: rgb(194, 194, 194);
     border: 1px solid black;
     border-radius: 0.25px;
+    opacity: 0.45;
+    
+    
+    
+}
+.NavButtonDivLogOut:hover {
+    opacity:1;
+}
+
+.NavButton {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(39, 38, 38);
+    
+    
 }
 
 

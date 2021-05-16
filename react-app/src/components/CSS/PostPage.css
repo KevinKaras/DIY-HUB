@@ -1,0 +1,77 @@
+.PostContainer {
+    display: flex;
+    justify-content: left;
+    min-height: 550px;
+    flex-direction: column;
+    margin: 25px 0px 0px 10px;
+}
+
+.TitlePost {
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid rgb(41, 41, 41);
+    font-size: 30px;
+    width: 1100px;
+}
+
+.TextBody {
+    margin: 0px 0px 25px 0px;
+    width: 1100px
+}
+
+.Image {
+    height: 500px;
+    width: 1100px;
+    border: 1px solid black;
+    margin: 20px 0px 20px 0px;
+}
+
+.CommentsDiv {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px
+}
+
+.CommentSection {
+    width: 1200px;
+    margin: 0px 0px 0px 10px;
+
+}
+
+.CommentForm {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.AddCommentTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px
+}
+
+.CommentInput {
+    height: 100px;
+    width: 550px;
+    
+}
+
+.SubmitCommBtn {
+    margin: 15px 0px 0px 0px;
+    width: 139.5px;
+}
+
+.SingleComment {
+    width: 558px
+}
+
+.SingleCommentText {
+    border: 1px solid rgb(133, 133, 133);
+    width: 558px;
+    height: 100px;
+    box-shadow: 0.25px 0.25px 1px rgb(110, 110, 110);
+}
+
+.AddCommentForm {
+    margin: 20px 0px 0px 0px;
+    
+}

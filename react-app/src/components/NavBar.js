@@ -9,37 +9,37 @@ const NavBar = () => {
 
   return (
     <nav className="NavContainer">
-      <div>
+      <div className="NavButtonDiv">
         <NavLink className="NavButton"to="/" exact={true} activeClassName="active">
           Home
         </NavLink>
       </div>
       {!user &&
         <>
-          <div>
+          <div className="NavButtonDiv">
             <NavLink className="NavButton" to="/login" exact={true} activeClassName="active">
               Login
             </NavLink>
           </div>
-          <div>
+          <div className="NavButtonDiv">
             <NavLink className="NavButton" to="/sign-up" exact={true} activeClassName="active">
               Sign Up
             </NavLink>
           </div>
         </>}
-        <div>
+        <div className="NavButtonDiv">
           <NavLink className="NavButton" to="/users" exact={true} activeClassName="active">
             Users
           </NavLink>
         </div>
         {user && 
-          <div>
+          <div className="NavButtonDiv">
             <NavLink className="NavButton" to="/create" exact={true} activeClassName="active">
               Create Post
             </NavLink>
           </div>
         }
-        {user && <div className="NavButton">
+        {user && <div className="NavButtonDivLogOut">
           <LogoutButton />
         </div>}
     </nav>
