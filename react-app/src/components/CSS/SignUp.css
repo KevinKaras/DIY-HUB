@@ -1,0 +1,40 @@
+.SUFormContainerDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.InputTitle {
+    border-bottom: 0.5px solid black;
+}
+
+.UsernameInput {
+    
+    margin: 5px 0px 15px 0px;
+    width: 350px;
+}
+
+.EmailInput {
+    
+    margin: 5px 0px 15px 0px;
+}
+
+.PasswordInput {
+    
+    margin: 5px 0px 15px 0px;
+}
+
+
+
+.SignUpSubmitBtn {
+    width: 75px;
+}
+
+.InputContainer {
+    width: 350px;
+}
+
+.SignUpTitle {
+    border-bottom: 0.75px solid black;
+    font-size: 32px;
+    margin: 0px 0px 15px 0px;
+}

@@ -1,0 +1,46 @@
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 400px;
+    
+}
+
+.inputBox {
+    width: 400px;
+}
+
+.InstructionInputBox {
+    height: 100px; 
+    width: 400px;
+    margin: 5px;
+    margin: 8px 0px 25px 0px;
+}
+.TitleInputBox {
+    margin: 5px;    
+    width: 400px;
+    margin: 8px 0px 25px 0px;
+}
+
+.ImageInputBox {
+    margin: 5px;
+    width: 400px;
+    margin: 8px 0px 25px 0px;
+}
+
+.postAddBtn {
+    margin: 0px;
+    width: 100px;
+    border: 0.5px solid rgb(71, 71, 71);
+    border-radius: 4px;
+    
+}
+
+.PostTitle {
+    border-bottom: 0.5px solid black;
+}
+
+.BoxIdentifierText {
+    border-bottom: 0.5px solid black;
+    
+}

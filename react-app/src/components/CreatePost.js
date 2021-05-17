@@ -4,6 +4,7 @@ import { useParams, useHistory} from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import { grabPhoto } from '../store/photos'
 import { createPost } from '../store/posts'
+import "./CSS/CreatePostPage.css"
 
 function CreatePost() {
     const dispatch = useDispatch()
@@ -49,23 +50,26 @@ function CreatePost() {
 
   return (
     <>
-        <h1>Create a Post</h1>
-        <div>
+        <h1 className="PostTitle">Create a Post</h1>
+        <div className="PostCreationDiv">
             <form onSubmit={onCreate} className="formDiv">
+                <div className="BoxIdentifierText">Title:</div>
                 <input
-                className="inputBox"
+                className="TitleInputBox"
                 type="text"
                 name="name"
                 onChange={(e) => setName(e.target.value)}
                 ></input>
+                <div className="BoxIdentifierText" >Instructions:</div>
                 <input
-                className="inputBox"
+                className="InstructionInputBox"
                 type="text"
                 name="instructions"
                 onChange={(e) => setInstructions(e.target.value)}
                 ></input>
+                <div className="BoxIdentifierText" >Image:</div>
                 <input
-                className="inputBox"
+                className="ImageInputBox"
                 type="text"
                 name="photoURL"
                 onChange={(e) => setPhotoUrl(e.target.value)}

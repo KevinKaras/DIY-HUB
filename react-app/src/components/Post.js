@@ -77,6 +77,7 @@ function Post() {
         <div className="PostContainer">
           <div className="TitlePost">{pagePost?.name}</div>
           <div className="Image">{photo?.imageURL}</div>
+          <div className="InstructionsDiv">Instructions:</div>
           <div className="TextBody">{pagePost?.instructions}</div>
         </div>
         {currentPost && sessionUser && currentPost.userid === sessionUser.id &&

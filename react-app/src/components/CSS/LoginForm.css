@@ -1,0 +1,30 @@
+.LoginFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.EmailInput {
+    width: 350px;
+
+}
+
+.PasswordInput {
+    width: 350px;
+
+}
+
+.LoginButton {
+    width: 75px;
+    margin: 5px 0px 0px 0px;
+}
+
+.InputTitle {
+    border-bottom: 0.5px solid black;
+    margin: 5px 0px 5px 0px;
+}
+
+.LoginTitle {
+    border-bottom: 0.5px solid black;
+    font-size: 32px;
+    margin: 0px 0px 20px 0px;
+}
