@@ -34,7 +34,8 @@ export const grabPosts = () => async dispatch => {
 }
 
 export const createPost = (userId, name, instructions, url) => async dispatch => {
-    const response = await fetch('api/posts/create', {
+    console.log("--------------LOL---------------")
+    const response = await fetch('/api/posts/create', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,8 +47,11 @@ export const createPost = (userId, name, instructions, url) => async dispatch =>
             url
         })
     })
+    if(response.ok){
+        console.log("something")
+    }
     const createdPost = await response.json()
-    
+    console.log("this is the thunk: " , createdPost)
     await dispatch(addPost(createdPost))
     return createdPost
 }

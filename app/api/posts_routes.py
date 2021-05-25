@@ -30,6 +30,7 @@ def create():
         )
         db.session.add(post)
         db.session.commit()
+        print(f'\n\n\n\n\n\n {post.to_dict()}')
         return post.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 

@@ -21,10 +21,11 @@ function CreatePost() {
     const [imageLoading, setImageLoading] = useState(false);
     
 
-    const onCreate = async () => {
+    const onCreate = async (event) => {
+        event.preventDefault()
         const createdPost = await dispatch(createPost(user.id, name, instructions, url))
-        console.log(`\n\n\n`,  createdPost)
-        // return <Redirect to={`/post/${createdPost.id}`} />
+        console.log(`\n\n\n`, createdPost)
+        history.push(`/post/${createdPost.id}`)
     }
     
     useEffect(() => {
