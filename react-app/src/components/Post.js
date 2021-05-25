@@ -23,6 +23,9 @@ function Post() {
 
     const comments = useSelector(state => state.CommentsOfPost)
 
+    
+
+    
     console.log(comments)
     console.log(sessionUser)
     
@@ -76,7 +79,13 @@ function Post() {
     <>
         <div className="PostContainer">
           <div className="TitlePost">{pagePost?.name}</div>
-          <div className="Image">{photo?.imageURL}</div>
+          <div className="Image">
+            <img 
+              className="FillImage"
+              src={currentPost?.url}
+              alt="Photo not found"
+            />
+          </div>
           <div className="InstructionsDiv">Instructions:</div>
           <div className="TextBody">{pagePost?.instructions}</div>
         </div>

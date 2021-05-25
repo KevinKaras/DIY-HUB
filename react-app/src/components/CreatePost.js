@@ -17,14 +17,15 @@ function CreatePost() {
     const [name, setName] = useState('')
     const [instructions, setInstructions] = useState('')
     const [url, setPhotoUrl] = useState('')
-    const user = useSelector(state => state.session.user)    // GRAB USER ID FROM SESSION USER, NOT DONE YET **********
+    const user = useSelector(state => state.session.user)    
     const [imageLoading, setImageLoading] = useState(false);
+    
     
 
     const onCreate = async (event) => {
         event.preventDefault()
         const createdPost = await dispatch(createPost(user.id, name, instructions, url))
-        console.log(`\n\n\n`, createdPost)
+        
         history.push(`/post/${createdPost.id}`)
     }
     
