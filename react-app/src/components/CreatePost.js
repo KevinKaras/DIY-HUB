@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useParams, useHistory} from "react-router-dom";
+import { useParams, useHistory, Redirect} from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import { grabPhoto } from '../store/photos'
 import { createPost } from '../store/posts'
@@ -16,33 +16,22 @@ function CreatePost() {
     const history = useHistory()
     const [name, setName] = useState('')
     const [instructions, setInstructions] = useState('')
-    const [photoURL, setPhotoUrl] = useState('')
+    const [url, setPhotoUrl] = useState('')
     const user = useSelector(state => state.session.user)    // GRAB USER ID FROM SESSION USER, NOT DONE YET **********
-
+    const [imageLoading, setImageLoading] = useState(false);
     
 
-    
-    
-		
-    
-		
-    
     const onCreate = async () => {
-        const createdPost = await dispatch(createPost(user.id, name, instructions, photoURL))
-
-        // history.push(`/post/${createdPost.id}`)
+        const createdPost = await dispatch(createPost(user.id, name, instructions, url))
+        console.log(`\n\n\n`,  createdPost)
+        // return <Redirect to={`/post/${createdPost.id}`} />
     }
     
-
-    
-
-    
-
     useEffect(() => {
         dispatch(grabPosts())
         
         
-    }, [onCreate]);
+    }, [dispatch]);
     
 
   
@@ -71,7 +60,7 @@ function CreatePost() {
                 <input
                 className="ImageInputBox"
                 type="text"
-                name="photoURL"
+                name="url"
                 onChange={(e) => setPhotoUrl(e.target.value)}
                 ></input>
                 <button className='postAddBtn' type='submit'>Submit Post</button>

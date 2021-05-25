@@ -25,7 +25,8 @@ def create():
         post = Post(
             userid = form.data["userId"],
             name = form.data["name"],
-            instructions = form.data["instructions"]
+            instructions = form.data["instructions"],
+            url = form.data["url"]
         )
         db.session.add(post)
         db.session.commit()

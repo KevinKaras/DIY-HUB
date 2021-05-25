@@ -58,7 +58,7 @@ function Post() {
 
   useEffect(() => {
     dispatch(grabPosts())
-    dispatch(grabPhoto(postId))
+    // dispatch(grabPhoto(postId))
     dispatch(grabComments(postId))             
     
   }, []);

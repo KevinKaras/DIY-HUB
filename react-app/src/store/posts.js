@@ -33,7 +33,7 @@ export const grabPosts = () => async dispatch => {
     dispatch(obtainPosts(data.posts))
 }
 
-export const createPost = (userId, name, instructions, photoURL) => async dispatch => {
+export const createPost = (userId, name, instructions, url) => async dispatch => {
     const response = await fetch('api/posts/create', {
         method: "POST",
         headers: {
@@ -43,12 +43,13 @@ export const createPost = (userId, name, instructions, photoURL) => async dispat
             userId,
             name,
             instructions,
-            photoURL
+            url
         })
     })
     const createdPost = await response.json()
-    console.log(createdPost)
+    
     await dispatch(addPost(createdPost))
+    return createdPost
 }
 
 export const deletePost = (postId) => async (dispatch) => {

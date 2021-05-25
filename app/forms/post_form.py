@@ -7,4 +7,4 @@ class PostForm(FlaskForm):
     userId = IntegerField('userId', validators=[DataRequired()])
     name = StringField('name', validators=[DataRequired()])
     instructions = StringField('instructions', validators=[DataRequired()])
-    photoURL = StringField('photoURL', validators=[DataRequired()])
+    url = StringField('url', validators=[DataRequired()])

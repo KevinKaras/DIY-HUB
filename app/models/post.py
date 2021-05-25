@@ -7,13 +7,15 @@ class Post(db.Model):
     userid = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String(100), nullable = False, unique = True)
     instructions = db.Column(db.String(1000), nullable = False)
+    url = db.Column(db.String(1000), nullable = False)
 
     def to_dict(self):
         return {
             "id": self.id,
             "userid": self.userid,
             "name": self.name,
-            "instructions": self.instructions
+            "instructions": self.instructions,
+            "url": self.url
         }
 
     
