@@ -1,24 +1,31 @@
 .PostItem {
     padding: 10px;
     text-align: left;
-    
+    position: absolute;
 }
 
+.PhotoItem {
+    background-color: bisque;
+    height: 100%;
+    width: 100%
+}
 .NavLinkText {
+    
     color: rgb(57, 55, 55);
     text-decoration: none;
 }
 
 .PostItemContainer {
+    position: relative;
     font-family:Arial, Helvetica, sans-serif;
     display: flex;
     align-items: flex-end;
-    height: 125px;
+    height: 400px;
     width: 650px;
     border: 0.5px solid;
     background-color:rgb(243, 242, 242);
     border-color: black;
-    padding: 175px 5px 10px 5px;
+
     margin: 25px;
     max-width: 650px;
     max-height: 500px;

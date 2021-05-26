@@ -30,6 +30,7 @@ function Home() {
                 <div className="PostItem" key={post.id}>
                     <NavLink className="NavLinkText" to={`/post/${post.id}`}>{post.name}</NavLink>
                 </div>
+                <img className="PhotoItem" src={`${post.url}`} alt="image failed to load" />
               </div>
             )
         }))
