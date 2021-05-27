@@ -1,8 +1,27 @@
 .NavContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0px;
     margin: 5px;
+    
+
+}
+
+.NavButtonGroupRight {
+    display: flex;
+    height: 33px;
+    width: 280px;
+    
+}
+
+.HomeLogo {
+    height: 70px;
+    width: 90px;
+}
+
+.HomeLogoPhoto{
+    height: 70px;
+    width: 90px;
 }
 
 .NavButtonDiv {

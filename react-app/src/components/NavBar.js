@@ -9,39 +9,44 @@ const NavBar = () => {
 
   return (
     <nav className="NavContainer">
-      <div className="NavButtonDiv">
-        <NavLink className="NavButton"to="/" exact={true} activeClassName="active">
-          Home
-        </NavLink>
+      <div className="HomeLogo">
+        <img src="https://i.gyazo.com/fa9f31bf8ba545bf037f27f78b82905b.png" alt="" className="HomeLogoPhoto"/>
       </div>
-      {!user &&
-        <>
-          <div className="NavButtonDiv">
-            <NavLink className="NavButton" to="/login" exact={true} activeClassName="active">
-              Login
-            </NavLink>
-          </div>
-          <div className="NavButtonDiv">
-            <NavLink className="NavButton" to="/sign-up" exact={true} activeClassName="active">
-              Sign Up
-            </NavLink>
-          </div>
-        </>}
+      <div className="NavButtonGroupRight">
         <div className="NavButtonDiv">
-          <NavLink className="NavButton" to="/users" exact={true} activeClassName="active">
-            Users
+          <NavLink className="NavButton"to="/" exact={true} activeClassName="active">
+            Home
           </NavLink>
         </div>
-        {user && 
+        {!user &&
+          <>
+            <div className="NavButtonDiv">
+              <NavLink className="NavButton" to="/login" exact={true} activeClassName="active">
+                Login
+              </NavLink>
+            </div>
+            <div className="NavButtonDiv">
+              <NavLink className="NavButton" to="/sign-up" exact={true} activeClassName="active">
+                Sign Up
+              </NavLink>
+            </div>
+          </>}
           <div className="NavButtonDiv">
-            <NavLink className="NavButton" to="/create" exact={true} activeClassName="active">
-              Create Post
+            <NavLink className="NavButton" to="/users" exact={true} activeClassName="active">
+              Users
             </NavLink>
           </div>
-        }
-        {user && <div className="NavButtonDivLogOut">
-          <LogoutButton />
-        </div>}
+          {user && 
+            <div className="NavButtonDiv">
+              <NavLink className="NavButton" to="/create" exact={true} activeClassName="active">
+                Create Post
+              </NavLink>
+            </div>
+          }
+          {user && <div className="NavButtonDivLogOut">
+            <LogoutButton />
+          </div>}
+        </div>
     </nav>
   );
 }
