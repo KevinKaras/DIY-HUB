@@ -30,6 +30,7 @@
     background-color: rgb(33, 39, 56);
     border: 1px solid black;
     border-radius: 0.25px;
+    cursor: pointer;
     /* opacity: 0.45; */
 }
 .NavButtonDiv:hover {
