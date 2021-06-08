@@ -41,7 +41,7 @@
     padding: 5px;
     margin: 0px 0px 0px 0px;
     background-color: rgb(33, 39, 56);
-    
+    cursor:pointer;
     border: 1px solid black;
     border-radius: 0.25px;
     /* opacity: 0.45; */
@@ -50,6 +50,7 @@
 .LogoutButton {
     background-color: rgb(33, 39, 56);
     color: white;
+    cursor:pointer;
 }
 
 .NavButtonDivLogOut:hover {

@@ -6,17 +6,21 @@
 }
 
 .PhotoItem {
+    position: absolute;
     background-color: bisque;
     height: 100%;
     width: 100%
 }
 .NavLinkText {
-    
+    position:relative;
     color: rgb(57, 55, 55);
     background-color: white;
     text-decoration-line: none;
     border-radius: 4px;
-    padding: 3px
+    padding: 3px;
+    margin: 0% 0% 2% 2%;
+    
+
     
 }
 

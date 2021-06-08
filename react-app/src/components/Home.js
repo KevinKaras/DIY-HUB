@@ -27,10 +27,11 @@ function Home() {
       setPostComponents(Object.values(posts).map((post)=>{
             return (
               <div className="PostItemContainer">
-                <div className="PostItem" key={post.id}>
-                    <NavLink className="NavLinkText" to={`/post/${post.id}`}>{post.name}</NavLink>
-                </div>
-                <img className="PhotoItem" src={`${post.url}`} alt="image failed to load" />
+                
+                <a href={`/post/${post.id}`} className="PhotoItem">
+                  <img src={`${post.url}`} className="PhotoItem"/>
+                </a>
+                <div className="NavLinkText">{post.name}</div>
               </div>
             )
         }))
