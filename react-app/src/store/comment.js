@@ -1,7 +1,7 @@
 const OBTAIN = "comments/OBTAIN"
 const CREATE = "comments/CREATE"
 const DELETE = "comments/DELETE"
-
+const REMOVAL = "comments/REMOVAL"
 
 const obtainComm = (comments) => ({
     type: OBTAIN,
@@ -16,6 +16,11 @@ const addComm = (comment) => ({
 const delComm = (commentId) => ({
     type: DELETE,
     commentId
+})
+
+const allDelComm = (postId) => ({
+    type: REMOVAL,
+    postId
 })
 
 export const addComment = (userid, postid, commentText) => async dispatch => {
@@ -59,6 +64,17 @@ export const deleteComment = (postId, commentId) => async dispatch => {
     dispatch(delComm(commentId))
 }
 
+export const deleteAllComments = (postId) => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}/comments/delete`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const deletedComments = await response.json()
+    dispatch(allDelComm(postId))
+}
+
 
 export default function reducer(state = [], action){
     switch(action.type){
@@ -68,6 +84,8 @@ export default function reducer(state = [], action){
             return [...state, action.comment]
         case DELETE:
             return [...state.filter(state => state.id !== Number(action.commentId))]
+        case REMOVAL:
+            return [...state.filter(state => state.postid !== Number(action.postId))]
         default:
             return state;
     }

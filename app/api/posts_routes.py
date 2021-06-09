@@ -62,6 +62,15 @@ def deleteComment(postId, commentId):
     db.session.commit()
     return {"message" : "If you see this, IT WORKED!"}
 
+@posts_routes.route("/<int:postId>/comments/delete", methods=['DELETE'])
+def deleteAllComments(postId):
+    comments = Comment.query.filter_by(postid = postId).all()
+    
+    for comment in comments:
+        db.session.delete(comment)
+    db.session.commit()
+    return {"message" : "If you see this, YOU DELETED ALL THE COMMENTS"}
+
 
 
 

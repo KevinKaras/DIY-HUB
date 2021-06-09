@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
 import { grabPhoto } from '../store/photos'
-import { grabComments, addComment, deleteComment } from '../store/comment'
+import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
 import './CSS/PostPage.css'
 
 function Post() {
@@ -39,7 +39,9 @@ function Post() {
 
 		const onDelete = async (e) => {
       e.preventDefault()
+      await dispatch(deleteAllComments(postId))
       await dispatch(deletePost(postId))
+      
       history.push(`/`)
     }
     
