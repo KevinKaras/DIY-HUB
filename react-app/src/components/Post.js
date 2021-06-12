@@ -41,7 +41,7 @@ function Post() {
       e.preventDefault()
       await dispatch(deleteAllComments(postId))
       await dispatch(deletePost(postId))
-      
+      // attempt to implement cascading database attribute instead of sequential separating deletions
       history.push(`/`)
     }
     
