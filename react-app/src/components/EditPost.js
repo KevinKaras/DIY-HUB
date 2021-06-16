@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, Redirect} from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import { grabPhoto } from '../store/photos'
-import { createPost } from '../store/posts'
+import { modifyPost } from '../store/posts'
 import "./CSS/CreatePostPage.css"
 
 function EditPost() {
@@ -34,7 +34,7 @@ function EditPost() {
 
     const onEditComplete = async (event) => {
         event.preventDefault()
-        const createdPost = await dispatch(createPost(user.id, name, instructions, url))
+        const createdPost = await dispatch(modifyPost(postId, user.id, name, instructions, url))
         
         history.push(`/post/${createdPost.id}`)
     }

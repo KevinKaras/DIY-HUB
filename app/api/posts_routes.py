@@ -30,7 +30,6 @@ def create():
         )
         db.session.add(post)
         db.session.commit()
-        print(f'\n\n\n\n\n\n {post.to_dict()}')
         return post.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
@@ -80,6 +79,27 @@ def delete(postId):
     db.session.delete(post)
     db.session.commit()
     return {"If you see this": "the post got deleted"}
+
+@posts_routes.route('/<int:postId>/edit', methods=['POST'])
+def update(postId):
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        oldPost = Post.query.get(postId)
+        userid = form.data["userId"],
+        name = form.data["name"],
+        instructions = form.data["instructions"],
+        url = form.data["url"]
+        
+
+        oldPost.userid = userid
+        oldPost.name = name
+        oldPost.instructions = instructions
+        oldPost.url = url
+        db.session.commit()
+
+        return oldPost.to_dict()
+    return {"error": "form never validated"}
 
     
 

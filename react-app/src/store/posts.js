@@ -3,6 +3,12 @@
 const OBTAIN = 'posts/OBTAIN'
 const CREATE = 'posts/CREATE'
 const DELETE = 'posts/DELETE'
+const EDIT = 'posts/EDIT'
+
+const editPost = (post) => ({
+    type: EDIT,
+    post
+})
 
 const delPost = (postId) => ({
     type: DELETE,
@@ -22,6 +28,24 @@ const obtainPosts = (posts) => ({
     posts
 })
 
+export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}/edit`, {
+        method: "POST",
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+            userId,
+            name,
+            instructions,
+            url
+        })
+    })
+    const updatedPost = await response.json()
+    console.log(updatedPost)
+    dispatch(editPost(updatedPost))
+    return updatedPost
+}
 
 
 export const grabPosts = () => async dispatch => {
@@ -34,7 +58,7 @@ export const grabPosts = () => async dispatch => {
 }
 
 export const createPost = (userId, name, instructions, url) => async dispatch => {
-    console.log("--------------LOL---------------")
+    
     const response = await fetch('/api/posts/create', {
         method: "POST",
         headers: {
@@ -89,6 +113,9 @@ export default function reducer(state = {}, action){
             newState = {...state}
             delete newState[action.postId] 
             return newState
+        case EDIT:
+            newState = {...state}
+            newState[action.post.id] = action.post
         default:
             return state
     }
