@@ -10,6 +10,7 @@ import User from "./components/User";
 import Home from "./components/Home"
 import Post from "./components/Post"
 import CreatePost from './components/CreatePost'
+import EditPost from './components/EditPost'
 import { authenticate } from "./store/session"
 
 
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path='/create' exact={true}>
           <CreatePost />
+        </Route>
+        <Route path='/post/:id/edit' exact={true}>
+          <EditPost />
         </Route>
       </Switch>
     </BrowserRouter>
