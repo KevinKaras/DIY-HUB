@@ -41,7 +41,7 @@ function Post() {
       e.preventDefault()
       await dispatch(deleteAllComments(postId))
       await dispatch(deletePost(postId))
-      // attempt to implement cascading database attribute instead of sequential separating deletions
+      // attempt to implement cascading database attribute instead of sequential separating deletions in near future
       history.push(`/`)
     }
     
@@ -54,6 +54,10 @@ function Post() {
     const onDeleteComment = async (e, commentId, postId) => {
       e.preventDefault()
       await dispatch(deleteComment(postId, commentId))
+    }
+
+    const onEditPost = async (e) => {
+      history.push(`/post/${postId}/edit`)
     }
     
 
@@ -92,9 +96,15 @@ function Post() {
           <div className="TextBody">{pagePost?.instructions}</div>
         </div>
         {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-          <form>
-            <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
-          </form>
+          <div>
+            <form>
+              <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
+            </form>
+            <form>
+              <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+            </form>
+          </div>
+          
           }
         <div className="CommentSection">
           <div className="CommentsDiv">
