@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import "./CSS/HomePage.css"
+import diy_photo from "./CSS/photos/diy_photo.jpg"
 
 function Home() {
 
@@ -43,8 +44,14 @@ function Home() {
     <div className="">
         
         <h1 className="Title">DIY HUB</h1>
+        <div className="PageHolder">
+          <img src={diy_photo} alt="" className="bannerPhoto"/>
+          <div className="PostsAreaHolder">
+          All DIY-Projects
+          </div>
+          <h2 className="PostsHolderContainer">{postComponents}</h2>
+        </div>
         
-        <h2 className="PostHolder">{postComponents}</h2>
     </div>
 
   )
