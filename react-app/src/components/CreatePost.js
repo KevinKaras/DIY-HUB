@@ -52,12 +52,12 @@ function CreatePost() {
                 onChange={(e) => setName(e.target.value)}
                 ></input>
                 <div className="BoxIdentifierText" >Instructions:</div>
-                <input
+                <textarea
                 className="InstructionInputBox"
                 type="text"
                 name="instructions"
                 onChange={(e) => setInstructions(e.target.value)}
-                ></input>
+                ></textarea>
                 <div className="BoxIdentifierText" >Image:</div>
                 <input
                 className="ImageInputBox"
