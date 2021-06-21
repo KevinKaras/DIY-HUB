@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+// WORK ON THIS TOMORROW AS WELL IF POSSIBLE
+
+
 function User() {
   const [user, setUser] = useState({});
-  // Notice we use useParams here instead of getting the params
-  // From props.
   const { userId }  = useParams();
 
   useEffect(() => {
