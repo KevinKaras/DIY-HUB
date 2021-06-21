@@ -26,8 +26,7 @@ function Post() {
     
 
     
-    console.log(comments)
-    console.log(sessionUser)
+    
     
 
   
@@ -41,7 +40,7 @@ function Post() {
       e.preventDefault()
       await dispatch(deleteAllComments(postId))
       await dispatch(deletePost(postId))
-      // attempt to implement cascading database attribute instead of sequential separating deletions in near future
+      
       history.push(`/`)
     }
     
@@ -73,9 +72,7 @@ function Post() {
   }, []);
 
 
-  // useEffect(() => {
-    
-  // }, [onDelete])
+  
     
 
   let pagePost = posts[postId]

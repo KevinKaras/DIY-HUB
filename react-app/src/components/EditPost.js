@@ -8,10 +8,11 @@ import "./CSS/CreatePostPage.css"
 
 function EditPost() {
     const dispatch = useDispatch()
-    
+    // const dispatch = useDispatch()
     const params = useParams()
     const postId = Number(params.id)
-    
+    // const posts = useSelector(state => state.posts)
+    // const photo = useSelector(state => state.photos)
     
     
     const history = useHistory()
