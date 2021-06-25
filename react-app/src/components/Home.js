@@ -47,7 +47,7 @@ function Home() {
         <div className="PageHolder">
           <img src={diy_photo} alt="" className="bannerPhoto"/>
           <div className="PostsAreaHolder">
-          All DIY-Projects
+          All DIY-Projects:
           </div>
           <h2 className="PostsHolderContainer">{postComponents}</h2>
         </div>
