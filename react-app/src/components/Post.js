@@ -128,14 +128,14 @@ function Post() {
             <div className="AddCommentForm">
               <div className="AddCommentTitle">Add a Comment:</div>
               <form className="CommentForm" onSubmit={onCreateComm}>
-                <input
+                <textarea
                 className="CommentInput"
                 type="text"
                 name="comment"
                 onChange={(e) => setComment(e.target.value)}
                 value={comment}
                 >
-                </input>
+                </textarea>
                 <button type="submit" className="SubmitCommBtn">
                   Post Comment
                 </button>

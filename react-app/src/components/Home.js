@@ -4,7 +4,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import "./CSS/HomePage.css"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
-
+import add_post_logo from './CSS/photos/add_post_logo.png'
 function Home() {
 
     const dispatch = useDispatch()
@@ -22,7 +22,14 @@ function Home() {
     }
     fetchPosts()
   }, []);
-    
+  const trailingAddPostComponent = 
+    <div className="PostItemContainer">
+            
+      <a href={`/create`} className="PhotoItem">
+        <img src={add_post_logo} className="PhotoItem"/>
+      </a>
+      <div className="NavLinkText">Add a post</div>
+    </div>
 
   useEffect(() => {
       setPostComponents(Object.values(posts).map((post)=>{
@@ -34,8 +41,13 @@ function Home() {
                 </a>
                 <div className="NavLinkText">{post.name}</div>
               </div>
+              
             )
         }))
+
+        
+          
+        
   }, [posts])
 
 
@@ -49,8 +61,10 @@ function Home() {
           <div className="PostsAreaHolder">
           All DIY-Projects:
           </div>
-          <h2 className="PostsHolderContainer">{postComponents}</h2>
+          <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
         </div>
+        
+
         
     </div>
 
