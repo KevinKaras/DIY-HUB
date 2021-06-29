@@ -5,6 +5,13 @@
     
 }
 
+.AddPhotoItem {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%
+}
+
 .PhotoItem {
     position: absolute;
     background-color: bisque;

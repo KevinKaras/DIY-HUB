@@ -5,7 +5,6 @@ import { grabPosts } from "../store/posts"
 import "./CSS/HomePage.css"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
-
 function Home() {
 
     const dispatch = useDispatch()
@@ -26,8 +25,8 @@ function Home() {
   const trailingAddPostComponent = 
     <div className="PostItemContainer">
             
-      <a href={`/create`} className="PhotoItem">
-        <img src={add_post_logo} className="PhotoItem"/>
+      <a href={`/create`} className="AddPhotoItem">
+        <img src={add_post_logo} className="AddPhotoItem"/>
       </a>
       <div className="NavLinkText">Add a post</div>
     </div>
