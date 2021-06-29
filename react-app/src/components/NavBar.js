@@ -12,6 +12,7 @@ const NavBar = () => {
       <a href="/" className="HomeLogo">
         <img src="https://i.gyazo.com/fa9f31bf8ba545bf037f27f78b82905b.png" alt="" className="HomeLogoPhoto"/>
       </a>
+      <h1 className="Title">DIY HUB</h1>
       <div className="NavButtonGroupRight">
         <div className="NavButtonDiv">
           <NavLink className="NavButton"to="/" exact={true} activeClassName="active">

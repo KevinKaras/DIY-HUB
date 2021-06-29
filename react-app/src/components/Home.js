@@ -5,6 +5,7 @@ import { grabPosts } from "../store/posts"
 import "./CSS/HomePage.css"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
+
 function Home() {
 
     const dispatch = useDispatch()
@@ -55,7 +56,7 @@ function Home() {
 
     <div className="">
         
-        <h1 className="Title">DIY HUB</h1>
+        {/* <h1 className="Title">DIY HUB</h1> */}
         <div className="PageHolder">
           <img src={diy_photo} alt="" className="bannerPhoto"/>
           <div className="PostsAreaHolder">
