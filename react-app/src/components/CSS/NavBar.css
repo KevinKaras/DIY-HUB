@@ -5,6 +5,7 @@
     margin: 5px 5px 30px 5px;
     align-items: center;
     border-bottom: solid black 3px;
+    justify-content: space-between;
 
 
 }
@@ -16,6 +17,7 @@
     /* padding-right: 1250px; */
     padding-top: 5px;
     justify-self: start;
+    padding-left: 200px;
 }
 
 .NavButtonGroupRight {
