@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // WORK ON THIS TOMORROW AS WELL IF POSSIBLE
 
 
-function User() {
+function Profile() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
 
@@ -13,7 +13,7 @@ function User() {
       return
     }
     (async () => {
-      const response = await fetch(`/api/users/${userId}`);
+      const response = await fetch(`/api/profile/${userId}`);
       const user = await response.json();
       setUser(user);
     })();
@@ -37,4 +37,4 @@ function User() {
     </ul>
   );
 }
-export default User;
+export default Profile;

@@ -105,7 +105,7 @@ function Post() {
           }
         <div className="CommentSection">
           <div className="CommentsDiv">
-            Comment Section:
+            <div className="AddCommentsDiv">Comment Section:</div>
             {comments &&
               comments.map(comment => {
                 return (

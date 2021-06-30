@@ -37,10 +37,10 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path="/users" exact={true} >
+        {/* <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} >
+        </ProtectedRoute> */}
+        <ProtectedRoute path="/profile/:userId" exact={true} >
           <User />
         </ProtectedRoute>
         <Route path="/" exact={true}>

@@ -6,6 +6,7 @@ import "./CSS/NavBar.css"
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
+  console.log(user)
 
   return (
     <nav className="NavContainer">
@@ -33,8 +34,8 @@ const NavBar = () => {
             </div>
           </>}
           <div className="NavButtonDiv">
-            <NavLink className="NavButton" to="/users" exact={true} activeClassName="active">
-              Users
+            <NavLink className="NavButton" to={`/profile/${user?.id}`} exact={true} activeClassName="active">
+              Profile
             </NavLink>
           </div>
           {user && 
