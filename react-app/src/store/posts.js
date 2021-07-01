@@ -1,6 +1,7 @@
 
 
 const OBTAIN = 'posts/OBTAIN'
+const PROFILEPOSTS = "posts/PROFILEPOSTS"
 const CREATE = 'posts/CREATE'
 const DELETE = 'posts/DELETE'
 const EDIT = 'posts/EDIT'
@@ -27,6 +28,25 @@ const obtainPosts = (posts) => ({
     type: OBTAIN,
     posts
 })
+
+const profilePosts = (posts) => ({
+    type: PROFILEPOSTS,
+    posts
+})
+
+export const profilePostGrab = (userId) => async dispatch => {
+    const response = await fetch(`/api/posts/${userId}`, {
+        headers: {
+            'Content-Type': "application/json"
+        }})
+
+    const allProfilePosts = await response.json()
+    console.log(allProfilePosts)
+    dispatch(profilePosts(allProfilePosts))
+    return allProfilePosts
+}
+
+
 
 export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
     const response = await fetch(`/api/posts/${postId}/edit`, {

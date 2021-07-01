@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { profilePostGrab } from "../store/posts";
 
 // WORK ON THIS TOMORROW AS WELL IF POSSIBLE
 
 
 function Profile() {
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch()
   const { userId }  = useParams();
 
-  useEffect(() => {
-    if (!userId) {
-      return
-    }
-    (async () => {
-      const response = await fetch(`/api/profile/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+  const theUser = useSelector(state => state.session.user)
+  const usersPosts = dispatch(profilePostGrab(userId))
+  
+  useEffect(async() => {
+     
+  }, []);
 
-  if (!user) {
-    return null;
-  }
+  
 
   return (
     <ul>
@@ -29,10 +25,10 @@ function Profile() {
         <strong>User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>Username</strong> {theUser.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Email</strong> {theUser.email}
       </li>
     </ul>
   );
