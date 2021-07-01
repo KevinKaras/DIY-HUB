@@ -14,8 +14,10 @@ def posts():
 
 @posts_routes.route('/profile/<int:userId>')
 def profilePosts(userId):
-    ProfilePosts = Post.query.filter(Post.userid == userId)
-    return {"ProfilePosts": [ProfilePosts.to_dict() for post in ProfilePosts]}
+    
+    ProfilePosts = Post.query.filter(Post.userid == userId).all()
+    
+    return {"posts": [post.to_dict() for post in ProfilePosts]}
     
 
 @posts_routes.route('/<int:id>')

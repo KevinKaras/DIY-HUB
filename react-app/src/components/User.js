@@ -12,7 +12,7 @@ function Profile() {
 
   const theUser = useSelector(state => state.session.user)
   const usersPosts = dispatch(profilePostGrab(userId))
-  
+  // console.log(usersPosts)
   useEffect(async() => {
      
   }, []);

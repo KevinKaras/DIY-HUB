@@ -35,15 +35,15 @@ const profilePosts = (posts) => ({
 })
 
 export const profilePostGrab = (userId) => async dispatch => {
-    const response = await fetch(`/api/posts/${userId}`, {
+    const response = await fetch(`/api/posts/profile/${userId}`, {
         headers: {
             'Content-Type': "application/json"
         }})
 
     const allProfilePosts = await response.json()
-    console.log(allProfilePosts)
-    dispatch(profilePosts(allProfilePosts))
-    return allProfilePosts
+    console.log(allProfilePosts.posts)
+    dispatch(profilePosts(allProfilePosts.posts))
+    return allProfilePosts.posts
 }
 
 
@@ -136,6 +136,14 @@ export default function reducer(state = {}, action){
         case EDIT:
             newState = {...state}
             newState[action.post.id] = action.post
+            return newState
+        case PROFILEPOSTS:
+            newState = {...state}
+            for(let i = 0; i < action.posts.length; i++){
+               const post = action.posts[i]
+               newState[post.id] = post
+            }
+            return newState
         default:
             return state
     }
