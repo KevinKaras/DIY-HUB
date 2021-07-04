@@ -11,10 +11,13 @@ function Profile() {
   const { userId }  = useParams();
 
   const theUser = useSelector(state => state.session.user)
-  const usersPosts = dispatch(profilePostGrab(userId))
-  // console.log(usersPosts)
+  const userPosts = useSelector(state => state.session.posts)
+  const [posts, setPosts] = useState('')
+  
   useEffect(async() => {
-     
+     dispatch(profilePostGrab(userId))
+     console.log(userPosts)
+     setPosts(userPosts)
   }, []);
 
   
@@ -30,6 +33,11 @@ function Profile() {
       <li>
         <strong>Email</strong> {theUser.email}
       </li>
+      {posts.map((post) => {
+        return <li>
+          {post}
+        </li>
+      })}
     </ul>
   );
 }
