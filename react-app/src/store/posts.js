@@ -41,7 +41,7 @@ export const profilePostGrab = (userId) => async dispatch => {
         }})
 
     const allProfilePosts = await response.json()
-    console.log(allProfilePosts.posts)
+    
     dispatch(profilePosts(allProfilePosts.posts))
     return allProfilePosts.posts
 }
