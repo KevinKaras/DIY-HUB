@@ -1,7 +1,7 @@
 
 
 const OBTAIN = 'posts/OBTAIN'
-const PROFILEPOSTS = "posts/PROFILEPOSTS"
+
 const CREATE = 'posts/CREATE'
 const DELETE = 'posts/DELETE'
 const EDIT = 'posts/EDIT'
@@ -29,22 +29,7 @@ const obtainPosts = (posts) => ({
     posts
 })
 
-const profilePosts = (posts) => ({
-    type: PROFILEPOSTS,
-    posts
-})
 
-export const profilePostGrab = (userId) => async dispatch => {
-    const response = await fetch(`/api/posts/profile/${userId}`, {
-        headers: {
-            'Content-Type': "application/json"
-        }})
-
-    const allProfilePosts = await response.json()
-    
-    dispatch(profilePosts(allProfilePosts.posts))
-    return allProfilePosts.posts
-}
 
 
 
@@ -137,13 +122,7 @@ export default function reducer(state = {}, action){
             newState = {...state}
             newState[action.post.id] = action.post
             return newState
-        case PROFILEPOSTS:
-            newState = {...state}
-            for(let i = 0; i < action.posts.length; i++){
-               const post = action.posts[i]
-               newState[post.id] = post
-            }
-            return newState
+        
         default:
             return state
     }

@@ -2,6 +2,7 @@ import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk';
 import session from './session'
 import posts from './posts'
+import userPosts from './userPosts'
 import photos from './photos'
 import CommentsOfPost from './comment'
 
@@ -9,6 +10,7 @@ import CommentsOfPost from './comment'
 const rootReducer = combineReducers({
     session,
     posts,
+    userPosts,
     photos,
     CommentsOfPost
 });
