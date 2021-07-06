@@ -27,11 +27,11 @@ function Profile() {
   return (
     <div>
       <div className="ProfileInfoDiv">
-        <strong>User Id: </strong> {userId}
+        <div className="InfoText">User Id: </div> {userId}
         
-        <strong>Username: </strong> {theUser.username}
+        <div className="InfoText">Username: </div> {theUser.username}
         
-        <strong>Email:</strong> {theUser.email}
+        <div className="InfoText">Email:</div> {theUser.email}
          
 
       </div>
