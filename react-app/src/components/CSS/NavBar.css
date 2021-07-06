@@ -24,7 +24,7 @@
 .NavButtonGroupRight {
     display: flex;
     height: 33px;
-    width: 280px;
+    width: 300px;
     justify-content: end
 }
 
@@ -39,6 +39,7 @@
 }
 
 .NavButtonDiv {
+    
     padding: 6px 5px 0px 5px;
     margin: 0px 0px 0px 0px;
     background-color: rgb(33, 39, 56);
@@ -64,8 +65,10 @@
 
 .LogoutButton {
     background-color: rgb(33, 39, 56);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
-    cursor:pointer;
+    font-size: 16px;
 }
 
 .NavButtonDivLogOut:hover {
@@ -77,6 +80,7 @@
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
+    
     
     
 }

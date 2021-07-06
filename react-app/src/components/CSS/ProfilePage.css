@@ -56,4 +56,9 @@
 .InfoText{
     font-size: 22px;
     font-weight: bold;
+    width: 100px;
+    border-bottom: solid black 2px;
+    padding: 15px 0px 0px 0px;
+    margin-bottom: 5px;
+
 }
