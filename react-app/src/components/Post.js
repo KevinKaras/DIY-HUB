@@ -93,7 +93,7 @@ function Post() {
           <div className="TextBody">{pagePost?.instructions}</div>
         </div>
         {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-          <div>
+          <div className="PostButtonsForAdmin">
             <form>
               <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
             </form>

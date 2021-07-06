@@ -45,9 +45,9 @@ const LoginForm = () => {
           <div>{error}</div>
         ))}
       </div>
-      <div className="LoginTitle">Login:</div>
+      <div className="LoginTitle">Login</div>
       <div className="EmailInput">
-        <div className="InputTitle">Email</div>
+        <div className="InputTitle">Email:</div>
         <label htmlFor="email"></label>
         <input
           className="EmailInput"
@@ -59,7 +59,7 @@ const LoginForm = () => {
         />
       </div>
       <div className="PasswordInput">
-        <div className="InputTitle">Password</div>
+        <div className="InputTitle">Password:</div>
         <label htmlFor="password"></label>
         <input
           className="PasswordInput"
@@ -71,7 +71,7 @@ const LoginForm = () => {
         />
         
       </div>
-      <button type="submit" className="LoginButton">Login</button>
+      <button type="submit" className="LoginButton">Login:</button>
     </form>
   );
 };

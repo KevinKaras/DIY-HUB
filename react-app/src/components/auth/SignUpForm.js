@@ -48,7 +48,7 @@ const SignUpForm = () => {
       <div className="SignUpTitle">Register an Account</div>
       <form onSubmit={onSignUp} className="SUFormContainerDiv">
         <div className="UsernameDiv" className="InputContainer">
-          <div className="InputTitle">User Name</div>
+          <div className="InputTitle">User Name:</div>
           <label></label>
           <input
             className="UsernameInput"
@@ -59,7 +59,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className="InputContainer">
-          <div className="InputTitle">Email</div>
+          <div className="InputTitle">Email:</div>
           <label></label>
           <input
             className="EmailInput"
@@ -70,7 +70,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className="InputContainer">
-          <div className="InputTitle">Password</div> 
+          <div className="InputTitle">Password:</div> 
           <label></label>
           <input
             className="PasswordInput"
@@ -81,7 +81,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <div className="InputContainer">
-          <div className="InputTitle">RepeatPassword</div>
+          <div className="InputTitle">Repeat Password:</div>
           <label></label>
           <input
             className="PasswordInput"
