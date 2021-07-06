@@ -21,3 +21,5 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 ![a4baa4c48eb9e0b7440754d614957b70](https://user-images.githubusercontent.com/74946124/124665558-7aa1e380-de72-11eb-9586-2eecbd716424.jpg)
 
 
+**Making a post of your own**
+<img width="995" alt="24f7849a5d2e9afa07d8609b8bf9eedf" src="https://user-images.githubusercontent.com/74946124/124665858-dbc9b700-de72-11eb-9f12-96e179d5cc49.png">
