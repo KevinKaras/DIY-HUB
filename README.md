@@ -25,3 +25,18 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 ## Making a post of your own
 <img width="995" alt="24f7849a5d2e9afa07d8609b8bf9eedf" src="https://user-images.githubusercontent.com/74946124/124665858-dbc9b700-de72-11eb-9f12-96e179d5cc49.png">
 
+
+
+# Technologies 
+## Front End
+- JavaScript
+- React
+- Redux
+- HTML
+- CSS
+- Hosted on Heroku
+
+## Back End
+- PostgreSQL
+- SQLAlchemy
+- Flask
