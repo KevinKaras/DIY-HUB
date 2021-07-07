@@ -35,6 +35,7 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 - HTML
 - CSS
 - Hosted on Heroku
+- Node.js
 
 ## Back End
 - PostgreSQL
