@@ -27,7 +27,7 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 
 
 
-# Technologies 
+# Technologies Used In DIYHUB 
 ## Front End
 - JavaScript
 - React
@@ -41,3 +41,14 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 - PostgreSQL
 - SQLAlchemy
 - Flask
+
+
+# Functionalities
+- Users can read interesting and helpful posts to create their own clone of the project
+- Users can create posts and have other users interact with the posts by commenting
+- Users can view all the posts that they've made on their personal profile
+- Users can edit posts that they have already made in order to seemlessly update them 
+- Users can leave comments or reviews of the projects they interact with
+- User authentication is completed by hashing passwords using bcrypt js library (csurf protected as well)
+
+
