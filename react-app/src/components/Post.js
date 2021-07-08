@@ -23,20 +23,8 @@ function Post() {
 
     const comments = useSelector(state => state.CommentsOfPost)
 
-    
-
-    
-    
-    
-
   
-   
-
-    
-    
-		
-
-		const onDelete = async (e) => {
+    const onDelete = async (e) => {
       e.preventDefault()
       await dispatch(deleteAllComments(postId))
       await dispatch(deletePost(postId))
@@ -59,26 +47,15 @@ function Post() {
       history.push(`/post/${postId}/edit`)
     }
     
-
-    
-
-    
-
-  useEffect(() => {
+    useEffect(() => {
     dispatch(grabPosts())
     // dispatch(grabPhoto(postId))
     dispatch(grabComments(postId))             
     
   }, []);
 
-
-  
-    
-
   let pagePost = posts[postId]
-	
-
-  return posts && (
+	return posts && (
     <>
         <div className="PostContainer">
           <div className="TitlePost">{pagePost?.name}</div>
