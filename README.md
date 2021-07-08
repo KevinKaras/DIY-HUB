@@ -51,6 +51,9 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 - Users can leave comments or reviews of the projects they interact with
 - User authentication is completed by hashing passwords using bcrypt js library (csurf protected as well)
 
+# Challenges While Building
+Working on the backend of the project, began right around the time where I almost completely forgot how to set up routes / gain infomation from the back end. This caused me a great panic, but also opened my eyes to what is possible when you have to almost completely relearn an area of information in a set amount of time. I couldn't be more greatful for this experiece, my ability of being able to read documentation and discover exactly what I'm searching for with ease came during this episode. 
+
 # Some Front / Back End Code Snippets
 
 ```function Post() {
