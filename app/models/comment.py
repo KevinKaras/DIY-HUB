@@ -7,8 +7,10 @@ class Comment(db.Model):
     userid = db.Column(db.Integer, db.ForeignKey('users.id'))
     postid = db.Column(db.Integer, db.ForeignKey('posts.id'))
     commentText = db.Column(db.String(500), nullable = False)
+    
 
     def to_dict(self):
+        print(self)
         return {
             "id": self.id,
             "userid": self.userid,

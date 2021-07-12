@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from ..forms.post_form import PostForm
 from ..forms.comment_form import CommentForm
-from app.models import Post, Photo, db, Comment
+from app.models import Post, Photo, db, Comment, User
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -44,7 +44,8 @@ def create():
 
 @posts_routes.route('/<int:postId>/comments')
 def comment(postId):
-    comments = Comment.query.filter_by(postid = postId).all()
+    comments = Comment.query.filter_by(postid = postId).options(joinedload(comment.userid)).all()
+    print(comments)
     return {"comments": [comment.to_dict() for comment in comments]}
 
 @posts_routes.route('/<int:postid>/comments/create', methods=["POST"])
