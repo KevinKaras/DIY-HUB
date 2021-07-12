@@ -44,7 +44,7 @@ def create():
 
 @posts_routes.route('/<int:postId>/comments')
 def comment(postId):
-    comments = Comment.query.filter_by(postid = postId).options(joinedload(comment.userid)).all()
+    comments = Comment.query.filter_by(postid = postId).all()
     print(comments)
     return {"comments": [comment.to_dict() for comment in comments]}
 
