@@ -44,9 +44,20 @@ def create():
 
 @posts_routes.route('/<int:postId>/comments')
 def comment(postId):
-    comments = Comment.query.filter_by(postid = postId).all()
-    print(comments)
-    return {"comments": [comment.to_dict() for comment in comments]}
+    comments_users = db.session.query(Comment, User).filter(Comment.postid == postId).all()
+    # comments = Comment.query.filter_by(postid = postId).all() 
+    # print(comments)
+    print(comments_users)
+    usefulComments_users = []
+    for C, U in comments_users:
+        commentObj = {
+            "comment": C.to_dict(),
+            "user": U.to_dict()
+        }
+        usefulComments_users.append(commentObj)
+
+        
+    return {"comments": usefulComments_users}
 
 @posts_routes.route('/<int:postid>/comments/create', methods=["POST"])
 def createComment(postid):
