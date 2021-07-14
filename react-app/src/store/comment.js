@@ -3,9 +3,9 @@ const CREATE = "comments/CREATE"
 const DELETE = "comments/DELETE"
 const REMOVAL = "comments/REMOVAL"
 
-const obtainComm = (comments) => ({
+const obtainComm = (commentInfo) => ({
     type: OBTAIN,
-    comments
+    commentInfo
 })
 
 const addComm = (comment) => ({
@@ -49,8 +49,9 @@ export const grabComments = (postId) => async dispatch =>{
             "Content-Type": "application/json"
         }})
     const commentData = await response.json()
-    console.log(commentData.comments)
+    console.log("All the comments / users: ", commentData.comments)
     dispatch(obtainComm(commentData.comments))
+    // dispatch(obtainComm(commentData))
 }
 
 export const deleteComment = (postId, commentId) => async dispatch => {
@@ -79,13 +80,14 @@ export const deleteAllComments = (postId) => async dispatch => {
 export default function reducer(state = [], action){
     switch(action.type){
         case OBTAIN:
-            return action.comments
+            return action.commentInfo
         case CREATE: 
+            console.log("THIS IS THE STATE: ", state)
             return [...state, action.comment]
-        case DELETE:
-            return [...state.filter(state => state.id !== Number(action.commentId))]
-        case REMOVAL:
-            return [...state.filter(state => state.postid !== Number(action.postId))]
+        // case DELETE:
+        //     return [...state.filter(state => state.comment.id !== Number(action.commentId))]
+        // case REMOVAL:
+        //     return [...state.filter(state => state.postid !== Number(action.postId))]
         default:
             return state;
     }

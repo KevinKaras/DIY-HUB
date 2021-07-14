@@ -22,7 +22,14 @@ function Post() {
     const currentPost = useSelector(state => state.posts[postId]) 
 
     const comments = useSelector(state => state.CommentsOfPost)
-
+    console.log("FRONT END REACT: ", comments)
+    // function logging(x){
+    //   console.log("console logging comments: ", x)
+    //   x.map(commentGroup => {
+    //     console.log(commentGroup.comment)
+    //   })
+    // }
+    // logging(comments)
   
     const onDelete = async (e) => {
       e.preventDefault()
@@ -50,7 +57,8 @@ function Post() {
     useEffect(() => {
     dispatch(grabPosts())
     // dispatch(grabPhoto(postId))
-    dispatch(grabComments(postId))             
+    dispatch(grabComments(postId))
+                 
     
   }, []);
 
@@ -84,17 +92,18 @@ function Post() {
           <div className="CommentsDiv">
             <div className="AddCommentsDiv">Comment Section:</div>
             {comments &&
-              comments.map(comment => {
+              comments.map(commentPackage => {
+                
                 return (
-                  <div className="SingleComment" key={comment.id}>
+                  <div className="SingleComment" key="1">
                   <div className="SingleCommentText">
-                    {comment.commentText}
+                    {/* {THIS WILL BE COMMENT TEXT} */}
                   </div>
-                  { sessionUser && comment.userid === sessionUser.id &&
+                  {/* { sessionUser && commentInfo.user.id === sessionUser.id &&
                     ( <div>
                         <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
                       </div> )
-                  }
+                  } */}
                   </div>
                   )
               })
