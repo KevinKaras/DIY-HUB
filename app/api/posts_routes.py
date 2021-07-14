@@ -44,7 +44,7 @@ def create():
 
 @posts_routes.route('/<int:postId>/comments')
 def comment(postId):
-    comments_users = db.session.query(Comment, User).filter(Comment.postid == postId).all()
+    comments_users = db.session.query(Comment, User).filter(Comment.postid == postId, Comment.userid == User.id).all()
     # comments = Comment.query.filter_by(postid = postId).all() 
     # print(comments)
     print(comments_users)
