@@ -71,7 +71,12 @@ def createComment(postid):
         )
         db.session.add(comment)
         db.session.commit()
-        return comment.to_dict()
+        user = User.query.filter(User.id == comment.userid).one()
+        CommentInfo = {
+            "comment": comment.to_dict(),
+            "user": user.to_dict()
+        }
+        return CommentInfo
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 @posts_routes.route("/<int:postId>/comments/<int:commentId>/delete", methods=['DELETE'])

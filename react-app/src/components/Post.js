@@ -92,18 +92,18 @@ function Post() {
           <div className="CommentsDiv">
             <div className="AddCommentsDiv">Comment Section:</div>
             {comments &&
-              comments.map(commentPackage => {
-                
+              comments.map(commentInfoObj => {
+                console.log(commentInfoObj)
                 return (
-                  <div className="SingleComment" key="1">
+                  <div className="SingleComment" key={commentInfoObj.comment.id}>
                   <div className="SingleCommentText">
-                    {/* {THIS WILL BE COMMENT TEXT} */}
+                    {commentInfoObj.comment.commentText}
                   </div>
-                  {/* { sessionUser && commentInfo.user.id === sessionUser.id &&
+                  { sessionUser && commentInfoObj.user.id === sessionUser.id &&
                     ( <div>
                         <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
                       </div> )
-                  } */}
+                  }
                   </div>
                   )
               })

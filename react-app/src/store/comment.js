@@ -49,7 +49,7 @@ export const grabComments = (postId) => async dispatch =>{
             "Content-Type": "application/json"
         }})
     const commentData = await response.json()
-    console.log("All the comments / users: ", commentData.comments)
+    console.log("All the comments / users: ", commentData)
     dispatch(obtainComm(commentData.comments))
     // dispatch(obtainComm(commentData))
 }
@@ -82,7 +82,7 @@ export default function reducer(state = [], action){
         case OBTAIN:
             return action.commentInfo
         case CREATE: 
-            console.log("THIS IS THE STATE: ", state)
+            console.log("THIS IS THE STATE: ", state, action.comment)
             return [...state, action.comment]
         // case DELETE:
         //     return [...state.filter(state => state.comment.id !== Number(action.commentId))]
