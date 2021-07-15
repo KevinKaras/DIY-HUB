@@ -96,8 +96,9 @@ function Post() {
                 console.log(commentInfoObj)
                 return (
                   <div className="SingleComment" key={commentInfoObj.comment.id}>
+                  <div className="CommenterName">{commentInfoObj.user.username}:</div>
                   <div className="SingleCommentText">
-                    {commentInfoObj.comment.commentText}
+                    {commentInfoObj.comment.commentText} 
                   </div>
                   { sessionUser && commentInfoObj.user.id === sessionUser.id &&
                     ( <div>
