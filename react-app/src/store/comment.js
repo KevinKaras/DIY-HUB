@@ -84,8 +84,8 @@ export default function reducer(state = [], action){
         case CREATE: 
             console.log("THIS IS THE STATE: ", state, action.comment)
             return [...state, action.comment]
-        // case DELETE:
-        //     return [...state.filter(state => state.comment.id !== Number(action.commentId))]
+        case DELETE:
+            return [...state.filter(state => state.comment.id !== Number(action.commentId))]
         // case REMOVAL:
         //     return [...state.filter(state => state.postid !== Number(action.postId))]
         default:

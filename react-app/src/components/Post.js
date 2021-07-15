@@ -101,7 +101,7 @@ function Post() {
                   </div>
                   { sessionUser && commentInfoObj.user.id === sessionUser.id &&
                     ( <div>
-                        <button onClick={(e) => onDeleteComment(e, comment.id, postId)} className="delBtn"> DELETE </button>
+                        <button onClick={(e) => onDeleteComment(e, commentInfoObj.comment.id, postId)} className="delBtn"> DELETE </button>
                       </div> )
                   }
                   </div>
