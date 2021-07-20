@@ -1,3 +1,5 @@
+# nothing on this page was implemented or used I believe
+
 import boto3
 import botocore
 import os
