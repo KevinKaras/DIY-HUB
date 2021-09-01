@@ -4,8 +4,6 @@ On this app, users can come and share their "Do-It-Yourself" stories for their p
 
 If you would like to check this App out the link is https://diyhub-kk.herokuapp.com/
 
--Currently not live as of July 22, 2021, will be up again shortly.
-
 # Here is what to expect while using the App.
 
 ## The Home Page to view already made projects from users
