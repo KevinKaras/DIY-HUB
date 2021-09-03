@@ -28,6 +28,28 @@
             <div classname="Container-Paragraph">
             </div>
         </div>
+        <div classname="Content-Container">
+            <div classname="Container-Topic">
+            </div>
+            <div classname="Container-Paragraph">
+            </div>
+        </div>
+        <div classname="Content-Container">
+            <div classname="Container-Topic">
+            </div>
+            <div classname="Container-Paragraph">
+            </div>
+        </div>
+    </div>
+    <div classname="Explore-Beginning">
+        <div classname="Explore-Title"></div>
+    </div>
+    <div classname="Explore-Area">
+        <div classname="Explore-Topic">
+        </div>
+        <div classname="PostsHolderContainer"></div>
+
+
 
     </div>
 
