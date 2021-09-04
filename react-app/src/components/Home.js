@@ -50,24 +50,84 @@ function Home() {
         
   }, [posts])
 
+          // <img src={diy_photo} alt="" className="bannerPhoto"/>
+          // <div className="PostsAreaHolder">
+          // All DIY-Projects:
+          // </div>
+          // <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
+
+
 
   return (
 
-    <div className="">
-        
-        
-        <div className="PageHolder">
-          <img src={diy_photo} alt="" className="bannerPhoto"/>
-          <div className="PostsAreaHolder">
-          All DIY-Projects:
+    <div>
+      <div classname="Banner-Container">
+          <div classname="Banner-Photo-Div">
+          
           </div>
-          <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
-        </div>
+          <div classname="Banner-Information-Container">
+              <div classname="Information-Card">
+                  <div classname="InfoCard-Title">
+                  YOURS FOR THE MAKING
+                  </div>
+                  <div classname="Info-Card-Description">
+                  Instructables is a community for people who like to make things. Come explore, share, and make your next project with us!
+                  </div>
+              </div>
+              <div classname="Dot-Scroll-Wheel">
+                  <li classname="Scroll-Dots"></li>
+                  <li classname="Scroll-Dots"></li>
+                  <li classname="Scroll-Dots"></li>
+                  <li classname="Scroll-Dots"></li>
+                  <li classname="Scroll-Dots"></li>
+              </div>
+          </div>
+      </div>
+      <div classname="Home-Content-Container">
+          <div classname="Content-Container">
+              <div classname="Container-Topic">
+              STEP-BY-STEP
+              </div>
+              <div classname="Container-Paragraph">
+              We make it easy to learn how to make anything, one step at a time. 
+              From the stovetop to the workshop, you are sure to be inspired by the 
+              awesome projects that are shared everyday.
+              </div>
+          </div>
+          <div classname="Content-Container">
+              <div classname="Container-Topic">
+              MADE BY YOU
+              </div>
+              <div classname="Container-Paragraph">
+              Instructables are created by you. No matter who you are, we all have secret skills to share. 
+              Come join our community of curious makers, innovators, teachers, 
+              and life long learners who love to share what they make.
+              </div>
+          </div>
+          <div classname="Content-Container">
+              <div classname="Container-Topic">
+              A HAPPY PLACE
+              </div>
+              <div classname="Container-Paragraph">
+              Making things makes people happy. 
+              We can't prove it, but we know it to be true. 
+              Find your happy place, and join one of the friendliest online communities anywhere.
+              </div>
+          </div>
+      </div>
+      <div classname="Explore-Beginning">
+          <div classname="Explore-Title">
+          EXPLORE PROJECTS
+          </div>
+      </div>
+      <div classname="Explore-Area">
+          <div classname="Explore-Topic">
+          </div>
+          <div classname="PostsHolderContainer"></div>
+      </div>
+  </div>
         
-
         
-    </div>
-
   )
 }
 export default Home;
