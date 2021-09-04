@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
-import "./CSS/HomePage.css"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
+import "./CSS/NewHomePage.css"
+
 function Home() {
 
     const dispatch = useDispatch()
@@ -61,69 +62,71 @@ function Home() {
   return (
 
     <div>
-      <div classname="Banner-Container">
-          <div classname="Banner-Photo-Div">
+      <div className="Banner-Container">
+          <div className="Banner-Photo-Div">
           
           </div>
-          <div classname="Banner-Information-Container">
-              <div classname="Information-Card">
-                  <div classname="InfoCard-Title">
+          <div className="Banner-Information-Container">
+              <div className="Information-Card">
+                  <div className="InfoCard-Title">
                   YOURS FOR THE MAKING
                   </div>
-                  <div classname="Info-Card-Description">
+                  <div className="Info-Card-Description">
                   Instructables is a community for people who like to make things. Come explore, share, and make your next project with us!
                   </div>
               </div>
-              <div classname="Dot-Scroll-Wheel">
-                  <li classname="Scroll-Dots"></li>
-                  <li classname="Scroll-Dots"></li>
-                  <li classname="Scroll-Dots"></li>
-                  <li classname="Scroll-Dots"></li>
-                  <li classname="Scroll-Dots"></li>
+              <div className="Dot-Scroll-Wheel">
+                  <li className="Scroll-Dots"></li>
+                  <li className="Scroll-Dots"></li>
+                  <li className="Scroll-Dots"></li>
+                  <li className="Scroll-Dots"></li>
+                  <li className="Scroll-Dots"></li>
               </div>
           </div>
       </div>
-      <div classname="Home-Content-Container">
-          <div classname="Content-Container">
-              <div classname="Container-Topic">
+      <div className="Home-Content-Container">
+          <div className="Content-Container">
+              <div className="Container-Topic">
               STEP-BY-STEP
               </div>
-              <div classname="Container-Paragraph">
+              <div className="Container-Paragraph">
               We make it easy to learn how to make anything, one step at a time. 
               From the stovetop to the workshop, you are sure to be inspired by the 
               awesome projects that are shared everyday.
               </div>
           </div>
-          <div classname="Content-Container">
-              <div classname="Container-Topic">
+          <div className="Content-Container">
+              <div className="Container-Topic">
               MADE BY YOU
               </div>
-              <div classname="Container-Paragraph">
+              <div className="Container-Paragraph">
               Instructables are created by you. No matter who you are, we all have secret skills to share. 
               Come join our community of curious makers, innovators, teachers, 
               and life long learners who love to share what they make.
               </div>
           </div>
-          <div classname="Content-Container">
-              <div classname="Container-Topic">
+          <div className="Content-Container">
+              <div className="Container-Topic">
               A HAPPY PLACE
               </div>
-              <div classname="Container-Paragraph">
+              <div className="Container-Paragraph">
               Making things makes people happy. 
               We can't prove it, but we know it to be true. 
               Find your happy place, and join one of the friendliest online communities anywhere.
               </div>
           </div>
       </div>
-      <div classname="Explore-Beginning">
-          <div classname="Explore-Title">
+      <div className="Explore-Beginning">
+          <div className="Explore-Title">
           EXPLORE PROJECTS
           </div>
       </div>
-      <div classname="Explore-Area">
-          <div classname="Explore-Topic">
+      <div className="Explore-Area">
+          <div className="Explore-Topic">
           </div>
-          <div classname="PostsHolderContainer"></div>
+          {/* <div classname="PostsHolderContainer">
+           <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
+          </div> */}
       </div>
   </div>
         
