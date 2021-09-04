@@ -48,13 +48,7 @@
         <div classname="Explore-Topic">
         </div>
         <div classname="PostsHolderContainer"></div>
-
-
-
     </div>
-
-
-
 </div>
     
 

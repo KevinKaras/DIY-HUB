@@ -55,7 +55,7 @@ function Home() {
 
     <div className="">
         
-        {/* <h1 className="Title">DIY HUB</h1> */}
+        
         <div className="PageHolder">
           <img src={diy_photo} alt="" className="bannerPhoto"/>
           <div className="PostsAreaHolder">
