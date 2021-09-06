@@ -4,32 +4,51 @@
 
 }
 
- /* .Banner-Photo-Div{
+ .Banner-Photo-Div{
+    max-width: 1634px;
+    height: 100%;
+    background-color: blanchedalmond;
+} 
 
-} */
 
+ 
 
-/* Banner-Information-Container{ 
-
+.Banner-Information-Container{ 
+    max-width: 1634px;
+    height: 100%;
+    background-color: blanchedalmond;
 }
+ 
 
 .Information-Card{
-
+    width: 30%;
+    height: 25%;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 150px;
+    padding-bottom: 150px;
 }
 
 .InfoCard-Title{
-    
+    width: 50vw;
+    font-size: 38.5px;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    padding-bottom: 15px;
 }
+
 
 .Info-Card-Description{
+    width: 30vw;
 
 }
+
 
 
 .Dot-Scroll-Wheel{
-
+    display: flex
 }
-
+/*
 .Scroll-Dots{
 
 }
