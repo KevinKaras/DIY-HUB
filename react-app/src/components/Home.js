@@ -123,10 +123,10 @@ function Home() {
       </div>
       <div className="Explore-Area">
           <div className="Explore-Topic">
-          </div>
+          {/* </div>
           <div classname="PostsHolderContainer">
            <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
-          </div>
+          </div> */}
       </div>
   </div>
         
