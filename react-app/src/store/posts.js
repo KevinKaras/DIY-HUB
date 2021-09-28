@@ -76,9 +76,7 @@ export const createPost = (userId, name, instructions, url) => async dispatch =>
             url
         })
     })
-    if(response.ok){
-        console.log("something")
-    }
+    
     const createdPost = await response.json()
     console.log("this is the thunk: " , createdPost)
     await dispatch(addPost(createdPost))
@@ -98,7 +96,7 @@ export const deletePost = (postId) => async (dispatch) => {
  
 
 
-
+// check to make sure this is flawless
 
 export default function reducer(state = {}, action){
     let newState = {}
