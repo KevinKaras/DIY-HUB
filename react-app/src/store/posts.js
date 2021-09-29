@@ -78,7 +78,7 @@ export const createPost = (userId, name, instructions, url) => async dispatch =>
     })
     
     const createdPost = await response.json()
-    console.log("this is the thunk: " , createdPost)
+    
     await dispatch(addPost(createdPost))
     return createdPost
 }
