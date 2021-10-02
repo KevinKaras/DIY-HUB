@@ -26,10 +26,14 @@ function Home() {
   const trailingAddPostComponent = 
     <div className="PostItemContainer">
             
-      <a href={`/create`} className="AddPhotoItem">
+      <a href={`/create`} className="">
         <img src={add_post_logo} className="AddPhotoItem"/>
       </a>
-      <div className="NavLinkText">Add a post</div>
+      <div className="NavLinkHolder">
+        <div className="NavLinkParagraphText">
+          <strong className="NavLinkTitleText">Add a post</strong>
+        </div>
+      </div>
     </div>
 
   useEffect(() => {
@@ -37,10 +41,15 @@ function Home() {
             return (
               <div className="PostItemContainer">
                 
-                <a href={`/post/${post.id}`} className="PhotoItem">
+                <a href={`/post/${post.id}`} className="PhotoItemHolder">
                   <img src={`${post.url}`} className="PhotoItem"/>
                 </a>
-                <div className="NavLinkText">{post.name}</div>
+                <div className="NavLinkHolder">
+                  <div className="NavLinkParagraphText">
+                    <strong className="NavLinkTitleText">{post.name}</strong>
+                  </div>
+                  
+                </div>
               </div>
               
             )
@@ -130,8 +139,8 @@ function Home() {
       <div className="Explore-Area">
           <div className="Explore-Topic">
           </div>
-          <div classname="PostsHolderContainer">
-           <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
+          <div className="PostsHolderContainer">
+           {[postComponents, trailingAddPostComponent]}
           </div>
       </div>
   </div>
