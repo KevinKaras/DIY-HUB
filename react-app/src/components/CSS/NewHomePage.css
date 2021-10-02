@@ -73,7 +73,7 @@
     max-width: 1720px;        /* MAKE MEDIA MAXWIDTH 1720px*/
     margin-right: 2.5vw;
     margin-top: 5vh;
-    margin-bottom: 1.5vh;
+    margin-bottom: 5vh;
     margin-left: 2.5vw;
     justify-content: center;
 }
@@ -103,13 +103,19 @@
 
 
 /* WORK ON THESE WHEN ABOVE STUFF IS COMPLETE / PERFECT */
-/*
+.Horizontal-Rule{
+    border-top-color: #ccc;
+    margin: 15px 2.5vw 30px;
+    border-top: 1px solid #eee;
+    
+}
 .Explore-Beginning{
-
+    
 }
 
 .Explore-Title{
-
+    font-size: 34px;
+    font-family: "MyriadPro-Cond",Helvetica,Arial,sans-serif;
 }
 
 .Explore-Area{
@@ -118,4 +124,4 @@
 
 .Explore-Area{
 
-} */
+} 

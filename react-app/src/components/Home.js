@@ -118,6 +118,7 @@ function Home() {
             </div>
         </div>
       </div>
+      <hr className="Horizontal-Rule"></hr>
       <div className="Explore-Beginning">
           <div className="Explore-Title">
           EXPLORE PROJECTS
