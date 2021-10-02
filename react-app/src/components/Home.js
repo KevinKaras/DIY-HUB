@@ -30,9 +30,9 @@ function Home() {
         <img src={add_post_logo} className="AddPhotoItem"/>
       </a>
       <div className="NavLinkHolder">
-        <div className="NavLinkParagraphText">
-          <strong className="NavLinkTitleText">Add a post</strong>
-        </div>
+        
+          <h3 className="NavLinkTitleText">Add a post</h3>
+        
       </div>
     </div>
 
@@ -45,9 +45,9 @@ function Home() {
                   <img src={`${post.url}`} className="PhotoItem"/>
                 </a>
                 <div className="NavLinkHolder">
-                  <div className="NavLinkParagraphText">
-                    <strong className="NavLinkTitleText">{post.name}</strong>
-                  </div>
+                  
+                    <h3 className="NavLinkTitleText">{post.name}</h3>
+                  
                   
                 </div>
               </div>

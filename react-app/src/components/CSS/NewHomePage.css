@@ -28,8 +28,9 @@
     max-width: 100%;
     height: 35vh;
     min-height: 400px;
-    background-color: blanchedalmond;
+    background-color: rgb(152, 152, 152);
 }
+
 .Info-Card-Positioner{
     display:flex;
     height: 100%;
@@ -164,7 +165,7 @@
 
 
 .NavLinkHolder{
-    height: 18%;
+    
     width: 100%;
     color: rgb(57, 55, 55);
     background-color: white;
@@ -181,7 +182,9 @@
 
 .NavLinkTitleText{
     margin-left: 20px;
-    
+    margin-top: 10px;
+    font-family: "MyriadPro";
+    font-weight: 900;
 
 } 
 
@@ -192,7 +195,7 @@
 
 .PhotoItem {
     border-bottom: 1px solid rgb(210, 210, 210);
-    width:306px;
+    width:100%;
     height: 80%;
     
 }
