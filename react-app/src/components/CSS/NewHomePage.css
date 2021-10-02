@@ -110,16 +110,19 @@
     
 }
 .Explore-Beginning{
-    
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
 }
 
 .Explore-Title{
+    margin-bottom: 30px;
     font-size: 34px;
     font-family: "MyriadPro-Cond",Helvetica,Arial,sans-serif;
 }
 
 .Explore-Area{
-
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
 }
 
 .Explore-Area{
