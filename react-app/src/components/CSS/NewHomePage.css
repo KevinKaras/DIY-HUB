@@ -3,6 +3,7 @@
     src: url(../CSS/fonts/MYRIADPRO-COND.OTF);
 }
 
+
 @font-face {
     font-family: MyriadPro;
     src: url(../CSS/fonts/MYRIADPRO-REGULAR.OTF);
@@ -24,7 +25,7 @@
  
 
 .Banner-Information-Container{ 
-    max-width: 1634px;
+    max-width: 100%;
     height: 35vh;
     min-height: 400px;
     background-color: blanchedalmond;
@@ -34,10 +35,10 @@
 .Information-Card{
     width: 50%;
     height: 25%;
-    padding-left: 250px;
-    padding-right: 250px;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-left: 250px;       /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
+    padding-right: 250px;      /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
+    padding-top: 150px;        /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
+    padding-bottom: 25px;      /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
 }
 
 .InfoCard-Title{
@@ -58,7 +59,9 @@
 
 
 .Dot-Scroll-Wheel{
-    display: flex
+    display: flex;
+    padding-top: 5px;     /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
+    padding-left: 250px;  /*      TURN THESE TO PERCENTAGES FOR DYNAMIC FEEL       */
 }
 
 .Scroll-Dots{
@@ -67,21 +70,34 @@
 
 .Home-Content-Container{
     display: flex;
-    
+    max-width: 1720px;        /* MAKE MEDIA MAXWIDTH 1720px*/
     margin-right: 2.5vw;
+    margin-top: 5vh;
+    margin-bottom: 1.5vh;
     margin-left: 2.5vw;
+    justify-content: center;
+}
+.Home-Content-Text-Wrap{
+    margin: auto;
+    display: flex;    
 }
 
 .Content-Container{
-
+    margin-right: 5vw;
+    max-width: 434px;
 }
 
 .Container-Topic{
+    font-size: 34px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 700;
     font-family: "MyriadPro-Cond",Helvetica,Arial,sans-serif;
 }
 
 .Container-Paragraph{
     font-family: "MyriadPro";
+    font-size: 18px;
 }
 
 
