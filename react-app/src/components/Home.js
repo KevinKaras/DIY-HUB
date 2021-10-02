@@ -67,21 +67,24 @@ function Home() {
           
           </div>
           <div className="Banner-Information-Container">
-              <div className="Information-Card">
-                  <div className="InfoCard-Title">
-                  YOURS FOR THE MAKING
-                  </div>
-                  <div className="Info-Card-Description">
-                  Instructables is a community for people who like to make things. Come explore, share, and make your next project with us!
-                  </div>
-              </div>
-              <div className="Dot-Scroll-Wheel">
+            <div className="Info-Card-Positioner">
+                <div className="Information-Card">
+                    <div className="InfoCard-Title">
+                    YOURS FOR THE MAKING
+                    </div>
+                    <div className="Info-Card-Description">
+                    Instructables is a community for people who like to make things. Come explore, share, and make your next project with us!
+                    </div>
+                </div>
+                <div className="Dot-Scroll-Wheel">
                   <li className="Scroll-Dots"></li>
                   <li className="Scroll-Dots"></li>
                   <li className="Scroll-Dots"></li>
                   <li className="Scroll-Dots"></li>
                   <li className="Scroll-Dots"></li>
               </div>
+            </div>
+              
           </div>
       </div>
       <div className="Home-Content-Container">
