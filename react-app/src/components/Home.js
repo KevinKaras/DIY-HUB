@@ -4,6 +4,7 @@ import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
+import HammerPic from './CSS/photos/HammerPic.jpeg'
 import "./CSS/NewHomePage.css"
 
 function Home() {
@@ -72,9 +73,10 @@ function Home() {
 
     <div>
       <div className="Banner-Container">
-          <div className="Banner-Photo-Div">
           
-          </div>
+            
+        
+          
           <div className="Banner-Information-Container">
             <div className="Info-Card-Positioner">
                 <div className="Information-Card">
@@ -95,6 +97,7 @@ function Home() {
             </div>
               
           </div>
+        <img className="Banner-Actual-Photo" src={HammerPic}></img>  
       </div>
       <div className="Home-Content-Container">
         <div className="Home-Content-Text-Wrap">
