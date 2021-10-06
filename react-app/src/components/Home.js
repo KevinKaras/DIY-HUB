@@ -5,6 +5,9 @@ import { grabPosts } from "../store/posts"
 import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
 import HammerPic from './CSS/photos/HammerPic.jpeg'
+import Pug from './CSS/photos/Pug.jpg'
+import gasmask from './CSS/photos/gasmask.jpg'
+import Cups from './CSS/photos/Cups.jpg'
 import "./CSS/NewHomePage.css"
 
 function Home() {
@@ -12,7 +15,11 @@ function Home() {
     const dispatch = useDispatch()
     const posts = useSelector(state => state.posts)
     const [postComponents, setPostComponents] = useState('')
+    const [bannerPhoto, setBannerPhoto] = useState(HammerPic)
+
     
+
+
 
   useEffect(() => {
     async function fetchPosts(){
@@ -88,16 +95,15 @@ function Home() {
                     </div>
                 </div>
                 <div className="Dot-Scroll-Wheel">
-                  <li className="Scroll-Dots"></li>
-                  <li className="Scroll-Dots"></li>
-                  <li className="Scroll-Dots"></li>
-                  <li className="Scroll-Dots"></li>
-                  <li className="Scroll-Dots"></li>
+                  <span className="Scroll-Dots" onClick={(e) => setBannerPhoto(HammerPic)}></span>
+                  <span className="Scroll-Dots" onClick={(e) => setBannerPhoto(Pug)}></span>
+                  <span className="Scroll-Dots" onClick={(e) => setBannerPhoto(gasmask)}></span>
+                  <span className="Scroll-Dots" onClick={(e) => setBannerPhoto(Cups)}></span>
               </div>
             </div>
               
           </div>
-        <img className="Banner-Actual-Photo" src={HammerPic}></img>  
+        <img className="Banner-Actual-Photo" src={bannerPhoto}></img>  
       </div>
       <div className="Home-Content-Container">
         <div className="Home-Content-Text-Wrap">
