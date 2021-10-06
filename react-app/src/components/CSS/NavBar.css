@@ -2,10 +2,10 @@
     display: flex;
     /* justify-content: space-between; */
     padding: 0px;
-    margin: 5px 5px 10px 5px;
+    margin: 5px 5px -10px 5px;
     align-items: center;
-    border-bottom: solid black 3px;
-    justify-content: space-between;
+    white-space: nowrap;
+    
 
 
 }
@@ -13,18 +13,19 @@
 
     display: flex;
     text-align: center;
+    ;
     font-family:Arial, Helvetica, sans-serif;
     /* padding-right: 1250px; */
     padding-top: 5px;
     justify-self: start;
-    padding-left: 200px;
+    
     font-size: 30px;
 }
 
 .NavButtonGroupRight {
     display: flex;
     height: 33px;
-    width: 300px;
+    width: 85vw;
     justify-content: end
 }
 
