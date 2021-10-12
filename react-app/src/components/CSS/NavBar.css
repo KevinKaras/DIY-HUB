@@ -25,7 +25,7 @@
 .NavButtonGroupRight {
     display: flex;
     height: 33px;
-    width: 85vw;
+    width: 100%;
     justify-content: end
 }
 
