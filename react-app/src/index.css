@@ -8,9 +8,14 @@
   }
 
 
-/*  ADD MORE MEDIA QUERIES TO ACCOMADATE ALL MODERN DEVICES BY WEDNESDAY */
+/*  ADD MORE MEDIA QUERIES TO ACCOMADATE ALL MODERN DEVICES BY THURSDAY */
 
 /* @media all and (max-width: iphone 8){
+   */
+   /* couldnt get it to work it */
+
+
+/* @media all and (max-width: iphone 6,7,8 +'s){
    */
    /* couldnt get it to work it */
 
