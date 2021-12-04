@@ -26,6 +26,7 @@ const obtainPosts = (posts) => ({
     posts
 })
 
+// --------------------------------------------------------------------------------------------------------------------
 
 export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
     const response = await fetch(`/api/posts/${postId}/edit`, {
@@ -46,6 +47,7 @@ export const modifyPost = (postId, userId, name, instructions, url) => async dis
     return updatedPost
 }
 
+// ---------------------------------------------------------------------------------------------------------------------
 
 export const grabPosts = () => async dispatch => {
     const response = await fetch('/api/posts/', {
@@ -55,6 +57,9 @@ export const grabPosts = () => async dispatch => {
     const data = await response.json();
     dispatch(obtainPosts(data))
 }
+
+
+// ---------------------------------------------------------------------------------------------------------------------
 
 export const createPost = (userid, name, instructions, url) => async dispatch => {
     
@@ -73,6 +78,9 @@ export const createPost = (userid, name, instructions, url) => async dispatch =>
     return createdPost
 }
 
+
+// ---------------------------------------------------------------------------------------------------------------------
+
 export const deletePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}/delete`, {
         method: "DELETE",
@@ -87,7 +95,7 @@ export const deletePost = (postId) => async (dispatch) => {
 
 
 
-
+// ---------------------------------------------------------------------------------------------------------------------
 export default function reducer(state = {}, action){
     let newState = {...state}
     switch(action.type){

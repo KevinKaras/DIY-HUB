@@ -95,7 +95,7 @@ def deleteComment(postId, commentId):
     comment = Comment.query.get(commentId)
     db.session.delete(comment)
     db.session.commit()
-    return {"message" : "If you see this, IT WORKED!"}
+    return {"message": "Comment Deleted"}
 
 @posts_routes.route("/<int:postId>/comments/delete", methods=['DELETE'])
 def deleteAllComments(postId):
@@ -104,7 +104,7 @@ def deleteAllComments(postId):
     for comment in comments:
         db.session.delete(comment)
     db.session.commit()
-    return {"message" : "If you see this, YOU DELETED ALL THE COMMENTS"}
+    return {"message": "All comments removed"}
 
 
 
@@ -114,7 +114,7 @@ def delete(postId):
     post = Post.query.get(postId)
     db.session.delete(post)
     db.session.commit()
-    return {"If you see this": "the post got deleted"}
+    return {"Status": "The post was deleted"}
 
 @posts_routes.route('/<int:postId>/edit', methods=['POST'])
 def update(postId):

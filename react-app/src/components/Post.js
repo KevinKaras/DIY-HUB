@@ -15,25 +15,14 @@ function Post() {
     const posts = useSelector(state => state.posts)
     const photo = useSelector(state => state.photos)
     const sessionUser = useSelector(state => state.session.user)
-
     const [comment, setComment] = useState('')
-
-
     const currentPost = useSelector(state => state.posts[postId]) 
-    
-
-    
-    
-    
     const comments = useSelector(state => state.CommentsOfPost)
-    
-    // function logging(x){
-    //   console.log("console logging comments: ", x)
-    //   x.map(commentGroup => {
-    //     console.log(commentGroup.comment)
-    //   })
-    // }
-    // logging(comments)
+
+    const onLikeClick = async (e) => {
+      e.preventDefault()
+      await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
+    }
   
     const onDelete = async (e) => {
       e.preventDefault()
@@ -83,8 +72,8 @@ function Post() {
             <div className="AutherName"></div>
             <div className="AuthorExtension"></div>
             <div className="InteractionContainer">
-              <div className="LikeButton"></div>
-              <div className="CommentButton"></div>
+              <button className="LikeButton" onClick={e => onLikeClick(e)}></button>
+              <button className="CommentButton"></button>
             </div>
           </div>
           <div className="InstructionsDiv">Instructions:</div>
