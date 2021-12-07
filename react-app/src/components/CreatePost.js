@@ -49,6 +49,7 @@ function CreatePost() {
                 className="TitleInputBox"
                 type="text"
                 name="name"
+                placeholder="Example: How to build a shelf"
                 onChange={(e) => setName(e.target.value)}
                 ></input>
                 <div className="BoxIdentifierText" >Instructions:</div>
@@ -56,6 +57,7 @@ function CreatePost() {
                 className="InstructionInputBox"
                 type="text"
                 name="instructions"
+                placeholder="Example: Step 1: Get a piece of wood..."
                 onChange={(e) => setInstructions(e.target.value)}
                 ></textarea>
                 <div className="BoxIdentifierText" >Image:</div>
@@ -63,6 +65,7 @@ function CreatePost() {
                 className="ImageInputBox"
                 type="text"
                 name="url"
+                placeholder="Add a link to a url for a display photo"
                 onChange={(e) => setPhotoUrl(e.target.value)}
                 ></input>
                 <button className='postAddBtn' type='submit'>Submit Post</button>
