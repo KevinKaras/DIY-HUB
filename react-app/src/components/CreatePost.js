@@ -63,7 +63,7 @@ function CreatePost() {
                 <div className="BoxIdentifierText" >Image:</div>
                 <input
                 className="ImageInputBox"
-                type="text"
+                type="file"
                 name="url"
                 placeholder="Add a link to a url for a display photo"
                 onChange={(e) => setPhotoUrl(e.target.value)}
