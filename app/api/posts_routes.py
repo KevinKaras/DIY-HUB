@@ -47,7 +47,7 @@ def comment(postId):
     comments_users = db.session.query(Comment, User).filter(Comment.postid == postId, Comment.userid == User.id).all()
     # comments = Comment.query.filter_by(postid = postId).all() 
     # print(comments)
-    print(comments_users)
+    
     usefulComments_users = []
     for C, U in comments_users:
         commentObj = {

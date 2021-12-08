@@ -13,3 +13,18 @@ but make your your requirements.txt is up to date
 so run this first
 
 pipenv lock -r > requirements.txt
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+INSTRUCTIONS / TIPS ABOUT MODIFYING ANYTHING ON THE BACKEND DATABASE:
+
+
+
+
+

@@ -20,9 +20,13 @@ function Post() {
 
 
     const currentPost = useSelector(state => state.posts[postId]) 
+    
 
+    
+    
+    
     const comments = useSelector(state => state.CommentsOfPost)
-    console.log("FRONT END REACT: ", comments)
+    
     // function logging(x){
     //   console.log("console logging comments: ", x)
     //   x.map(commentGroup => {

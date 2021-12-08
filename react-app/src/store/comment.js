@@ -49,7 +49,7 @@ export const grabComments = (postId) => async dispatch =>{
             "Content-Type": "application/json"
         }})
     const commentData = await response.json()
-    console.log("All the comments / users: ", commentData)
+    
     dispatch(obtainComm(commentData.comments))
     // dispatch(obtainComm(commentData))
 }

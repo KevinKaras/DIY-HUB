@@ -1,8 +1,8 @@
-"""empty message
+"""trying again after deleting versions files
 
-Revision ID: 16cadecf28ae
+Revision ID: 34aceb631cdb
 Revises: 
-Create Date: 2021-05-05 17:43:07.253768
+Create Date: 2021-12-07 21:53:08.142106
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '16cadecf28ae'
+revision = '34aceb631cdb'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,6 +32,7 @@ def upgrade():
     sa.Column('userid', sa.Integer(), nullable=True),
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('instructions', sa.String(length=1000), nullable=False),
+    sa.Column('url', sa.String(length=1000), nullable=False),
     sa.ForeignKeyConstraint(['userid'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')

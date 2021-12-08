@@ -35,7 +35,11 @@ function CreatePost() {
         
     }, [dispatch]);
     
+    function imageIsLoaded(e) {
+        console.log(e.target.result)
+        setPhotoUrl("testurlfornow");
 
+    }
   
 	
 
@@ -66,10 +70,14 @@ function CreatePost() {
                 type="file"
                 name="url"
                 placeholder="Add a link to a url for a display photo"
-                onChange={(e) => setPhotoUrl(e.target.value)}
+                onChange={(e) => {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(e.target.files[0])
+                    }}
                 ></input>
                 <button className='postAddBtn' type='submit'>Submit Post</button>
-
+                
             </form>
         </div>
         
