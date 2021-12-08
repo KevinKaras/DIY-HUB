@@ -25,6 +25,34 @@ pipenv lock -r > requirements.txt
 INSTRUCTIONS / TIPS ABOUT MODIFYING ANYTHING ON THE BACKEND DATABASE:
 
 
+Worst Case Scenario / Everything is unfixable:
+----------------------------------------------
+
+- Drop the DB
+- Delete all the files in the Migrations Folder on the Backend
+- Remake the db in PSQL
+- In Terminal run |-  pipenv shell  -|
+- Once in virtual enviroment, in Terminal run |-  flask db migrate  -|
+- Then in Terminal run |-  flask db upgrade  -|
+- Then in Terminal run |-  flask db seed all -|
+
+
+
+
+
+
+Upon modifying any table / columns / seeders:
+----------------------------------------------
+
+- Delete ALL tables in Postbird
+- Delete Alembic Table in Postbird as well
+- Delete ALL THE FILES IN THE VERSIONS FOLDER
+- Then in Terminal run |-  flask db migrate -m "migration message of your choosing"  -|
+- Then in Terminal run |-  flask db upgrade  -|
+
+
+
+
 
 
 
