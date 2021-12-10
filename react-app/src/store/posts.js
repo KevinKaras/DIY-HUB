@@ -1,7 +1,6 @@
 
 
 const OBTAIN = 'posts/OBTAIN'
-
 const CREATE = 'posts/CREATE'
 const DELETE = 'posts/DELETE'
 const EDIT = 'posts/EDIT'
@@ -22,15 +21,10 @@ const addPost = (post) => ({
     post
 })
 
-
-
 const obtainPosts = (posts) => ({
     type: OBTAIN,
     posts
 })
-
-
-
 
 
 export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
@@ -59,28 +53,25 @@ export const grabPosts = () => async dispatch => {
         'Content-Type': 'application/json'
       }})
     const data = await response.json();
-    dispatch(obtainPosts(data.posts))
+    dispatch(obtainPosts(data))
 }
 
-export const createPost = (userId, name, instructions, url) => async dispatch => {
+export const createPost = (userid, name, instructions, url) => async dispatch => {
+    
+    const formData = new FormData();
+    formData.append("image", url);
+    formData.append("userid", userid)
+    formData.append("name", name)
+    formData.append("instructions", instructions)
     
     const response = await fetch('/api/posts/create', {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            userId,
-            name,
-            instructions,
-            url
-        })
+        body: formData
     })
-    
     const createdPost = await response.json()
-    
     await dispatch(addPost(createdPost))
     return createdPost
+    
 }
 
 export const deletePost = (postId) => async (dispatch) => {
@@ -96,28 +87,20 @@ export const deletePost = (postId) => async (dispatch) => {
  
 
 
-// check to make sure this is flawless
+
 
 export default function reducer(state = {}, action){
-    let newState = {}
+    let newState = {...state}
     switch(action.type){
         case OBTAIN: 
-            newState = {}
-            for(let i = 0; i < action.posts.length; i++){
-                const post = action.posts[i]
-                newState[post.id] = post
-            }
-            return newState
+            return action.posts
         case CREATE: 
-            newState = {...state}
             newState[action.post.id] = action.post
             return newState
         case DELETE: 
-            newState = {...state}
             delete newState[action.postId] 
             return newState
         case EDIT:
-            newState = {...state}
             newState[action.post.id] = action.post
             return newState
         

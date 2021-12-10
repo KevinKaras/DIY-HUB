@@ -1,16 +1,17 @@
 from flask import Blueprint, jsonify, request
 from ..forms.post_form import PostForm
 from ..forms.comment_form import CommentForm
-from app.models import Post, Photo, db, Comment, User
+from app.models import Post, Image, db, Comment, User
 from .auth_routes import validation_errors_to_error_messages
+from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
+import json
 
 
 posts_routes = Blueprint('posts', __name__)
 
 @posts_routes.route('/')
 def posts():
-    posts = Post.query.all()
-    return {"posts": [post.to_dict() for post in posts]}
+    return {post.id: post.to_dict() for post in Post.query.all()}
 
 @posts_routes.route('/profile/<int:userId>')
 def profilePosts(userId):
@@ -25,16 +26,47 @@ def post(id):
     post = Post.query.filter_by(id = id).one()
     return post.to_dict()
 
+# @posts_routes.route('/create/photo', methods=['POST'])
+# def upload_image():
+#     form = PostForm()
+
+#     url = ""
+#     if "image" in request.files:
+#         image = request.files['image']
+#         image.filename = get_unique_filename(image.filename)
+#         upload = upload_file_to_s3(image)
+#         url = upload["url"]
+
+    
+#     new_image = Image(userid=userid, imageURL=url)
+#     db.session.add(new_image)
+#     db.session.commit()
+#     # return {"url": url}
+
+
+# ------------------------------------------------------------------------------------------------
+
 @posts_routes.route('/create', methods=['POST'])
 def create():
+   
+    url = ""
+    if "image" in request.files:
+        image = request.files['image']
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        url = upload["url"]
+
+    # ------------------
     form = PostForm()
+    
+    
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post(
-            userid = form.data["userId"],
+            userid = form.data["userid"],
             name = form.data["name"],
             instructions = form.data["instructions"],
-            url = form.data["url"]
+            url = url
         )
         db.session.add(post)
         db.session.commit()

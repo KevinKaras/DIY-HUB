@@ -24,9 +24,14 @@ function CreatePost() {
 
     const onCreate = async (event) => {
         event.preventDefault()
+        
+        // const formData = new FormData();
+        // formData.append("image", url);
+        // formData.append("input", userId)
+        
         const createdPost = await dispatch(createPost(user.id, name, instructions, url))
         
-        history.push(`/post/${createdPost.id}`)
+        // history.push(`/post/${createdPost.id}`)
     }
     
     useEffect(() => {
@@ -35,10 +40,10 @@ function CreatePost() {
         
     }, [dispatch]);
     
-    function imageIsLoaded(e) {
-        console.log(e.target.result)
-        setPhotoUrl("testurlfornow");
-
+    
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setPhotoUrl(file);
     }
   
 	
@@ -71,9 +76,7 @@ function CreatePost() {
                 name="url"
                 placeholder="Add a link to a url for a display photo"
                 onChange={(e) => {
-                    var reader = new FileReader();
-                    reader.onload = imageIsLoaded;
-                    reader.readAsDataURL(e.target.files[0])
+                    updateImage(e)
                     }}
                 ></input>
                 <button className='postAddBtn' type='submit'>Submit Post</button>
