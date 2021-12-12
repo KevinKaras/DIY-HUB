@@ -71,7 +71,6 @@ export const createPost = (userid, name, instructions, url) => async dispatch =>
     const createdPost = await response.json()
     await dispatch(addPost(createdPost))
     return createdPost
-    
 }
 
 export const deletePost = (postId) => async (dispatch) => {

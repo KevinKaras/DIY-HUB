@@ -26,26 +26,6 @@ def post(id):
     post = Post.query.filter_by(id = id).one()
     return post.to_dict()
 
-# @posts_routes.route('/create/photo', methods=['POST'])
-# def upload_image():
-#     form = PostForm()
-
-#     url = ""
-#     if "image" in request.files:
-#         image = request.files['image']
-#         image.filename = get_unique_filename(image.filename)
-#         upload = upload_file_to_s3(image)
-#         url = upload["url"]
-
-    
-#     new_image = Image(userid=userid, imageURL=url)
-#     db.session.add(new_image)
-#     db.session.commit()
-#     # return {"url": url}
-
-
-# ------------------------------------------------------------------------------------------------
-
 @posts_routes.route('/create', methods=['POST'])
 def create():
    
@@ -56,7 +36,6 @@ def create():
         upload = upload_file_to_s3(image)
         url = upload["url"]
 
-    # ------------------
     form = PostForm()
     
     

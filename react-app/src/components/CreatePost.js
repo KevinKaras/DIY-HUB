@@ -25,13 +25,9 @@ function CreatePost() {
     const onCreate = async (event) => {
         event.preventDefault()
         
-        // const formData = new FormData();
-        // formData.append("image", url);
-        // formData.append("input", userId)
-        
         const createdPost = await dispatch(createPost(user.id, name, instructions, url))
         
-        // history.push(`/post/${createdPost.id}`)
+        history.push(`/post/${createdPost.id}`)
     }
     
     useEffect(() => {
