@@ -78,6 +78,15 @@ function Post() {
               alt="Photo not found"
             />
           </div>
+          <div className="AuthorBoxContainer">
+            <div className="AuthorPhoto"></div>
+            <div className="AutherName"></div>
+            <div className="AuthorExtension"></div>
+            <div className="InteractionContainer">
+              <div className="LikeButton"></div>
+              <div className="CommentButton"></div>
+            </div>
+          </div>
           <div className="InstructionsDiv">Instructions:</div>
           <div className="TextBody">{pagePost?.instructions}</div>
         </div>
