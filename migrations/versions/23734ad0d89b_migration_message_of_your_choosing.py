@@ -1,8 +1,8 @@
-"""added userid to image model
+"""migration message of your choosing
 
-Revision ID: 921b98e46145
+Revision ID: 23734ad0d89b
 Revises: 
-Create Date: 2021-12-09 18:36:03.039689
+Create Date: 2021-12-27 17:50:57.660142
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '921b98e46145'
+revision = '23734ad0d89b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -56,9 +56,11 @@ def upgrade():
     op.create_table('likes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userid', sa.Integer(), nullable=True),
+    sa.Column('username', sa.String(), nullable=True),
     sa.Column('postid', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['postid'], ['posts.id'], ),
     sa.ForeignKeyConstraint(['userid'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['username'], ['users.username'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

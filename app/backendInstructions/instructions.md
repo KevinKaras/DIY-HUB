@@ -47,8 +47,8 @@ Upon modifying any table / columns / seeders:
 - Delete ALL tables in Postbird
 - Delete Alembic Table in Postbird as well
 - Delete ALL THE FILES IN THE VERSIONS FOLDER
-- Then in Terminal run |-  flask db migrate -m "migration message of your choosing"  -|
-- Then in Terminal run |-  flask db upgrade  -|
+- Then in Terminal in PipEnv run |-  flask db migrate -m "migration message of your choosing"  -|
+- Then in Terminal in PipEnv run |-  flask db upgrade  -|
 
 
 
