@@ -16,3 +16,4 @@ def create():
     
     db.session.add(like)
     db.session.commit()
+    return like.to_dict()

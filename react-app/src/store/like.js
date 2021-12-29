@@ -37,7 +37,8 @@ export const addLike = (postId, sessionUserId, sessionUsername) => async dispatc
             sessionUsername
         })
     })
-    const likeObject = response.json();
+    const likeObject = await response.json();
+    console.log(likeObject)
     dispatch(createLike(likeObject))
 }
 
