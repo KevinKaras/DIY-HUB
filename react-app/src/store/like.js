@@ -79,10 +79,6 @@ export default function reducer(state = {}, action){
         case DELETE: 
             delete newState[action.likeId] 
             return newState
-        // case EDIT:
-        //     newState[action.post.id] = action.post
-        //     return newState
-        
         default:
             return state
     }
