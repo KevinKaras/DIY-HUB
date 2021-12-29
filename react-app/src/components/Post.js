@@ -15,13 +15,13 @@ function Post() {
     const postId = Number(params.id)
     const posts = useSelector(state => state.posts)
     const photo = useSelector(state => state.photos)
-    const like = useSelector(state => state.like)
+    // const like = useSelector(state => state.like)
     const sessionUser = useSelector(state => state.session.user)
     const [comment, setComment] = useState('')
     const currentPost = useSelector(state => state.posts[postId]) 
     const comments = useSelector(state => state.CommentsOfPost)
 
-    console.log(like)
+    
     const onLikeClick = async (e) => {
       e.preventDefault()
       await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
