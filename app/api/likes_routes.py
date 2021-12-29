@@ -3,6 +3,13 @@ from app.models import Like, db
 
 likes_routes = Blueprint('likes', __name__)
 
+
+@likes_routes.route('/get/<int:postid>')
+def obtain(postid):
+    likes = Like.query.filter_by(postid = postid).all()
+    # print(likes)
+    return {like.id: like.to_dict() for like in likes}
+
 @likes_routes.route('/add', methods=['POST'])
 def create():
 
@@ -17,3 +24,13 @@ def create():
     db.session.add(like)
     db.session.commit()
     return like.to_dict()
+
+@likes_routes.route('/remove/<int:postId>/<int:sessionUserId>', methods=['DELETE'])
+def delete(postId, sessionUserId):
+    print("POSTID: ", postId, "USERID: ", sessionUserId)
+    like = Like.query.filter_by(postid=postId).filter_by(userid=sessionUserId).one()
+    print("THIS IS THE LIKE RETURN: ", like)
+    likeid = like.to_dict()
+    db.session.delete(like)
+    db.session.commit()
+    return likeid

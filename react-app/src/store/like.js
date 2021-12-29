@@ -25,6 +25,18 @@ const obtainPostsLikes = (allLikes) => ({
     allLikes
 })
 
+export const grabLikes = (postId) => async dispatch => {
+    const response = await fetch(`/api/likes/get/${postId}`, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const listOfLikes = await response.json();
+    console.log(listOfLikes)
+    dispatch(obtainPostLikes(listOfLikes))
+}
+
 export const addLike = (postId, sessionUserId, sessionUsername) => async dispatch => {
     const response = await fetch('/api/likes/add', {
         method: 'POST',
@@ -42,17 +54,31 @@ export const addLike = (postId, sessionUserId, sessionUsername) => async dispatc
     dispatch(createLike(likeObject))
 }
 
+export const removeLike = (postId, sessionUserId) => async dispatch => {
+    const response = await fetch(`/api/likes/remove/${postId}/${sessionUserId}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const removedLike = await response.json();
+    console.log(removedLike)
+    dispatch(delLike(removedLike.id))
+}
+
+
+
 export default function reducer(state = {}, action){
     let newState = {...state}
     switch(action.type){
-        // case OBTAIN: 
-        //     return action.posts
+        case OBTAIN: 
+            return action.likes
         case CREATE: 
             newState[action.like.id] = action.like
             return newState
-        // case DELETE: 
-        //     delete newState[action.postId] 
-        //     return newState
+        case DELETE: 
+            delete newState[action.likeId] 
+            return newState
         // case EDIT:
         //     newState[action.post.id] = action.post
         //     return newState

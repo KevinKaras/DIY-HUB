@@ -2,62 +2,69 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
-import { addLike } from "../store/like";
+import { addLike, grabLikes, removeLike } from "../store/like";
 import { grabPhoto } from '../store/photos'
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
 import './CSS/PostPage.css'
 
 function Post() {
-    const dispatch = useDispatch()
-    const history = useHistory()
-    const params = useParams()
-    const postId = Number(params.id)
-    const posts = useSelector(state => state.posts)
-    const photo = useSelector(state => state.photos)
-    // const like = useSelector(state => state.like)
-    const sessionUser = useSelector(state => state.session.user)
-    const [comment, setComment] = useState('')
-    const currentPost = useSelector(state => state.posts[postId]) 
-    const comments = useSelector(state => state.CommentsOfPost)
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const params = useParams()
+  const postId = Number(params.id)
+  const posts = useSelector(state => state.posts)
+  const photo = useSelector(state => state.photos)
+  // const like = useSelector(state => state.like)
+  const sessionUser = useSelector(state => state.session.user)
+  const [comment, setComment] = useState('')
+  const currentPost = useSelector(state => state.posts[postId]) 
+  const comments = useSelector(state => state.CommentsOfPost)
 
-    // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
-    const onLikeClick = async (e) => {
-      e.preventDefault()
-      await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
-    }
+  // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
+  const getLikesForPost = async (e) => {                                // GET
+    e.preventDefault()
+    await dispatch(grabLikes(postId))
+  }
   
-    // COMMENT INTERACTION ---------------------------------------------------------------------------------------
-    const onCreateComm = async (e) => {
-      e.preventDefault()
-      await dispatch(addComment(sessionUser.id, postId, comment))
-      setComment("")
-    }
+  const onLikeClick = async (e) => {                                    // CREATE                               
+    e.preventDefault()
+    await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
+  }
 
-    const onDeleteComment = async (e, commentId, postId) => {
-      e.preventDefault()
-      await dispatch(deleteComment(postId, commentId))
-    }
+  const onLikeUnclick = async (e) => {
+    e.preventDefault()
+    await dispatch(removeLike(postId, sessionUser.id))
+  }
+  
 
-    
-    // AUTHOR DELETES POST ---------------------------------------------------------------------------------------
-    const onDelete = async (e) => {
-      e.preventDefault()
-      await dispatch(deleteAllComments(postId))
-      await dispatch(deletePost(postId))
-      
-      history.push(`/`)
-    }
+  // COMMENT INTERACTION ---------------------------------------------------------------------------------------
+  const onCreateComm = async (e) => {                                    // CREATE
+    e.preventDefault()
+    await dispatch(addComment(sessionUser.id, postId, comment))
+    setComment("")
+  }
+  const onDeleteComment = async (e, commentId, postId) => {               // DELETE
+    e.preventDefault()
+    await dispatch(deleteComment(postId, commentId))
+  }
 
-    // AUTHOR EDITS POST -----------------------------------------------------------------------------------------
-    const onEditPost = async (e) => {
-      history.push(`/post/${postId}/edit`)
-    }
-
-    // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
-    useEffect(() => {
-    dispatch(grabPosts())
-    dispatch(grabComments(postId))
-    }, []);
+  // AUTHOR INTERACTION ---------------------------------------------------------------------------------------
+  const onEditPost = async (e) => {                                        // UPDATE
+    history.push(`/post/${postId}/edit`)
+  }
+  const onDelete = async (e) => {                                          // DELETE
+    e.preventDefault()
+    await dispatch(deleteAllComments(postId))
+    await dispatch(deletePost(postId))
+        
+    history.push(`/`)
+  }
+  // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
+  useEffect(() => {
+  dispatch(grabPosts())
+  dispatch(grabComments(postId))
+  dispatch(grabLikes(postId))
+  }, []);
 
   let pagePost = posts[postId]
 	return posts && (
@@ -76,7 +83,8 @@ function Post() {
             <div className="AutherName"></div>
             <div className="AuthorExtension"></div>
             <div className="InteractionContainer">
-              <button className="LikeButton" onClick={e => onLikeClick(e)}></button>
+              <button className="LikeButton" onClick={e => onLikeClick(e)}>like</button>
+              <button className="LikeButton" onClick={e => onLikeUnclick(e)}>unlike</button>
               <button className="CommentButton"></button>
             </div>
           </div>
