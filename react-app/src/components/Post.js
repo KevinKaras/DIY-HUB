@@ -8,7 +8,6 @@ import { grabComments, addComment, deleteComment, deleteAllComments } from '../s
 import './CSS/PostPage.css'
 
 function Post() {
-
     const dispatch = useDispatch()
     const history = useHistory()
     const params = useParams()
@@ -21,20 +20,13 @@ function Post() {
     const currentPost = useSelector(state => state.posts[postId]) 
     const comments = useSelector(state => state.CommentsOfPost)
 
-    
+    // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
     const onLikeClick = async (e) => {
       e.preventDefault()
       await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
     }
   
-    const onDelete = async (e) => {
-      e.preventDefault()
-      await dispatch(deleteAllComments(postId))
-      await dispatch(deletePost(postId))
-      
-      history.push(`/`)
-    }
-    
+    // COMMENT INTERACTION ---------------------------------------------------------------------------------------
     const onCreateComm = async (e) => {
       e.preventDefault()
       await dispatch(addComment(sessionUser.id, postId, comment))
@@ -46,17 +38,26 @@ function Post() {
       await dispatch(deleteComment(postId, commentId))
     }
 
+    
+    // AUTHOR DELETES POST ---------------------------------------------------------------------------------------
+    const onDelete = async (e) => {
+      e.preventDefault()
+      await dispatch(deleteAllComments(postId))
+      await dispatch(deletePost(postId))
+      
+      history.push(`/`)
+    }
+
+    // AUTHOR EDITS POST -----------------------------------------------------------------------------------------
     const onEditPost = async (e) => {
       history.push(`/post/${postId}/edit`)
     }
-    
+
+    // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
     useEffect(() => {
     dispatch(grabPosts())
-    // dispatch(grabPhoto(postId))
     dispatch(grabComments(postId))
-                 
-    
-  }, []);
+    }, []);
 
   let pagePost = posts[postId]
 	return posts && (
