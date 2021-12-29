@@ -42,4 +42,23 @@ export const addLike = (postId, sessionUserId, sessionUsername) => async dispatc
     dispatch(createLike(likeObject))
 }
 
+export default function reducer(state = {}, action){
+    let newState = {...state}
+    switch(action.type){
+        // case OBTAIN: 
+        //     return action.posts
+        case CREATE: 
+            newState[action.like.id] = action.like
+            return newState
+        // case DELETE: 
+        //     delete newState[action.postId] 
+        //     return newState
+        // case EDIT:
+        //     newState[action.post.id] = action.post
+        //     return newState
+        
+        default:
+            return state
+    }
 
+}
