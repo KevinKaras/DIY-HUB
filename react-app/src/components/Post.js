@@ -94,11 +94,12 @@ function Post() {
             <div className="AuthorPhoto"></div>
             <div className="AutherName"></div>
             <div className="AuthorExtension"></div>
-            <div className="InteractionContainer">
+            {sessionUser && 
+              <div className="InteractionContainer">
               <button className="LikeButton" 
               onClick={e => handleLikeStatus(e) }>Like</button>
-              {/* <button className="CommentButton"></button> */}
-            </div>
+              </div>
+            }
           </div>
           <div className="InstructionsDiv">Instructions:</div>
           <div className="TextBody">{pagePost?.instructions}</div>
