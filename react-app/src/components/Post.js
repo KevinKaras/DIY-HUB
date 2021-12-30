@@ -16,24 +16,35 @@ function Post() {
   const photo = useSelector(state => state.photos)
   // const like = useSelector(state => state.like)
   const sessionUser = useSelector(state => state.session.user)
-  const [comment, setComment] = useState('')
   const currentPost = useSelector(state => state.posts[postId]) 
   const comments = useSelector(state => state.CommentsOfPost)
+  let [comment, setComment] = useState('')
+  let like = false
+  
+
 
   // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
   const getLikesForPost = async (e) => {                                // GET
-    e.preventDefault()
     await dispatch(grabLikes(postId))
   }
   
   const onLikeClick = async (e) => {                                    // CREATE                               
-    e.preventDefault()
     await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
   }
 
-  const onLikeUnclick = async (e) => {
-    e.preventDefault()
+  const onLikeUnclick = async (e) => {                                  // DELETE
     await dispatch(removeLike(postId, sessionUser.id))
+  }
+
+  function handleLikeStatus(e){
+    like = !like
+    e.preventDefault()
+    if(like === true){
+      onLikeClick()
+    } else {
+      console.log("removal firing")
+      onLikeUnclick()
+    }
   }
   
 
@@ -64,6 +75,7 @@ function Post() {
   dispatch(grabPosts())
   dispatch(grabComments(postId))
   dispatch(grabLikes(postId))
+  
   }, []);
 
   let pagePost = posts[postId]
@@ -83,9 +95,9 @@ function Post() {
             <div className="AutherName"></div>
             <div className="AuthorExtension"></div>
             <div className="InteractionContainer">
-              <button className="LikeButton" onClick={e => onLikeClick(e)}>like</button>
-              <button className="LikeButton" onClick={e => onLikeUnclick(e)}>unlike</button>
-              <button className="CommentButton"></button>
+              <button className="LikeButton" 
+              onClick={e => handleLikeStatus(e) }>Like</button>
+              {/* <button className="CommentButton"></button> */}
             </div>
           </div>
           <div className="InstructionsDiv">Instructions:</div>
