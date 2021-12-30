@@ -96,8 +96,14 @@ function Post() {
             <div className="AuthorExtension"></div>
             {sessionUser && 
               <div className="InteractionContainer">
-              <button className="LikeButton" 
-              onClick={e => handleLikeStatus(e) }>Like</button>
+              <button className="LikeButton" onClick={e => handleLikeStatus(e) }>
+                <image className="LikeButtonImage">
+                  THUMB
+                </image>
+                <span className="ButtonButtonText">
+                  Like
+                </span>
+                </button>
               </div>
             }
           </div>

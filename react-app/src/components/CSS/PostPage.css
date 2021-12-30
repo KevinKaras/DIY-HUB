@@ -140,3 +140,18 @@
     margin-top: 15px;
     margin-bottom: 5px;
 }
+
+
+.LikeButton{
+    background-color: rgb(70, 149, 253);
+}
+
+.LikeButtonImage{
+    color: white
+}
+
+.ButtonButtonText{
+    color: white;
+    font-size: 24px;
+    
+}

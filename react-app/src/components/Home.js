@@ -12,14 +12,10 @@ import "./CSS/NewHomePage.css"
 
 function Home() {
 
-    const dispatch = useDispatch()
-    const posts = useSelector(state => state.posts)
-    const [postComponents, setPostComponents] = useState('')
-    const [bannerPhoto, setBannerPhoto] = useState(HammerPic)
-
-    
-
-
+  const dispatch = useDispatch()
+  const posts = useSelector(state => state.posts)
+  const [postComponents, setPostComponents] = useState('')
+  const [bannerPhoto, setBannerPhoto] = useState(HammerPic)
 
   useEffect(() => {
     async function fetchPosts(){
