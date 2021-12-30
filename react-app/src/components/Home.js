@@ -23,15 +23,13 @@ function Home() {
 
   useEffect(() => {
     async function fetchPosts(){
-        
         dispatch(grabPosts())
-        
-    
-    return
+      return
     }
     fetchPosts()
   }, []);
-  const trailingAddPostComponent = 
+
+  const trailingAddPostComponent = ( 
     <div className="PostItemContainer">
             
       <a href={`/create`} className="">
@@ -42,42 +40,24 @@ function Home() {
           <h3 className="NavLinkTitleText">Add a post</h3>
         
       </div>
-    </div>
+    </div>)
 
   useEffect(() => {
       setPostComponents(Object.values(posts).map((post)=>{
             return (
               <div className="PostItemContainer">
-                
                 <a href={`/post/${post.id}`} className="PhotoItemHolder">
                   <img src={`${post.url}`} className="PhotoItem"/>
                 </a>
                 <div className="NavLinkHolder">
-                  
-                    <h3 className="NavLinkTitleText">{post.name}</h3>
-                  
-                  
+                <h3 className="NavLinkTitleText">{post.name}</h3>
                 </div>
               </div>
-              
             )
         }))
-
-        
-          
-        
-  }, [posts])
-
-          // <img src={diy_photo} alt="" className="bannerPhoto"/>
-          // <div className="PostsAreaHolder">
-          // All DIY-Projects:
-          // </div>
-          // <h2 className="PostsHolderContainer">{[postComponents, trailingAddPostComponent]}</h2>
-
-
+      }, [posts])
 
   return (
-
     <div>
       <div className="Banner-Container">
           
