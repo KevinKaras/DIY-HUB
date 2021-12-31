@@ -143,15 +143,29 @@
 
 
 .LikeButton{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     background-color: rgb(70, 149, 253);
+    width: 100px;
+    height: 40px;
+    
 }
 
 .LikeButtonImage{
-    color: white
+    
+    width: 23px;
+    height: 27px;
+    margin-right: 10%;
+    margin-left: 2%;
+
+    
+
 }
 
-.ButtonButtonText{
+.LikeButtonText{
     color: white;
     font-size: 24px;
+    margin-top: 5%;
     
 }

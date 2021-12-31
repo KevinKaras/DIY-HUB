@@ -7,6 +7,8 @@ import { grabPhoto } from '../store/photos'
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
 import './CSS/PostPage.css'
 
+
+
 function Post() {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -97,12 +99,15 @@ function Post() {
             {sessionUser && 
               <div className="InteractionContainer">
               <button className="LikeButton" onClick={e => handleLikeStatus(e) }>
-                <image className="LikeButtonImage">
-                  THUMB
-                </image>
-                <span className="ButtonButtonText">
+                <img 
+                className="LikeButtonImage"
+                src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
+                alt={"failed to load"}
+                >
+                </img>
+                <div className="LikeButtonText">
                   Like
-                </span>
+                </div>
                 </button>
               </div>
             }
