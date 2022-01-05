@@ -93,12 +93,9 @@ function Post() {
             />
           </div>
           <div className="AuthorBoxContainer">
-            <div className="AuthorPhoto"></div>
-            <div className="AutherName"></div>
-            <div className="AuthorExtension"></div>
             {sessionUser && 
               <div className="InteractionContainer">
-              <button className="LikeButton" onClick={e => handleLikeStatus(e) }>
+              <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
                 <img 
                 className="LikeButtonImage"
                 src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}

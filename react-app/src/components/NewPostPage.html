@@ -1,32 +1,51 @@
 <>
     <div className="Post-Banner">
         <div className="Post-Title-Container">
-            <div className="Post-Title"></div>
+            <div className="Post-Title">{pagePost?.name}</div>
         </div>
     </div>
     <div>
-        <img className="Post-Photo"></img>
+        <img 
+        className="Post-Photo"
+        src={currentPost?.url}
+        alt="Photo Not Found"></img>
     </div>
     <div className="Author-Info-Center">
         <img className="Profile-Picture">
         <div className="Auther/Post-Info">
             <div className="Author-Name">
-
+                {//Obtain Post Creator Name Through Post UserId query}
             </div>
             <div className="Likes-Numeric">
-
+                {//Likes amount}
             </div>
             <div>
-                <button className="Like-Button">
-
+                <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
+                    <img 
+                    className="LikeButtonImage"
+                    src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
+                    alt={"failed to load"}
+                    >
+                    </img>
+                    <div className="LikeButtonText">
+                      Like
+                    </div>
                 </button>
                 <button className="Comment-Button">
-
+                    Comment
                 </button>
             </div>
         </div>
         <div className="See-More">
             <div className="See-More-Button"></div>
+        </div>
+    </div>
+    <div className="Instructions-Section">
+        <div className="Instructions-Header">
+            Instructions:
+        </div>
+        <div className="Instructions-TextBody">
+            {pagePost?.instructions}
         </div>
     </div>
     <div className="Comment-Section">
