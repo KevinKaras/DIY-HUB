@@ -66,12 +66,23 @@
                 <div className="Comment-Text"></div>
             </div>
         </div>
+        {sessionUser && 
         <div className="Comment-Creation-Area">
-            <div className="Comment-Form">
-                <div className="Commenter-Photo"></div>
-                <div className="Comment-Input"></div>
-            </div>
-            <div className="Comment-Submit-Button"></div>
+            <form className="CommentForm" onSubmit={onCreateComm}>
+                <textarea
+                className="CommentInput"
+                type="text"
+                name="comment"
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
+                >
+                </textarea>
+                <button type="submit" className="SubmitCommBtn">
+                  Post Comment
+                </button>
+              </form>
         </div>
+        }
+    
     </div>
 <>
