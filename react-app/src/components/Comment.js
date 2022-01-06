@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 
 function Comment(props){
-    
+    // grab states here, to work with info later
     
 
 
