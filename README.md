@@ -7,8 +7,7 @@ If you would like to check this App out the link is https://diyhub-kk.herokuapp.
 # Here is what to expect while using the App.
 
 ## The Home Page to view already made projects from users
-![ed6de4ac4dad6a8c4182ac67b57b34e0](https://user-images.githubusercontent.com/74946124/124809679-ff9a0500-df25-11eb-993d-8d290308691c.jpg)
-
+![image](https://user-images.githubusercontent.com/74946124/148655913-95df75f2-e193-4a6c-8920-f0d795343f3c.png)
 
 
 ## Clicking sign-up will allow you to access certain features of the App
