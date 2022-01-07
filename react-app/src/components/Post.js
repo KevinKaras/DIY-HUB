@@ -131,7 +131,7 @@ function Post() {
               comments.map(commentInfoObj => {
                 console.log(commentInfoObj)
                 return (
-                  <Comment comment={commentInfoObj} />
+                  <Comment CommentUserPackage={commentInfoObj} />
                   // <div className="SingleComment" key={commentInfoObj.comment.id}>
                   // <div className="CommenterName">{commentInfoObj.user.username}:</div>
                   // <div className="SingleCommentText">

@@ -4,6 +4,12 @@ import { useParams, useHistory} from "react-router-dom";
 
 function Comment(props){
     // grab states here, to work with info later
+    // Props should equal this 
+    // prop.CommentUserPackage = {
+        // "comment": {id:, postid:, userid:, commentText:}
+        // "user" : {id:, username:, email}
+    // }
+    
     
 
 
