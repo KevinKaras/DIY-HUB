@@ -83,28 +83,28 @@ function Post() {
 
   let pagePost = posts[postId]
 	return posts && (
-    <>
+    <div className="Post">
     <div className="Post-Banner">
         <div className="Post-Title-Container">
-            <div className="Post-Title">{pagePost?.name}</div>
+            <div className="Post-Title-Container-Text">{pagePost?.name}</div>
         </div>
     </div>
-    <div>
+    <div className="Post-Container">
         <img 
-        className="Post-Photo"
+        className="Post-Container-Photo"
         src={currentPost?.url}
         alt="Photo Not Found"></img> 
     </div>
     {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-        <div className="PostButtonsForAdmin">
-          <form>
-            <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
-          </form>
-          <form>
-            <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
-          </form>
-        </div>
-        }
+      <div className="PostButtonsForAdmin">
+        <form>
+          <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
+        </form>
+        <form>
+          <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+        </form>
+      </div>
+    }
     <div className="Author-Info-Center">
         <img className="Profile-Picture"/>
         <div className="Auther/Post-Info">
@@ -180,7 +180,7 @@ function Post() {
         </div>
         }
         </div>
-    </>
+    </div>
 
   )
 }

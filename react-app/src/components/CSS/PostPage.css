@@ -1,18 +1,48 @@
-.PostContainer {
+.Post {
+    height: auto;
+    width: auto;
+}
+
+.Post-Banner {
     display: flex;
-    justify-content: left;
-    min-height: 550px;
-    flex-direction: column;
-    margin: 25px 0px 0px 10px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+    height: 7.5vh;
+    width: 100vw;
 }
 
 
-.TitlePost {
+.Post-Title-Container {
+    /* background-color: blue; */
     display: flex;
-    justify-content: left;
-    border-bottom: 1px solid rgb(41, 41, 41);
-    font-size: 36px;
-    width: 1100px;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    width: 30em;
+}
+
+.Post-Title-Container-Text {
+    /* background-color: red; */
+    height: auto;
+    width: auto;
+    font-size: 3vh;
+}
+
+.Post-Container {
+    background-color: Green;
+    display:flex;
+    justify-content: center;
+    
+    height: 50vh;
+    width: 100vw
+}
+
+
+.Post-Container-Photo {
+    height: 100%;
+    width: 75%;
+    
 }
 
 .TextBody {
@@ -20,12 +50,7 @@
     width: 1100px
 }
 
-.Post-Photo {
-    height: 500px;
-    width: 1100px;
-    border: 1px solid black;
-    margin: 20px 0px 20px 0px;
-}
+
 
 .FillImage {
     height: 100%;
