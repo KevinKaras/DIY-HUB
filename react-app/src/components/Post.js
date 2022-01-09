@@ -84,74 +84,87 @@ function Post() {
   let pagePost = posts[postId]
 	return posts && (
     <>
-        <div className="PostContainer">
-          <div className="TitlePost">{pagePost?.name}</div>
-          <div className="Image">
-            <img 
-              className="FillImage"
-              src={currentPost?.url}
-              alt="Photo not found"
-            />
-          </div>
-          <div className="AuthorBoxContainer">
-            {sessionUser && 
-              <div className="InteractionContainer">
-              <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
-                <img 
-                className="LikeButtonImage"
-                src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
-                alt={"failed to load"}
-                >
-                </img>
-                <div className="LikeButtonText">
-                  Like
-                </div>
-                </button>
-              </div>
-            }
-          </div>
-          <div className="InstructionsDiv">Instructions:</div>
-          <div className="TextBody">{pagePost?.instructions}</div>
+    <div className="Post-Banner">
+        <div className="Post-Title-Container">
+            <div className="Post-Title">{pagePost?.name}</div>
         </div>
-        {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-          <div className="PostButtonsForAdmin">
-            <form>
-              <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
-            </form>
-            <form>
-              <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
-            </form>
+    </div>
+    <div>
+        <img 
+        className="Post-Photo"
+        src={currentPost?.url}
+        alt="Photo Not Found"></img> 
+    </div>
+    {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
+        <div className="PostButtonsForAdmin">
+          <form>
+            <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
+          </form>
+          <form>
+            <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+          </form>
+        </div>
+        }
+    <div className="Author-Info-Center">
+        <img className="Profile-Picture"/>
+        <div className="Auther/Post-Info">
+            <div className="Author-Name">
+                {/* {//Obtain Post Creator Name Through Post UserId query} */}
+            </div>
+            <div className="Likes-Numeric">
+                {/* {//Likes amount} */}
+            </div>
+            <div>
+                <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
+                    <img 
+                    className="LikeButtonImage"
+                    src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
+                    alt={"failed to load"}
+                    >
+                    </img>
+                    <div className="LikeButtonText">
+                      Like
+                    </div>
+                </button>
+                <button className="Comment-Button">
+                    Comment
+                </button>
+            </div>
+        </div>
+        <div className="See-More">
+            <div className="See-More-Button"></div>
+        </div>
+    </div>
+    <div className="Instructions-Section">
+        <div className="Instructions-Header">
+            Instructions:
+        </div>
+        <div className="Instructions-TextBody">
+            {pagePost?.instructions}
+        </div>
+    </div>
+        <div className="Comment-Section">
+          <div className="Comment-Banner">
+            <div className="Comment-Numeric">
+                {/* {# of comments}  */}
+                Comments:
+            </div>
           </div>
-          
-          }
-        <div className="CommentSection">
-          <div className="CommentsDiv">
-            <div className="AddCommentsDiv">Comment Section:</div>
-            {comments &&
-              comments.map(commentInfoObj => {
-                console.log(commentInfoObj)
-                return (
-                  <Comment CommentUserPackage={commentInfoObj} />
-                  // <div className="SingleComment" key={commentInfoObj.comment.id}>
-                  // <div className="CommenterName">{commentInfoObj.user.username}:</div>
-                  // <div className="SingleCommentText">
-                  //   {commentInfoObj.comment.commentText} 
-                  // </div>
-                  // { sessionUser && commentInfoObj.user.id === sessionUser.id &&
-                  //   ( <div>
-                  //       <button onClick={(e) => onDeleteComment(e, commentInfoObj.comment.id, postId)} className="delBtn"> DELETE </button>
-                  //     </div> )
-                  // }
-                  // </div>
-                  )
-              })
-            }
-            
-          </div>
-          {sessionUser && 
-            <div className="AddCommentForm">
-              <div className="AddCommentTitle">Add a Comment:</div>
-              <form className="CommentForm" onSubmit={onCreateComm}>
+        <div className="Comment-Container">
+            <div className="Comment-Upper">
+                <div className="Commenter-Icon">
+                    <img></img>
+                </div>
+                <div className="Commenter-Name"></div>
+                <div className="Comment-Date/Time"></div>
+            </div>
+            <div className="Comment-Lower">
+                <div className="Comment-Text"></div>
+            </div>
+        </div>
+        {sessionUser && 
+        <div className="Comment-Creation-Area">
+            <form className="CommentForm" onSubmit={onCreateComm}>
                 <textarea
                 className="CommentInput"
                 type="text"
@@ -164,8 +177,8 @@ function Post() {
                   Post Comment
                 </button>
               </form>
-            </div>
-            }
+        </div>
+        }
         </div>
     </>
 

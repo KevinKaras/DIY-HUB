@@ -11,6 +11,16 @@
         <!-- Add a placeholder photo -->
         alt="Photo Not Found"></img> 
     </div>
+    {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
+        <div className="PostButtonsForAdmin">
+          <form>
+            <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
+          </form>
+          <form>
+            <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+          </form>
+        </div>
+        }
     <div className="Author-Info-Center">
         <img className="Profile-Picture">
         <div className="Auther/Post-Info">
