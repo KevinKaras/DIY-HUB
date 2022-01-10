@@ -95,45 +95,53 @@ function Post() {
         src={currentPost?.url}
         alt="Photo Not Found"></img> 
     </div>
-    {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-      <div className="PostButtonsForAdmin">
-        <form>
-          <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
-        </form>
-        <form>
-          <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
-        </form>
+    <div className="Author-Section">
+      <div className="Author-Info-Center">
+          <div className="Author-Picture-Container">
+            <img className="Author-Picture"/>
+          </div>
+          <div className="Author/Post-Info">
+            <div className="Info-Center-Row">
+              <div className="Author-Name">
+                AUTHOR NAME
+              </div>
+              <div className="Likes-Numeric">
+                15 LIKES
+              </div>
+            </div>
+            <div className="Info-Center-Row">
+              <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
+                <img 
+                className="LikeButtonImage"
+                src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
+                alt={"failed to load"}
+                >
+                </img>
+                <div className="LikeButtonText">
+                  Like
+                </div>
+              </button>
+              <button className="Comment-Button">
+                Comment
+              </button>
+            </div>
+            <div className="Info-Center-Row">
+              {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
+                <div className="PostButtonsForAdmin">
+                  <form>
+                    <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
+                  </form>
+                  <form>
+                    <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+                  </form>
+                </div>
+              }
+            </div>
+          </div>
+          <div className="See-More-Container">
+              <div className="See-More-Button"></div>
+          </div>
       </div>
-    }
-    <div className="Author-Info-Center">
-        <img className="Profile-Picture"/>
-        <div className="Auther/Post-Info">
-            <div className="Author-Name">
-                {/* {//Obtain Post Creator Name Through Post UserId query} */}
-            </div>
-            <div className="Likes-Numeric">
-                {/* {//Likes amount} */}
-            </div>
-            <div>
-                <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
-                    <img 
-                    className="LikeButtonImage"
-                    src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
-                    alt={"failed to load"}
-                    >
-                    </img>
-                    <div className="LikeButtonText">
-                      Like
-                    </div>
-                </button>
-                <button className="Comment-Button">
-                    Comment
-                </button>
-            </div>
-        </div>
-        <div className="See-More">
-            <div className="See-More-Button"></div>
-        </div>
     </div>
     <div className="Instructions-Section">
         <div className="Instructions-Header">
