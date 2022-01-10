@@ -100,16 +100,19 @@ function Post() {
           <div className="Author-Picture-Container">
             <img className="Author-Picture"/>
           </div>
-          <div className="Author/Post-Info">
+          <div className="Author-Post-Info">
             <div className="Info-Center-Row">
               <div className="Author-Name">
-                AUTHOR NAME
+                By AUTHOR NAME
               </div>
               <div className="Likes-Numeric">
                 15 LIKES
               </div>
             </div>
             <div className="Info-Center-Row">
+              <button className="Comment-Button">
+                Comment
+              </button>
               <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
                 <img 
                 className="LikeButtonImage"
@@ -117,24 +120,19 @@ function Post() {
                 alt={"failed to load"}
                 >
                 </img>
-                <div className="LikeButtonText">
-                  Like
-                </div>
-              </button>
-              <button className="Comment-Button">
-                Comment
+                Like
               </button>
             </div>
             <div className="Info-Center-Row">
               {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
-                <div className="PostButtonsForAdmin">
+                <>
                   <form>
                     <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
                   </form>
                   <form>
                     <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
                   </form>
-                </div>
+                </>
               }
             </div>
           </div>

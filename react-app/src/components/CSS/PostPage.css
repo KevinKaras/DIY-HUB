@@ -46,7 +46,7 @@
 }
 
 .Author-Section{
-    background-color: green;
+    
     display: flex;
     justify-content: center;
     height: 18vh;
@@ -54,7 +54,9 @@
 }
 
 .Author-Info-Center {
-    background-color: blue;
+    background-color: rgb(245, 235, 235);
+    border: 1px solid gray;
+    border-radius: 4px;
     display: flex;
     height: 65%;
     width:33%;
@@ -62,25 +64,48 @@
 }
 
 .Author-Picture-Container{
-    background-color: black;
     display:flex;
     align-items: center;
     height:100%;
-    width:15%
+    width:16.6666666%
 }
 
 .Author-Picture{
 
-    background-color: blueviolet;
-    height:5vh;
-    width:5vw;
+    background-color: rgb(200, 200, 200);
+    height: 8vh;
+    width: 7vh;
+    margin:0.5vw
+}
+
+.Author-Post-Info{
+    margin-top: auto;
+    margin-bottom: auto;
+
 }
 
 .Info-Center-Row {
-    background-color: white;
+    background-color: rgb(187, 187, 187);
+    display:flex;
+    justify-content: space-around;
     height: 2vh;
     width: 20vw;
     margin: 1vh 0 1vh 0;
+}
+
+.See-More-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.See-More-Button{
+    height: 8vh;
+    width: 7vw;
+    background-color: rgb(200, 200, 200);
+    margin: auto;
 }
 
 
@@ -169,7 +194,7 @@
 .postDeleteBtn {
     margin: 0px 0px 0px 10px;
     border: 1px solid black;
-    background-color:rgb(246, 110, 47);
+    background-color:rgb(179, 179, 179);
     border-radius: 3px;
     box-shadow: 2px 2px 3px black;
     cursor: pointer;
@@ -179,7 +204,7 @@
     height: 100%;
     margin: 0px 0px 0px 10px;
     border: 1px solid black;
-    background-color:rgb(38, 180, 246);
+    background-color:rgb(179, 179, 179);
     border-radius: 3px;
     box-shadow: 2px 2px 3px black;
     cursor: pointer;
@@ -188,7 +213,7 @@
 .delBtn {
     height:100%;
     border: 1px solid black;
-    background-color:rgb(246, 110, 47);
+    background-color:rgb(179, 179, 179);
     border-radius: 3px;
     box-shadow: 2px 2px 3px black;
     cursor: pointer;
@@ -207,13 +232,18 @@
     margin-bottom: 5px;
 }
 
+.Comment-Button{
+    border:none;
+    background-color: rgb(179, 179, 179);
+    width:7vw;
+    height: 100%;
+}
 
-.LikeButton{
-   
-    
-    background-color: rgb(70, 149, 253);
-    width: 7vw;
-    height: 1vh
+.Like-Button{
+   background-color: rgb(179, 179, 179);
+   border: none; 
+   width: 7vw;
+   height: 100%;
     
 }
 
