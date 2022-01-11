@@ -130,6 +130,7 @@
     cursor: pointer;
 
 }
+
 .postEditBtn {
     height: 100%;
     margin: 0px 0px 0px 10px;
@@ -138,8 +139,6 @@
     border-radius: 3px;
     cursor: pointer;
 }
-
-
 
 .See-More-Container{
     display: flex;
