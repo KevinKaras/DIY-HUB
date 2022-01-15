@@ -5,6 +5,7 @@ import { grabPosts, deletePost } from "../store/posts"
 import Comment from "./Comment.js"
 import { addLike, grabLikes, removeLike } from "../store/like";
 import { grabPhoto } from '../store/photos'
+import PlaceHolderPic from "../components/CSS/photos/RandomFillerProfile.jpg"
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
 import './CSS/PostPage.css'
 
@@ -98,15 +99,15 @@ function Post() {
     <div className="Author-Section">
       <div className="Author-Info-Center">
           <div className="Author-Picture-Container">
-            <img className="Author-Picture"/>
+            <img className="Author-Picture" src={PlaceHolderPic}/>
           </div>
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
               <div className="Author-Name">
-                By AUTHOR NAME
+                By Kevin Karas
               </div>
               <div className="Likes-Numeric">
-                15 LIKES
+                15 Likes
               </div>
             </div>
             <div className="Info-Center-Row">
@@ -120,7 +121,7 @@ function Post() {
                 alt={"failed to load"}
                 >
                 </img>
-                Like
+                <div className="Like-Button-Text">LIKE</div>
               </button>
             </div>
             <div className="Info-Center-Row">
@@ -137,7 +138,9 @@ function Post() {
             </div>
           </div>
           <div className="See-More-Container">
-              <div className="See-More-Button"></div>
+              <div className="See-More-Button">
+                <div className="See-More-Button-Text">EXPLORE SIMILAR CONTENT</div>
+              </div>
           </div>
       </div>
     </div>
