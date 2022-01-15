@@ -46,7 +46,6 @@ function Post() {
     if(like === true){
       onLikeClick()
     } else {
-      console.log("removal firing")
       onLikeUnclick()
     }
   }
@@ -103,8 +102,8 @@ function Post() {
           </div>
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
-              <div className="Author-Name">
-                By Kevin Karas
+              <div className="Author-Identifier">
+                <span>By</span> <span className="Author-Name">Kevin Karas</span>
               </div>
               <div className="Likes-Numeric">
                 15 Likes

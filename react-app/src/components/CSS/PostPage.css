@@ -3,7 +3,6 @@
     src: url(../CSS/fonts/RobotoCondensed-Regular.ttf);
 }
 
-
 .Post {
     height: auto;
     width: auto;
@@ -14,17 +13,17 @@
     justify-content: center;
     align-items: center;
     /* background-color: green; */
-    height: 7.5vh;
+    height: 9vh;
     width: 100vw;
 }
 
-
 .Post-Title-Container {
     /* background-color: blue; */
+    text-decoration: underline;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2em;
+    height: 5em;
     width: 30em;
 }
 
@@ -33,23 +32,22 @@
     font-family: RobotoCondensed-Regular;
     height: auto;
     width: auto;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 
 .Post-Container {
     /* background-color: Green; */
     display:flex;
     justify-content: center;
-    
     height: 50vh;
-    width: 100vw
+    width: 100vw;
 }
 
 
 .Post-Container-Photo {
     height: 100%;
     width: 75%;
-    
+    border-radius: 1px solid rgb(185, 185, 185);
 }
 
 .Author-Section{
@@ -62,8 +60,9 @@
 
 .Author-Info-Center {
     background-color: rgb(245, 235, 235);
-    border: 1px solid gray;
-    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0.5px;
+    border: 1px solid rgb(179, 178, 178);
+    border-radius: 3px;
     display: flex;
     height: 65%;
     width:33%;
@@ -88,10 +87,20 @@
 
 .Author-Post-Info{
     font-family: RobotoCondensed-Regular;
-    font-size: 18px;
+    font-size: 17px;
     margin-top: auto;
     margin-bottom: auto;
 
+}
+
+.Author-Identifier{
+
+}
+
+.Author-Name{
+    font-size: 19px;
+    color:rgb(38, 134, 0);
+    text-decoration: underline;
 }
 
 .Info-Center-Row {
@@ -106,7 +115,9 @@
 .Likes-Numeric {
     font-family: RobotoCondensed-Regular;
     font-size: 18px;
+    text-decoration: underline;
     margin-right: 1.5vw;
+    color: rgb(97, 86, 255);
 }
 
 .Comment-Button{
@@ -121,6 +132,7 @@
 
 .Like-Button{
     font-family: RobotoCondensed-Regular;
+    display: inline;
    /* background-color: rgb(179, 179, 179); */
    border: none; 
    width: 6vw;
@@ -131,15 +143,18 @@
 }
 
 .LikeButtonImage{
+    display: inline;
     width: 1vw;
-    height: 2vh;
-    margin-right: 0.5vw
+    height: 1.5vh;
+    margin-right: 0.5vw;
+    
 }
 
 .Like-Button-Text{
     display: inline;
     font-family: RobotoCondensed-Regular;
     font-size: 18px;
+    color: rgb(170, 23, 255);
 }
 
 .postDeleteBtn {
@@ -173,21 +188,24 @@
 }
 
 .See-More-Button{
-    
+    display: flex;
+    align-items: center;
     align-items: center;
     height: 8vh;
     width: 7vw;
-    border: 1px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 4px;
-    background-color: rgb(200, 200, 200);
+    background-color: rgba(0, 0, 0, 0.863);
     margin: auto;
+    cursor: pointer;
 }
 .See-More-Button-Text{
     font-family: RobotoCondensed-Regular;
     text-align: center;
-    margin: 1.25%;
+    margin: 1.50%;
     word-break: normal;
-    font-size: 22px;
+    font-size: 19px;    
+    color: white;
 }
 
 .TextBody {
