@@ -211,17 +211,19 @@
 .Instruction-Container{
     display: flex;
     justify-content: center;
-    height: 50vh;
+    height: auto;
     width:100vw;
     
 }
 
 .Instructions-TextBody {
     overflow-wrap:break-word;
-    height:auto;
+    height: 100%;
     width: 66vw;
     font-size: 1.5em;
     text-indent: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1.75px solid black;
 }
 
 .AddCommentsDiv {
@@ -234,27 +236,59 @@
 }
 
 .CommentSection {
-    width: 1200px;
-    margin: 0px 0px 0px 10px;
-
-}
-
-.CommentForm {
+    width: 100vw;
+    height: auto;
     display: flex;
-    flex-direction: column;   
+    justify-content: center;
 }
+
+.Comment-Banner {
+    height:100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.Comment-Numeric {
+    font-family: RobotoCondensed-Regular;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: underline 3px solid black;
+}
+
+.Comment-Creation-Area{
+    display: flex;
+    justify-content: center;
+}
+
+.Comment-Form {
+    display: block;
+    justify-content: center;  
+}
+
+.Comment-Form-Upper {
+
+}
+
+.Comment-Input {
+    height: 100px;
+    width: 550px;
+}
+
+.Comment-Form-Lower {
+    display: flex;
+    justify-content: end;
+}
+
 
 .AddCommentTitle {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px
 }
 
-.CommentInput {
-    height: 100px;
-    width: 550px;
-}
 
-.SubmitCommBtn {
+
+.Submit-Comment-Button {
     margin: 15px 0px 0px 0px;
     width: 139.5px;
     border: 0.5px solid black;

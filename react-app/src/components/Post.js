@@ -158,8 +158,7 @@ function Post() {
         <div className="Comment-Section">
           <div className="Comment-Banner">
             <div className="Comment-Numeric">
-                {/* {# of comments}  */}
-                Comments:
+                {}Comments:
             </div>
           </div>
         <div className="Comment-Container">
@@ -176,18 +175,22 @@ function Post() {
         </div>
         {sessionUser && 
         <div className="Comment-Creation-Area">
-            <form className="CommentForm" onSubmit={onCreateComm}>
+            <form className="Comment-Form" onSubmit={onCreateComm}>
+              <div className="Comment-Form-Upper">
                 <textarea
-                className="CommentInput"
+                className="Comment-Input"
                 type="text"
                 name="comment"
                 onChange={(e) => setComment(e.target.value)}
                 value={comment}
                 >
                 </textarea>
-                <button type="submit" className="SubmitCommBtn">
+              </div>
+              <div className="Comment-Form-Lower">
+                <button type="submit" className="Submit-Comment-Button">
                   Post Comment
                 </button>
+              </div>
               </form>
         </div>
         }
