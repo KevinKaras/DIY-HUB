@@ -30,7 +30,7 @@
     height: auto;
     width: auto;
     font-size: 4.5vh;
-    font-weight: 1000;
+    font-weight: 550;
 
 }
 
@@ -204,7 +204,7 @@
     font-family: RobotoCondensed-Regular;
     height: 5vh;
     width: 33vw;
-    font-size: 50px;
+    font-size: 4vh;
     text-decoration: underline solid black 3px
 }
 
