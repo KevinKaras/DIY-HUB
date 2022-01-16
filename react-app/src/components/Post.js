@@ -144,12 +144,16 @@ function Post() {
       </div>
     </div>
     <div className="Instructions-Section">
+      <div className="Instructions-Banner-Container">
         <div className="Instructions-Header">
             Instructions:
         </div>
-        <div className="Instructions-TextBody">
+      </div>
+      <div className="Instruction-Container">
+        <p className="Instructions-TextBody">
             {pagePost?.instructions}
-        </div>
+        </p>
+      </div>
     </div>
         <div className="Comment-Section">
           <div className="Comment-Banner">

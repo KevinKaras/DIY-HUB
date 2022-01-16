@@ -29,7 +29,9 @@
     font-family: RobotoCondensed-Regular;
     height: auto;
     width: auto;
-    font-size: 4vh;
+    font-size: 4.5vh;
+    font-weight: 1000;
+
 }
 
 .Post-Container {
@@ -188,14 +190,38 @@
     color: white;
 }
 
-.TextBody {
-    margin: 0px 0px 25px 0px;
-    width: 1100px
+.Instructions-Banner-Container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:5vh;
+    width: 100vw;
 }
 
-.FillImage {
-    height: 100%;
-    width: 100%;
+.Instructions-Header{
+    display: flex;
+    justify-content: center;
+    font-family: RobotoCondensed-Regular;
+    height: 5vh;
+    width: 33vw;
+    font-size: 50px;
+    text-decoration: underline solid black 3px
+}
+
+.Instruction-Container{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    width:100vw;
+    
+}
+
+.Instructions-TextBody {
+    overflow-wrap:break-word;
+    height:auto;
+    width: 66vw;
+    font-size: 1.5em;
+    text-indent: 2em;
 }
 
 .AddCommentsDiv {
