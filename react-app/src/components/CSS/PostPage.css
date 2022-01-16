@@ -299,6 +299,8 @@
     margin: 1vh 0.5vh 1vh 0.5vh;
     height: 11vh;
     width: 35vw;
+    border: 1px solid black;
+    box-shadow: 0vh 0vh 2px 0;
 }
 
 .Comment-Form-Lower {

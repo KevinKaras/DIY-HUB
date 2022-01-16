@@ -185,6 +185,7 @@ function Post() {
                 className="Comment-Input"
                 type="text"
                 name="comment"
+                placeholder="Add a comment"
                 onChange={(e) => setComment(e.target.value)}
                 value={comment}
                 >
