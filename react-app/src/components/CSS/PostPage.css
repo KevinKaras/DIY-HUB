@@ -118,7 +118,7 @@
     cursor: pointer;
 }
 
-.Like-Button{
+.Liked-Button{
     font-family: RobotoCondensed-Regular;
     display: inline;
     border: none; 
@@ -321,7 +321,7 @@
     box-shadow: 0px 0px 0.5px black;
     cursor: pointer;
     margin: 1vh 1.5vh 0vh 0vh;
-    font-size: 18px;
+    font-size: 1em;
     font-family: RobotoCondensed-Regular;
 }
 

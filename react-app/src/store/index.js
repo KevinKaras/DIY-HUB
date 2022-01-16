@@ -5,7 +5,7 @@ import posts from './posts'
 import userPosts from './userPosts'
 import photos from './photos'
 import CommentsOfPost from './comment'
-import like from './like'
+import likes from './likes'
 
 
 const rootReducer = combineReducers({
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     userPosts,
     photos,
     CommentsOfPost,
-    like
+    likes
 });
 
 let enhancer;

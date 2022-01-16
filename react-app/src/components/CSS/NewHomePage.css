@@ -170,11 +170,9 @@
 } 
 .PostsHolderContainer{
     display: flex;
-    
 }
 
 .PostItemContainer{
-   
     height: 30vh;
     width: 10vw;
     min-width: 306px;  
@@ -186,19 +184,12 @@
     border-radius: 4px;
 }
 
-
-
 .NavLinkHolder{
-    
     width: 100%;
     color: rgb(57, 55, 55);
-    background-color: white;
-    
-    
-    
-    
-    
+    background-color: white;    
 } 
+
 .NavLinkParagraphText{
     height:100%;
     width: 100%;

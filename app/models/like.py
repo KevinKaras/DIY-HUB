@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.orm import relationship
 
 class Like(db.Model):
     __tablename__ = 'likes'
@@ -7,6 +8,7 @@ class Like(db.Model):
     userid = db.Column(db.Integer, db.ForeignKey('users.id'))
     username = db.Column(db.String, db.ForeignKey('users.username'))
     postid = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    
 
     def to_dict(self):
         return {

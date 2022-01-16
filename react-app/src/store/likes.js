@@ -1,5 +1,5 @@
 const OBTAIN = 'likes/OBTAIN'
-const GETALL = 'likes/GETALL'
+const GATHERALL = 'likes/GATHERALL'
 const CREATE = 'likes/CREATE'
 const DELETE = 'likes/DELETE'
 
@@ -20,10 +20,13 @@ const obtainPostLikes = (likes) => ({
     likes
 })
 
-const obtainPostsLikes = (allLikes) => ({
-    type: GETALL,
-    allLikes
-})
+// const GatherPostsLikes = (allLikes) => ({
+//     type: GATHERALL,
+//     allLikes
+// })
+
+
+
 
 export const grabLikes = (postId) => async dispatch => {
     const response = await fetch(`/api/likes/get/${postId}`, {
@@ -33,8 +36,8 @@ export const grabLikes = (postId) => async dispatch => {
         }
     })
     const listOfLikes = await response.json();
-    console.log(listOfLikes)
-    dispatch(obtainPostLikes(listOfLikes))
+    let ArrayOfLikes = Object.values(listOfLikes)
+    dispatch(obtainPostLikes(ArrayOfLikes))
 }
 
 export const addLike = (postId, sessionUserId, sessionUsername) => async dispatch => {
@@ -68,16 +71,34 @@ export const removeLike = (postId, sessionUserId) => async dispatch => {
 
 
 
-export default function reducer(state = {}, action){
-    let newState = {...state}
+// export default function reducer(state = {}, action){
+//     let newState = {...state}
+//     switch(action.type){
+//         case OBTAIN: 
+//             return action.likes
+//         case CREATE: 
+//             newState[action.like.id] = action.like
+//             return newState
+//         case DELETE: 
+//             delete newState[action.likeId] 
+//             return newState
+//         default:
+//             return state
+//     }
+
+// }
+
+export default function reducer(state = [], action){
+    let newState = [...state]
     switch(action.type){
         case OBTAIN: 
-            return action.likes
+            return action.likes //change return to array
         case CREATE: 
-            newState[action.like.id] = action.like
+            newState.push(action.like) 
             return newState
         case DELETE: 
-            delete newState[action.likeId] 
+        //     delete newState[action.likeId] 
+            newState.filter(like => !(like.id == action.likeId))
             return newState
         default:
             return state

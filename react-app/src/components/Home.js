@@ -16,25 +16,20 @@ function Home() {
   const posts = useSelector(state => state.posts)
   const [postComponents, setPostComponents] = useState('')
   const [bannerPhoto, setBannerPhoto] = useState(HammerPic)
+  
+    
 
   useEffect(() => {
-    async function fetchPosts(){
-        dispatch(grabPosts())
-      return
-    }
-    fetchPosts()
+    dispatch(grabPosts())
   }, []);
 
   const trailingAddPostComponent = ( 
     <div className="PostItemContainer">
-            
       <a href={`/create`} className="">
         <img src={add_post_logo} className="AddPhotoItem"/>
       </a>
       <div className="NavLinkHolder">
-        
           <h3 className="NavLinkTitleText">Add a post</h3>
-        
       </div>
     </div>)
 
@@ -56,10 +51,6 @@ function Home() {
   return (
     <div>
       <div className="Banner-Container">
-          
-            
-        
-          
           <div className="Banner-Information-Container">
             <div className="Info-Card-Positioner">
                 <div className="Information-Card">

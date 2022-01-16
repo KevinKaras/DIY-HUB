@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
-import Comment from "./Comment.js"
-import { addLike, grabLikes, removeLike } from "../store/like";
+// import Comment from "./Comment.js"
+import LikeButton from "./LikeButton"
+import { addLike, grabLikes, removeLike } from "../store/likes";
 import { grabPhoto } from '../store/photos'
 import PlaceHolderPic from "../components/CSS/photos/RandomFillerProfile.jpg"
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
@@ -18,38 +19,28 @@ function Post() {
   const postId = Number(params.id)
   const posts = useSelector(state => state.posts)
   const photo = useSelector(state => state.photos)
-  // const like = useSelector(state => state.like)
+  const likes = useSelector(state => state.likes)
   const sessionUser = useSelector(state => state.session.user)
   const currentPost = useSelector(state => state.posts[postId]) 
   const comments = useSelector(state => state.CommentsOfPost)
   let [comment, setComment] = useState('')
-  let like = false
-  
-
+  let [isLoading, setIsLoading] = useState(true)
+  let pagePost = posts[postId]
 
   // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
-  const getLikesForPost = async (e) => {                                // GET
+  const getLikesForPost = async (e) => { 
+    e.preventDefault()                               // GET
     await dispatch(grabLikes(postId))
   }
-  
-  const onLikeClick = async (e) => {                                    // CREATE                               
-    await dispatch(addLike(postId, sessionUser.id, sessionUser.username))
-  }
 
-  const onLikeUnclick = async (e) => {                                  // DELETE
-    await dispatch(removeLike(postId, sessionUser.id))
+  let LikeRequirementObject = {
+    "ViewerLikeState" : likes.filter((like) => like.userid == sessionUser?.id).length,
+    "PostId" : postId, 
+    "sessionUserId" : sessionUser?.id,
+    "sessionUserUsername" : sessionUser?.username
   }
+  console.log("FIRST PARENT ITERATION", LikeRequirementObject)
 
-  function handleLikeStatus(e){
-    like = !like
-    e.preventDefault()
-    if(like === true){
-      onLikeClick()
-    } else {
-      onLikeUnclick()
-    }
-  }
-  
 
   // COMMENT INTERACTION ---------------------------------------------------------------------------------------
   const onCreateComm = async (e) => {                                    // CREATE
@@ -73,16 +64,19 @@ function Post() {
         
     history.push(`/`)
   }
+  
   // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
   useEffect(() => {
-  dispatch(grabPosts())
-  dispatch(grabComments(postId))
-  dispatch(grabLikes(postId))
-  
+    dispatch(grabPosts())
+    dispatch(grabComments(postId))
+    dispatch(grabLikes(postId))
   }, []);
 
-  let pagePost = posts[postId]
-	return posts && (
+  
+
+  return (
+    <>
+    
     <div className="Post">
     <div className="Post-Banner">
         <div className="Post-Title-Container">
@@ -103,17 +97,18 @@ function Post() {
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
               <div className="Author-Identifier">
-                <span>By</span> <span className="Author-Name">Kevin Karas</span>
+                <span>By</span> <span className="Author-Name">AUTHOR</span>
               </div>
               <div className="Likes-Numeric">
-                15 Likes
+                {likes.length} Likes
               </div>
             </div>
             <div className="Info-Center-Row">
               <button className="Comment-Button">
                 Comment
               </button>
-              <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
+              {sessionUser && <LikeButton LikeRequirements={LikeRequirementObject} />}
+              {/* <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
                 <img 
                 className="LikeButtonImage"
                 src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
@@ -121,7 +116,7 @@ function Post() {
                 >
                 </img>
                 <div className="Like-Button-Text">LIKE</div>
-              </button>
+              </button> */}
             </div>
             <div className="Info-Center-Row">
               {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
@@ -202,7 +197,9 @@ function Post() {
         }
         </div>
     </div>
+    </>
+    )
+  }
 
-  )
-}
+
 export default Post;

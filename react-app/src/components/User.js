@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { profilePostGrab } from "../store/userPosts";
@@ -11,10 +11,9 @@ function Profile() {
   const { userId }  = useParams();
 
   const theUser = useSelector(state => state.session.user)
-  const userPostsObject = useSelector(state => state.userPosts)
+  const userPosts = useSelector(state => state.userPosts)
+  console.log(userPosts)
   
-  const userPostsArray = Object.values(userPostsObject)
-  console.log(userPostsArray)
   
   useEffect(async() => {
      dispatch(profilePostGrab(userId))
@@ -28,28 +27,22 @@ function Profile() {
     <div>
       <div className="ProfileInfoDiv">
         <div className="InfoText">User Id: </div> {userId}
-        
         <div className="InfoText">Username: </div> {theUser.username}
-        
         <div className="InfoText">Email:</div> {theUser.email}
-         
-
       </div>
-      
-      
       <div>
         <div className="ProfilePostContainerTitle">Your Posts:</div>
         {
-          userPostsArray.map((post)=> {
+          userPosts.map((post)=> {
             return (
               <div className="PostItemContainer">
-                
-                <a href={`/post/${post.id}`} className="PhotoItem">
+                <a href={`/post/${post.id}`} className="PhotoItemHolder">
                   <img src={`${post.url}`} className="PhotoItem"/>
                 </a>
-                <div className="NavLinkText">{post.name}</div>
+                <div className="NavLinkHolder">
+                <h3 className="NavLinkTitleText">{post.name}</h3>
+                </div>
               </div>
-              
             )
           })
           

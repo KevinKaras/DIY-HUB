@@ -25,3 +25,43 @@
     margin-bottom: 5px;
 
 }
+
+.PostItemContainer{
+   
+    height: 30vh;
+    width: 10vw;
+    min-width: 306px;  
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.PhotoItemHolder {
+    height: 30vh;
+    width: 10vw;
+}
+
+.PhotoItem {
+    border-bottom: 1px solid rgb(210, 210, 210);
+    width:100%;
+    height: 80%;  
+}
+
+.NavLinkHolder{
+    width: 100%;
+    color: rgb(57, 55, 55);
+    background-color: white;    
+} 
+
+.NavLinkTitleText{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-family: "MyriadPro";
+    font-weight: 900;
+
+} 
+
+

@@ -21,15 +21,13 @@ export const profilePostGrab = (userId) => async dispatch => {
 }
 
 
-export default function reducer(state = {}, action){
-    let newState = {}
+export default function reducer(state = [], action){
+    let newState = [...state]
     switch(action.type){
         case PROFILEPOSTS:
-            newState = {...state}
-            for(let i = 0; i < action.posts.length; i++){
-               const post = action.posts[i]
-               newState[post.id] = post
-            }
+            newState = [...state]
+            action.posts.forEach(post => newState.push(post))
+
             return newState
         default:
             return state
