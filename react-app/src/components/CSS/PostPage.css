@@ -284,6 +284,8 @@
     height: 6vh;
     width: 3.5vw;
     border-radius: 4vw;
+    border: 1px solid black;
+    
 }
 
 .Comment-Form {
