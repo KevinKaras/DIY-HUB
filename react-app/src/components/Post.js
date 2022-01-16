@@ -175,6 +175,10 @@ function Post() {
         </div>
         {sessionUser && 
         <div className="Comment-Creation-Area">
+          <div className="Comment-Creator-Container">
+            <div className="Commenter-Profile-Section">
+              <img className="Commentor-Profile-Picture" src={PlaceHolderPic}></img>
+            </div>
             <form className="Comment-Form" onSubmit={onCreateComm}>
               <div className="Comment-Form-Upper">
                 <textarea
@@ -187,11 +191,12 @@ function Post() {
                 </textarea>
               </div>
               <div className="Comment-Form-Lower">
-                <button type="submit" className="Submit-Comment-Button">
-                  Post Comment
-                </button>
+              <button type="submit" className="Submit-Comment-Button">
+                Post Comment
+              </button>
               </div>
-              </form>
+            </form>
+          </div>
         </div>
         }
         </div>
