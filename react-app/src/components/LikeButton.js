@@ -16,20 +16,16 @@ function LikeButton(props) {
     }
 
     const ClickHandler = async (e) => {
-        
         return props.LikeRequirements.ViewerLikeState === 1 ? 
         onLikeUnclick() :
         onLikeClick()
     }
     
-
     useEffect(() => {
     }, []);
-    
-    
+
     return ( 
         <>
-        
             <button className="Liked-Button" onClick={e => ClickHandler(e)}>
                 {props.LikeRequirements && 
                 <img 
@@ -50,13 +46,3 @@ function LikeButton(props) {
     )
 }
 export default LikeButton
-
-// hand both functions, do a turnery to choose which function to click 
-// 
-
-// LikedButton == filled
-// UnLikedButton == unfilled  --
-
-//'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'
-
-// find out if lifecycle problem is from parent or child component
