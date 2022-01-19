@@ -34,7 +34,7 @@ function LikeButton(props) {
                     'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png' :
                     "FAILURE"
                     }
-                alt={"failing"}
+                alt={"Failed to load"}
                 > 
                 </img>
                 }
