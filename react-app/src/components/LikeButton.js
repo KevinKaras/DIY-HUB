@@ -15,7 +15,7 @@ function LikeButton(props) {
         await dispatch(removeLike(props.LikeRequirements.PostId, props.LikeRequirements.sessionUserId))
     }
 
-    const ClickHandler = async (e) => {
+    const ClickHandler = async (e) => {                                   // CONDITIONAL HANDLER OF CLICK OPERATIONS
         return props.LikeRequirements.ViewerLikeState === 1 ? 
         onLikeUnclick() :
         onLikeClick()
