@@ -53,7 +53,6 @@ export const addLike = (postId, sessionUserId, sessionUsername) => async dispatc
         })
     })
     const likeObject = await response.json();
-    console.log(likeObject)
     dispatch(createLike(likeObject))
 }
 
@@ -65,7 +64,6 @@ export const removeLike = (postId, sessionUserId) => async dispatch => {
         }
     })
     const removedLike = await response.json();
-    console.log(removedLike)
     dispatch(delLike(removedLike.id))
 }
 
@@ -97,11 +95,12 @@ export default function reducer(state = [], action){
             newState.push(action.like) 
             return newState
         case DELETE: 
-        //     delete newState[action.likeId] 
-            newState.filter(like => !(like.id == action.likeId))
-            return newState
+            return newState.filter(like => !(like.id == action.likeId))
         default:
             return state
     }
 
 }
+
+
+// FILTER OUT THE LIKE FROM THE STATE SO IT HOPEFULLY FIXES THE RERENDERING ISSUE IN THE FRONT

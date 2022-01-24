@@ -28,10 +28,9 @@ function Post() {
   let pagePost = posts[postId]
 
   // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
-  const getLikesForPost = async (e) => { 
-    e.preventDefault()                               // GET
-    await dispatch(grabLikes(postId))
-  }
+  // const getLikesForPost = async (e) => {                              // GET
+  //   await dispatch(grabLikes(postId))
+  // }
 
   let LikeRequirementObject = {
     "ViewerLikeState" : likes.filter((like) => like.userid == sessionUser?.id).length,
@@ -39,7 +38,7 @@ function Post() {
     "sessionUserId" : sessionUser?.id,
     "sessionUserUsername" : sessionUser?.username
   }
-  console.log("FIRST PARENT ITERATION", LikeRequirementObject)
+  
 
 
   // COMMENT INTERACTION ---------------------------------------------------------------------------------------
@@ -108,15 +107,6 @@ function Post() {
                 Comment
               </button>
               {sessionUser && <LikeButton LikeRequirements={LikeRequirementObject} />}
-              {/* <button className="Like-Button" onClick={e => handleLikeStatus(e) }>
-                <img 
-                className="LikeButtonImage"
-                src={'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png'}
-                alt={"failed to load"}
-                >
-                </img>
-                <div className="Like-Button-Text">LIKE</div>
-              </button> */}
             </div>
             <div className="Info-Center-Row">
               {currentPost && sessionUser && currentPost.userid === sessionUser.id &&

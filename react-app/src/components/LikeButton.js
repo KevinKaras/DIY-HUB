@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch} from "react-redux"
-import { addLike, removeLike } from "../store/likes";
+import { addLike, removeLike, grabLikes } from "../store/likes";
 import EmptyLike from "../components/CSS/photos/LikeButtonEmpty.png"
 import FilledLike from "../components/CSS/photos/LikeButtonFilled.png"
 
 function LikeButton(props) {
     
     const dispatch = useDispatch()
-    console.log(props)
 
-    const onLikeClick = async (e) => {                                    // CREATE                               
+    const onLikeClick = async (e) => {                                    // CREATE                              
         await dispatch(addLike(props.LikeRequirements.PostId, props.LikeRequirements.sessionUserId, props.LikeRequirements.sessionUserUsername))
     }
     
@@ -24,7 +23,8 @@ function LikeButton(props) {
     }
     
     useEffect(() => {
-    }, []);
+    // dispatch(grabLikes(props.LikeRequirements.PostId))
+    }, [ClickHandler]);
 
     return ( 
         <>
