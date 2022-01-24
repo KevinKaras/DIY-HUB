@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch} from "react-redux"
 import { addLike, removeLike } from "../store/likes";
+import EmptyLike from "../components/CSS/photos/LikeButtonEmpty.png"
+import FilledLike from "../components/CSS/photos/LikeButtonFilled.png"
 
 function LikeButton(props) {
     
@@ -31,8 +33,8 @@ function LikeButton(props) {
                 <img 
                 className="LikeButtonImage"
                 src={props.LikeRequirements.ViewerLikeState == 1 ? 
-                    'https://www.pinclipart.com/picdir/big/80-800346_blue-clip-art.png' :
-                    "FAILURE"
+                    FilledLike :
+                    EmptyLike
                     }
                 alt={"Failed to load"}
                 > 
