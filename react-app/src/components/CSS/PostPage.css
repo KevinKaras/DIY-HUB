@@ -31,6 +31,7 @@
     width: auto;
     font-size: 4.5vh;
     font-weight: 550;
+    white-space: nowrap
 
 }
 
@@ -130,8 +131,8 @@
 
 .LikeButtonImage{
     display: inline;
-    width: 1vw;
-    height: 1.5vh;
+    width: 1.1vw;
+    height: 1.8vh;
     margin-right: 0.5vw;
 }
 

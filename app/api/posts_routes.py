@@ -24,7 +24,8 @@ def profilePosts(userId):
 @posts_routes.route('/<int:id>')
 def post(id):
     post = Post.query.filter_by(id = id).one()
-    return post.to_dict()
+    user = User.query.filter_by(id = post.userid).one()
+    return { "Post" : post.to_dict(), "Author" : user.to_dict() }
 
 @posts_routes.route('/create', methods=['POST'])
 def create():

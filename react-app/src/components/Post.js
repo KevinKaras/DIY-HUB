@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
+import { getViewPost } from "../store/ViewPost";
 // import Comment from "./Comment.js"
 import LikeButton from "./LikeButton"
 import { addLike, grabLikes, removeLike } from "../store/likes";
@@ -20,12 +21,11 @@ function Post() {
   const posts = useSelector(state => state.posts)
   const photo = useSelector(state => state.photos)
   const likes = useSelector(state => state.likes)
+  const currentPost = useSelector(state => state.ViewPost)
   const sessionUser = useSelector(state => state.session.user)
-  const currentPost = useSelector(state => state.posts[postId]) 
   const comments = useSelector(state => state.CommentsOfPost)
   let [comment, setComment] = useState('')
   let [isLoading, setIsLoading] = useState(true)
-  let pagePost = posts[postId]
 
   // LIKES INTERACTIONS ----------------------------------------------------------------------------------------
   // const getLikesForPost = async (e) => {                              // GET
@@ -67,6 +67,7 @@ function Post() {
   // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
   useEffect(() => {
     dispatch(grabPosts())
+    dispatch(getViewPost(postId))
     dispatch(grabComments(postId))
     dispatch(grabLikes(postId))
   }, []);
@@ -79,13 +80,13 @@ function Post() {
     <div className="Post">
     <div className="Post-Banner">
         <div className="Post-Title-Container">
-            <div className="Post-Title-Container-Text">{pagePost?.name}</div>
+            <div className="Post-Title-Container-Text">{currentPost?.Post?.name}</div>
         </div>
     </div>
     <div className="Post-Container">
         <img 
         className="Post-Container-Photo"
-        src={currentPost?.url}
+        src={currentPost?.Post?.url}
         alt="Photo Not Found"></img> 
     </div>
     <div className="Author-Section">
@@ -96,7 +97,7 @@ function Post() {
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
               <div className="Author-Identifier">
-                <span>By</span> <span className="Author-Name">AUTHOR</span>
+                <span>By</span> <span className="Author-Name">{currentPost?.Author?.username[0].toUpperCase() + currentPost?.Author?.username.slice(1)}</span>
               </div>
               <div className="Likes-Numeric">
                 {likes.length} Likes
@@ -109,7 +110,7 @@ function Post() {
               {sessionUser && <LikeButton LikeRequirements={LikeRequirementObject} />}
             </div>
             <div className="Info-Center-Row">
-              {currentPost && sessionUser && currentPost.userid === sessionUser.id &&
+              {currentPost?.Post?.userid && sessionUser && currentPost?.Post?.userid === sessionUser.id &&
                 <>
                   <form>
                     <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
@@ -136,14 +137,14 @@ function Post() {
       </div>
       <div className="Instruction-Container">
         <p className="Instructions-TextBody">
-            {pagePost?.instructions}
+            {currentPost?.Post?.instructions}
         </p>
       </div>
     </div>
         <div className="Comment-Section">
           <div className="Comment-Banner">
             <div className="Comment-Numeric">
-                {}Comments:
+                {comments?.length} Comments:
             </div>
           </div>
         <div className="Comment-Container">

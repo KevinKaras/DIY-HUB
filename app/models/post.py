@@ -6,7 +6,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     userid = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String(100), nullable = False, unique = True)
-    instructions = db.Column(db.String(1000), nullable = False)
+    instructions = db.Column(db.String(5000), nullable = False)
     url = db.Column(db.String(1000), nullable = False)
 
     def to_dict(self):

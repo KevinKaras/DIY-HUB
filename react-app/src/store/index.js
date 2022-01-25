@@ -6,11 +6,13 @@ import userPosts from './userPosts'
 import photos from './photos'
 import CommentsOfPost from './comment'
 import likes from './likes'
+import ViewPost from './ViewPost'
 
 
 const rootReducer = combineReducers({
     session,
     posts,
+    ViewPost,
     userPosts,
     photos,
     CommentsOfPost,

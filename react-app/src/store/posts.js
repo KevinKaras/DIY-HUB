@@ -26,7 +26,9 @@ const obtainPosts = (posts) => ({
     posts
 })
 
-// --------------------------------------------------------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------------------------------------------------- EDIT POST
 
 export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
     const response = await fetch(`/api/posts/${postId}/edit`, {
@@ -47,7 +49,7 @@ export const modifyPost = (postId, userId, name, instructions, url) => async dis
     return updatedPost
 }
 
-// ---------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------- GET POSTS/POST
 
 export const grabPosts = () => async dispatch => {
     const response = await fetch('/api/posts/', {
@@ -59,7 +61,7 @@ export const grabPosts = () => async dispatch => {
 }
 
 
-// ---------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------- POST NEW-POST
 
 export const createPost = (userid, name, instructions, url) => async dispatch => {
     
@@ -79,7 +81,7 @@ export const createPost = (userid, name, instructions, url) => async dispatch =>
 }
 
 
-// ---------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------- DELETE POST
 
 export const deletePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}/delete`, {
@@ -110,9 +112,7 @@ export default function reducer(state = {}, action){
         case EDIT:
             newState[action.post.id] = action.post
             return newState
-        
         default:
             return state
     }
-
 }
