@@ -147,7 +147,7 @@ function Post() {
                 {comments?.length} Comments:
             </div>
           </div>
-        <div className="Comment-Container">
+        {/* <div className="Comment-Container">
             <div className="Comment-Upper">
                 <div className="Commenter-Icon">
                     <img></img>
@@ -158,7 +158,8 @@ function Post() {
             <div className="Comment-Lower">
                 <div className="Comment-Text"></div>
             </div>
-        </div>
+        </div> */}
+        {/* RENDER ALL COMMENT COMPONENTS HERE */}
         {sessionUser && 
         <div className="Comment-Creation-Area">
           <div className="Comment-Creator-Container">
