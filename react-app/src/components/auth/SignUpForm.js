@@ -14,6 +14,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [url, setPhotoUrl] = useState('')
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -41,6 +42,11 @@ const SignUpForm = () => {
 
   if (sessionLoaded && user) {
     return <Redirect to="/" />;
+  }
+  
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setPhotoUrl(file);
   }
 
   return (
@@ -92,6 +98,16 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
+        <div>Profile Picture:</div>
+        <input
+        className="ImageInputBox"
+        type="file"
+        name="url"
+        placeholder="Add a link to a url for a profile photo"
+        onChange={(e) => {
+            updateImage(e)
+            }}
+        ></input>
         <button type="submit" className="SignUpSubmitBtn">Sign Up</button>
       </form>
     </div>
