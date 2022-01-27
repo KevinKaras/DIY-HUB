@@ -12,8 +12,8 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [url, setPhotoUrl] = useState('')
 
-  
   const onLogin =  async (e) => {
     
     e.preventDefault();
@@ -33,6 +33,11 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setPhotoUrl(file);
+}
 
   if (user) {
     return <Redirect to="/" />;                
@@ -69,8 +74,17 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        
       </div>
+      <div>Profile Picture:</div>
+      <input
+        className="ImageInputBox"
+        type="file"
+        name="url"
+        placeholder="Add a link to a url for a profile photo"
+        onChange={(e) => {
+            updateImage(e)
+            }}
+      ></input>
       <button type="submit" className="LoginButton">Login:</button>
     </form>
   );
