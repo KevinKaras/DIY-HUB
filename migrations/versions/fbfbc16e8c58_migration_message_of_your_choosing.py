@@ -1,8 +1,8 @@
 """migration message of your choosing
 
-Revision ID: 3c0cd63c6a7c
+Revision ID: fbfbc16e8c58
 Revises: 
-Create Date: 2022-01-27 16:04:15.948369
+Create Date: 2022-01-27 18:43:50.691440
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '3c0cd63c6a7c'
+revision = 'fbfbc16e8c58'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('url', sa.String(length=1000), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')

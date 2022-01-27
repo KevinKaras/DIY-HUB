@@ -92,7 +92,7 @@ function Post() {
     <div className="Author-Section">
       <div className="Author-Info-Center">
           <div className="Author-Picture-Container">
-            <img className="Author-Picture" src={PlaceHolderPic}/>
+            <img className="Author-Picture" src={sessionUser?.url}/>
           </div>
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
@@ -164,7 +164,7 @@ function Post() {
         <div className="Comment-Creation-Area">
           <div className="Comment-Creator-Container">
             <div className="Commenter-Profile-Section">
-              <img className="Commentor-Profile-Picture" src={PlaceHolderPic}></img>
+              <img className="Commentor-Profile-Picture" src={sessionUser?.url}></img>
             </div>
             <form className="Comment-Form" onSubmit={onCreateComm}>
               <div className="Comment-Form-Upper">

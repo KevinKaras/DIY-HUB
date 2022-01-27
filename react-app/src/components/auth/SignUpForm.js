@@ -12,16 +12,16 @@ const SignUpForm = () => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [url, setPhotoUrl] = useState('')
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [url, setPhotoUrl] = useState('')
+  
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      dispatch(signUp(username, email, password))
-      
-    }
+      dispatch(signUp(username, email, password, url))
+      }
   };
 
   const updateUsername = (e) => {

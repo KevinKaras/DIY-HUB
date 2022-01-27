@@ -24,64 +24,54 @@ function CreatePost() {
 
     const onCreate = async (event) => {
         event.preventDefault()
-        
         const createdPost = await dispatch(createPost(user.id, name, instructions, url))
-        
         history.push(`/post/${createdPost.id}`)
     }
     
     useEffect(() => {
         dispatch(grabPosts())
-        
-        
     }, [dispatch]);
-    
-    
+
     const updateImage = (e) => {
         const file = e.target.files[0];
         setPhotoUrl(file);
     }
-  
-	
 
-  return (
-    <>
-        <h1 className="PostTitle">Create a Post</h1>
-        <div className="PostCreationDiv">
-            <form onSubmit={onCreate} className="formDiv">
-                <div className="BoxIdentifierText">Title:</div>
-                <input
-                className="TitleInputBox"
-                type="text"
-                name="name"
-                placeholder="Example: How to build a shelf"
-                onChange={(e) => setName(e.target.value)}
-                ></input>
-                <div className="BoxIdentifierText" >Instructions:</div>
-                <textarea
-                className="InstructionInputBox"
-                type="text"
-                name="instructions"
-                placeholder="Example: Step 1: Get a piece of wood..."
-                onChange={(e) => setInstructions(e.target.value)}
-                ></textarea>
-                <div className="BoxIdentifierText" >Image:</div>
-                <input
-                className="ImageInputBox"
-                type="file"
-                name="url"
-                placeholder="Add a link to a url for a display photo"
-                onChange={(e) => {
-                    updateImage(e)
-                    }}
-                ></input>
-                <button className='postAddBtn' type='submit'>Submit Post</button>
-                
-            </form>
-        </div>
-        
-    </>
-
-  )
+    return (
+      <>
+          <h1 className="PostTitle">Create a Post</h1>
+          <div className="PostCreationDiv">
+              <form onSubmit={onCreate} className="formDiv">
+                  <div className="BoxIdentifierText">Title:</div>
+                  <input
+                  className="TitleInputBox"
+                  type="text"
+                  name="name"
+                  placeholder="Example: How to build a shelf"
+                  onChange={(e) => setName(e.target.value)}
+                  ></input>
+                  <div className="BoxIdentifierText" >Instructions:</div>
+                  <textarea
+                  className="InstructionInputBox"
+                  type="text"
+                  name="instructions"
+                  placeholder="Example: Step 1: Get a piece of wood..."
+                  onChange={(e) => setInstructions(e.target.value)}
+                  ></textarea>
+                  <div className="BoxIdentifierText" >Image:</div>
+                  <input
+                  className="ImageInputBox"
+                  type="file"
+                  name="url"
+                  placeholder="Add a link to a url for a display photo"
+                  onChange={(e) => {
+                      updateImage(e)
+                      }}
+                  ></input>
+                  <button className='postAddBtn' type='submit'>Submit Post</button>
+              </form>
+          </div>
+      </>
+    )
 }
 export default CreatePost;

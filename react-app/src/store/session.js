@@ -13,8 +13,6 @@ const destroySession = () => ({
   type: DESTROY
 })
 
-
-
 export const authenticate = () => async dispatch => {
   const response = await fetch('/api/auth/',{
     headers: {
@@ -43,8 +41,6 @@ export const login = (email, password) => async (dispatch) => {
   return user;
 }
 
-
-
 export const logout = () => async dispatch => {
   const response = await fetch("/api/auth/logout", {
     headers: {
@@ -56,26 +52,22 @@ export const logout = () => async dispatch => {
 };
 
 
-export const signUp = (username, email, password) => async dispatch => {
+export const signUp = (username, email, password, url) => async dispatch => {
+
+  const formData = new FormData();
+    formData.append("username", username)
+    formData.append("email", email)
+    formData.append("password", password);
+    formData.append("image", url)
+
   const response = await fetch("/api/auth/signup", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username,
-      email,
-      password,
-    }),
+    body: formData
   });
   const user = await response.json();
-  if(user.errors){
-    const err = new Error('Unauthorized')
-    err.errors = user.error;
-    throw err
-  } else {
-    dispatch(createSession(user));
-  }
+  console.log(user)
+  dispatch(createSession(user));
+  
 }
 
  

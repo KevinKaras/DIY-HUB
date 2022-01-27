@@ -38,8 +38,6 @@ def create():
         url = upload["url"]
 
     form = PostForm()
-    
-    
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post(
