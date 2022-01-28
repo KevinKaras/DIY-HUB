@@ -5,9 +5,9 @@ import { grabPosts, deletePost } from "../store/posts"
 import { getViewPost } from "../store/ViewPost";
 // import Comment from "./Comment.js"
 import LikeButton from "./LikeButton"
-import { addLike, grabLikes, removeLike } from "../store/likes";
+import { addLike, grabLikes, removeLike, deleteAllLikes } from "../store/likes";
 import { grabPhoto } from '../store/photos'
-import PlaceHolderPic from "../components/CSS/photos/RandomFillerProfile.jpg"
+
 import { grabComments, addComment, deleteComment, deleteAllComments } from '../store/comment'
 import './CSS/PostPage.css'
 
@@ -58,7 +58,7 @@ function Post() {
   }
   const onDelete = async (e) => {                                          // DELETE
     e.preventDefault()
-    // await dispatch(deleteAllLikes(postId))                             // IMPLEMENT THIS TODAY
+    await dispatch(deleteAllLikes(postId))                             // IMPLEMENT THIS TODAY
     await dispatch(deleteAllComments(postId))                             
     await dispatch(deletePost(postId))
         

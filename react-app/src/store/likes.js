@@ -2,6 +2,7 @@ const OBTAIN = 'likes/OBTAIN'
 const GATHERALL = 'likes/GATHERALL'
 const CREATE = 'likes/CREATE'
 const DELETE = 'likes/DELETE'
+const DESTROY = 'likes/DESTROY'
 
 
 const delLike = (likeId) => ({
@@ -24,6 +25,11 @@ const obtainPostLikes = (likes) => ({
 //     type: GATHERALL,
 //     allLikes
 // })
+
+const delAllLikes = (postId) => ({
+    type: DESTROY,
+    postId
+})
 
 
 
@@ -67,6 +73,18 @@ export const removeLike = (postId, sessionUserId) => async dispatch => {
     dispatch(delLike(removedLike.id))
 }
 
+export const deleteAllLikes = (postId) => async dispatch => {
+    const response = await fetch(`/api/likes/destroy/${postId}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const removedPostId = response.json();
+    console.log(removedPostId)
+    dispatch(delAllLikes(postId))
+}
+
 
 
 // export default function reducer(state = {}, action){
@@ -96,6 +114,8 @@ export default function reducer(state = [], action){
             return newState
         case DELETE: 
             return newState.filter(like => !(like.id == action.likeId))
+        case DESTROY:
+            return newState.filter(like => !(like.postid == action.postId))
         default:
             return state
     }

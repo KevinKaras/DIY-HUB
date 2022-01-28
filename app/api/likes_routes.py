@@ -34,3 +34,12 @@ def delete(postId, sessionUserId):
     db.session.delete(like)
     db.session.commit()
     return likeid
+
+@likes_routes.route('/destroy/<int:postId>', methods=['DELETE'])
+def destroy(postId):
+    
+    likes = Like.query.filter_by(postid=postId).all()
+    for like in likes:
+       db.session.delete(like) 
+    db.session.commit()
+    return postId
