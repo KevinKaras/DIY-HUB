@@ -58,7 +58,8 @@ function Post() {
   }
   const onDelete = async (e) => {                                          // DELETE
     e.preventDefault()
-    await dispatch(deleteAllComments(postId))
+    // await dispatch(deleteAllLikes(postId))                             // IMPLEMENT THIS TODAY
+    await dispatch(deleteAllComments(postId))                             
     await dispatch(deletePost(postId))
         
     history.push(`/`)
