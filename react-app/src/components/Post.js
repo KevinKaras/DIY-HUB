@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory} from "react-router-dom";
 import { grabPosts, deletePost } from "../store/posts"
 import { getViewPost } from "../store/ViewPost";
-// import Comment from "./Comment.js"
+import Comment from "./Comment.js"
 import LikeButton from "./LikeButton"
 import { addLike, grabLikes, removeLike, deleteAllLikes } from "../store/likes";
 import { grabPhoto } from '../store/photos'
@@ -52,13 +52,17 @@ function Post() {
     await dispatch(deleteComment(postId, commentId))
   }
 
+  // function loadAllComments(){
+  //   console.log("All comments", comments)
+  // }
+
   // AUTHOR INTERACTION ---------------------------------------------------------------------------------------
   const onEditPost = async (e) => {                                        // UPDATE
     history.push(`/post/${postId}/edit`)
   }
   const onDelete = async (e) => {                                          // DELETE
     e.preventDefault()
-    await dispatch(deleteAllLikes(postId))                             // IMPLEMENT THIS TODAY
+    await dispatch(deleteAllLikes(postId))                            
     await dispatch(deleteAllComments(postId))                             
     await dispatch(deletePost(postId))
         
@@ -148,19 +152,10 @@ function Post() {
                 {comments?.length} Comments:
             </div>
           </div>
-        {/* <div className="Comment-Container">
-            <div className="Comment-Upper">
-                <div className="Commenter-Icon">
-                    <img></img>
-                </div>
-                <div className="Commenter-Name"></div>
-                <div className="Comment-Date/Time"></div>
-            </div>
-            <div className="Comment-Lower">
-                <div className="Comment-Text"></div>
-            </div>
-        </div> */}
-        {/* RENDER ALL COMMENT COMPONENTS HERE */}
+          <div className="Comments">
+              <Comment commentCombo={comments[0]} />
+          </div>
+        </div>
         {sessionUser && 
         <div className="Comment-Creation-Area">
           <div className="Comment-Creator-Container">
@@ -189,7 +184,6 @@ function Post() {
         </div>
         }
         </div>
-    </div>
     </>
     )
   }
