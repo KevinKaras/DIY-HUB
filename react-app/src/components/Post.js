@@ -69,15 +69,17 @@ function Post() {
     history.push(`/`)
   }
   
+  
   // WHEN PAGE RENDERS THIS IS CALLED --------------------------------------------------------------------------
   useEffect(() => {
     dispatch(grabPosts())
     dispatch(getViewPost(postId))
     dispatch(grabComments(postId))
     dispatch(grabLikes(postId))
+    
   }, []);
 
-  
+
 
   return (
     <>
@@ -97,7 +99,7 @@ function Post() {
     <div className="Author-Section">
       <div className="Author-Info-Center">
           <div className="Author-Picture-Container">
-            <img className="Author-Picture" src={sessionUser?.url}/>
+            <img className="Author-Picture" src={currentPost?.Author?.url}/>
           </div>
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
@@ -153,7 +155,9 @@ function Post() {
             </div>
           </div>
           <div className="Comments">
-              <Comment commentCombo={comments[0]} />
+            {comments && 
+              comments.map(comment => <Comment commentCombo={comment} />)
+            }
           </div>
         </div>
         {sessionUser && 

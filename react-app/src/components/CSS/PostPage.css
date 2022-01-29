@@ -44,6 +44,7 @@
 
 
 .Post-Container-Photo {
+    object-fit: cover;
     height: 100%;
     width: 75%;
     border-radius: 1px solid rgb(185, 185, 185);
@@ -78,7 +79,7 @@
     height: 8vh;
     width: 7vh;
     margin:0.5vw;
-    border-radius: 4vw;
+    border-radius: 50%;
 }
 
 .Author-Post-Info{
@@ -224,7 +225,7 @@
     font-size: 1.5em;
     text-indent: 2em;
     padding-bottom: 1em;
-    border-bottom: 1.75px solid black;
+    border-bottom: 1.75px solid rgb(110, 110, 110);
 }
 
 .AddCommentsDiv {
@@ -236,11 +237,8 @@
     width: 48%
 }
 
-.CommentSection {
-    width: 100vw;
-    height: auto;
-    display: flex;
-    justify-content: center;
+.Comment-Section{
+
 }
 
 .Comment-Banner {
@@ -260,7 +258,7 @@
 .Comment-Creation-Area{
     display: flex;
     justify-content: center;
-    margin-bottom:3vh ;
+    margin:3vh 0vw 3vh 0vw;
 }
 
 .Comment-Creator-Container {
@@ -326,33 +324,85 @@
     font-family: RobotoCondensed-Regular;
 }
 
+/* COMMENTS STYLING ----------------------------------------------------------------------------------------------------------------------- */
+
+.Comments{
+    height: auto;
+    width: 100vw; 
+}
+
+
+
+.Comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 1.5vh;
+    height: auto;
+    width: 100vw;
+}
 
 .Comment-Container{
-
+    /* border-top: 1px solid rgba(151, 151, 151, 0.678); */
+    border-bottom: 1px solid rgba(151, 151, 151, 0.678);
+    /* background-color: rgb(238, 229, 229); */
+    /* border: 1px solid black; */
+    padding-bottom: 1.5vh;
+    margin-bottom: 0.5vh;
+    height: auto;
+    width: 50vw;
 }
 
 .Comment-Upper{
-
+    background-color:;
+    display:flex;
+    align-items: center;
+    height: 40%;
+    width: 100%;
 }
 
 .Commenter-Icon{
+    
+    height: 5.5vh;
+    width: 3.5vw;
+    margin: 1vh 1vw 1vh 1vw;
+    
+}
 
+.Commenter-Icon-Img{
+    height: 5.5vh;
+    width: 3.5vw;
+    object-fit: fill;
+    border-radius: 50%;
 }
 
 .Commenter-Name{
-
+    font-family: RobotoCondensed-Regular;
+    font-size: 1.5em;
+    height: auto;
+    width: auto;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.678);
 }
 
 .Comment-Date-Time{
-
+    
 }
 
 .Comment-Lower{
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color:;
+    height: 60%;
+    width: 100%;
 }
 
 .Comment-Text{
-    
+    overflow-wrap: break-word;
+    margin-left: 1vw;
+    height: auto;
+    width: 48vw
 }
 
 
