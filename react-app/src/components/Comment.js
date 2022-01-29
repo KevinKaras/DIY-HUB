@@ -7,7 +7,7 @@ import './CSS/PostPage.css'
 
 function Comment(props){
     let [dotStatus, setDotStatus] = useState(false)
-    console.log(props)
+    let sessionUser = useSelector(state => state.session.user)
     let dispatch = useDispatch()
 
     const onDeleteComment = async (e) => {               // DELETE
@@ -41,15 +41,17 @@ function Comment(props){
                     </div>
                     <div className="Commenter-Name">{props?.commentCombo?.user?.username}</div>
                     <div className="Comment-Date-Time">{props?.commentCombo?.comment?.creationDate}</div>
-                    <div className="Drop-Down-Dots-Container">
-                        <button className="Drop-Down-Dots" onClick={(e) => DotHandler(e)}>...</button> 
-                        <div className={dotStatus ? 
-                                        'Drop-Down-Dots-Content-Show' :
-                                        'Drop-Down-Dots-Content-Hidden' }>
-                            <button className="Drop-Down-Dot-Edit">Edit</button>
-                            <button className="Drop-Down-Dot-Delete" onClick={(e) => {onDeleteComment(e)}}>Delete</button>
+                    { sessionUser?.id == props?.commentCombo?.user?.id &&
+                        <div className="Drop-Down-Dots-Container">
+                            <button className="Drop-Down-Dots" onClick={(e) => DotHandler(e)}>...</button> 
+                            <div className={dotStatus ? 
+                                            'Drop-Down-Dots-Content-Show' :
+                                            'Drop-Down-Dots-Content-Hidden' }>
+                                <button className="Drop-Down-Dot-Edit">Edit</button>
+                                <button className="Drop-Down-Dot-Delete" onClick={(e) => {onDeleteComment(e)}}>Delete</button>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <div className="Comment-Lower">
                     <div className="Comment-Text">{props?.commentCombo?.comment?.commentText}</div>
