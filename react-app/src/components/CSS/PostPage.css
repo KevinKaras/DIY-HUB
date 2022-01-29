@@ -389,6 +389,64 @@
     
 }
 
+.Drop-Down-Dots-Container{
+    margin-left: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.Drop-Down-Dots{
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    font-size: 18px;
+    border-radius: 2px;
+    border: none;
+}
+.Drop-Down-Dots:hover, .Drop-Down-Dots:focus{
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+    font-size: 18px;
+    border-radius: 2px;
+    border: none;
+}
+
+.Drop-Down-Dots-Content-Hidden{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 3vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.Drop-Down-Dots-Content-Show{
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 3vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.Drop-Down-Dot-Edit{
+    display: block;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    font-size: 15px;
+    border-radius: 2px;
+    border: none;
+
+}
+
+.Drop-Down-Dot-Delete{
+    display: block;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    font-size: 15px;
+    border-radius: 2px;
+    border: none;
+}
+
 .Comment-Lower{
     display: flex;
     justify-content: flex-start;

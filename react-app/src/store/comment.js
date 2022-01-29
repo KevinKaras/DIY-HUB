@@ -36,7 +36,6 @@ export const addComment = (userid, postid, commentText) => async dispatch => {
         })
     })
     const madeComment = await response.json()
-    console.log("this is the comment: " + madeComment)
     dispatch(addComm(madeComment))
 }
 
