@@ -24,7 +24,7 @@ function Comment(props){
                     <img src={props?.commentCombo?.user?.url}></img>
                 </div>
                 <div className="Commenter-Name">{props?.commentCombo?.comment?.name}</div>
-                <div className="Comment-Date/Time">{props?.commentCombo?.comment?.creationDate}</div>
+                <div className="Comment-Date-Time">{props?.commentCombo?.comment?.creationDate}</div>
             </div>
             <div className="Comment-Lower">
                 <div className="Comment-Text">{props?.commentCombo?.comment?.commentText}</div>
