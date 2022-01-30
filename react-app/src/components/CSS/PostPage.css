@@ -59,7 +59,6 @@
 
 .Author-Info-Center {
     background-color: rgb(245, 235, 235);
-    box-shadow: 0px 0px 5px 0.5px;
     border: 1px solid rgb(179, 178, 178);
     border-radius: 3px;
     display: flex;
@@ -177,7 +176,7 @@
     align-items: center;
     align-items: center;
     height: 8vh;
-    width: 7vw;
+    width: 6vw;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.863);

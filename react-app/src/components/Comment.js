@@ -27,6 +27,7 @@ function Comment(props){
         // console.log("TO EDIT", props.commentCombo.user.id, props.commentCombo.comment.postid, props.commentCombo.comment.id, comment)
         dispatch(editComment(props.commentCombo.user.id, props.commentCombo.comment.postid, props.commentCombo.comment.id, comment))
         onEditCommentHandler(e)
+        DotHandler(e)
     }
     
     const DotHandler = async (e) => {
