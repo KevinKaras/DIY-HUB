@@ -60,6 +60,7 @@ function Post() {
   const onEditPost = async (e) => {                                        // UPDATE
     history.push(`/post/${postId}/edit`)
   }
+  
   const onDelete = async (e) => {                                          // DELETE
     e.preventDefault()
     await dispatch(deleteAllLikes(postId))                            

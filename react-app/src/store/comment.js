@@ -1,5 +1,6 @@
 const OBTAIN = "comments/OBTAIN"
 const CREATE = "comments/CREATE"
+const EDIT = "comments/EDIT"
 const DELETE = "comments/DELETE"
 const REMOVAL = "comments/REMOVAL"
 
@@ -11,6 +12,12 @@ const obtainComm = (commentInfo) => ({
 const addComm = (comment) => ({
     type: CREATE,
     comment
+})
+
+const editComm = (comment, oldId) => ({
+    type: EDIT,
+    comment,
+    oldId
 })
 
 const delComm = (commentId) => ({
@@ -37,6 +44,24 @@ export const addComment = (userid, postid, commentText) => async dispatch => {
     })
     const madeComment = await response.json()
     dispatch(addComm(madeComment))
+}
+
+export const editComment = (userid, postid, commentid, commentText) => async dispatch => {
+    const response = await fetch(`/api/posts/${postid}/comments/edit/${commentid}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({
+            userid, 
+            postid, 
+            commentid, 
+            commentText
+        })
+    })
+
+    const remadeComment = await response.json()
+    dispatch(editComm(remadeComment, commentid))
 }
 
 
@@ -81,8 +106,11 @@ export default function reducer(state = [], action){
         case OBTAIN:
             return action.commentInfo
         case CREATE: 
-            console.log("THIS IS THE STATE: ", state, action.comment)
             return [...state, action.comment]
+        case EDIT:
+            let filteredState = [...state.filter(state => state.comment.id != action.oldId)]
+            filteredState.push(action.comment)
+            return filteredState
         case DELETE:
             return [...state.filter(state => state.comment.id !== Number(action.commentId))]
         case REMOVAL:

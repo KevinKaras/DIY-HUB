@@ -76,10 +76,11 @@
 }
 
 .Author-Picture{
-    height: 8vh;
-    width: 7vh;
-    margin:0.5vw;
+    height: 8.5vh;
+    width: 8.5vh;
+    margin:0.5vw 0.5vw 0.5vw 1vw;
     border-radius: 50%;
+
 }
 
 .Author-Post-Info{
@@ -265,8 +266,7 @@
     display: flex;
     height: 17vh;
     background-color: rgb(245, 235, 235);
-    box-shadow: 0px 0px 3px 1px;
-    border: 1px solid rgb(179, 178, 178);
+    border: 1px solid rgb(197, 197, 197);
     border-radius: 3px;
 }
 
@@ -283,7 +283,7 @@
     height: 6vh;
     width: 3.5vw;
     border-radius: 4vw;
-    border: 1px solid black;
+    border: 1px solid rgb(180, 180, 180);
     box-shadow: 0vh 0vh 0.25vh;
 }
 
@@ -300,8 +300,8 @@
     margin: 1vh 0.5vh 1vh 0.5vh;
     height: 11vh;
     width: 35vw;
-    border: 1px solid black;
-    box-shadow: 0vh 0vh 2px 0;
+    border: 1px solid rgb(179, 179, 179);
+    
 }
 
 .Comment-Form-Lower {
@@ -314,10 +314,9 @@
 .Submit-Comment-Button {
     height:2.5vh;
     width: 10vw;
-    border: 1.75px solid black;
-    background-color:rgb(69, 226, 160);
+    border: 1.75px solid rgb(136, 135, 135);
+    background-color:rgb(123, 255, 200);
     border-radius: 3px;
-    box-shadow: 0px 0px 0.5px black;
     cursor: pointer;
     margin: 1vh 1.5vh 0vh 0vh;
     font-size: 1em;
@@ -451,17 +450,71 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color:;
     height: 60%;
     width: 100%;
 }
 
 .Comment-Text{
+    font-family: RobotoCondensed-Regular;
+    font-size: 18px;
     overflow-wrap: break-word;
     margin-left: 1vw;
     height: auto;
     width: 48vw
 }
+
+.Edit-Comment-Form-Upper{
+    height:8vh;
+    width: 48vw;
+}
+
+.Edit-Comment-Lower{
+
+}
+
+.Edit-Comment-Form{
+
+}
+
+.Edit-Comment-Form-Lower{
+    display:flex;
+    justify-content: flex-end;
+    margin-top: 1vh;
+}
+
+.Cancel-Edit-Comment-Button{
+    margin: 0.5vh 1vw 0vh 0vw;
+    height: 2.5vh;
+    width: 10vw;
+    border: 1.75px solid rgb(136, 135, 135);
+    background-color: rgb(251, 98, 98);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: RobotoCondensed-Regular;
+}
+
+.Submit-Editted-Comment-Button{
+    margin: 0.5vh 1.5vw 0vh 0vw;
+    height: 2.5vh;
+    width: 10vw;
+    border: 1.75px solid rgb(136, 135, 135);
+    background-color: rgb(123, 255, 200);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: RobotoCondensed-Regular;
+}
+
+.Edit-Comment-Input{
+    height: 100%;
+    width: 48vw
+}
+
+/* EDIT AREA STYLING */
+
+
+
 
 
 

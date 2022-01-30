@@ -27,28 +27,6 @@ const obtainPosts = (posts) => ({
 })
 
 
-
-// ------------------------------------------------------------------------------------------------------------- EDIT POST
-
-export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
-    const response = await fetch(`/api/posts/${postId}/edit`, {
-        method: "POST",
-        headers: {
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({
-            userId,
-            name,
-            instructions,
-            url
-        })
-    })
-    const updatedPost = await response.json()
-    console.log(updatedPost)
-    dispatch(editPost(updatedPost))
-    return updatedPost
-}
-
 // -------------------------------------------------------------------------------------------------------------- GET POSTS/POST
 
 export const grabPosts = () => async dispatch => {
@@ -80,6 +58,26 @@ export const createPost = (userid, name, instructions, url) => async dispatch =>
     return createdPost
 }
 
+// ------------------------------------------------------------------------------------------------------------- EDIT POST
+
+export const modifyPost = (postId, userId, name, instructions, url) => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}/edit`, {
+        method: "POST",
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({
+            userId,
+            name,
+            instructions,
+            url
+        })
+    })
+    const updatedPost = await response.json()
+    console.log(updatedPost)
+    dispatch(editPost(updatedPost))
+    return updatedPost
+}
 
 // --------------------------------------------------------------------------------------------------------------- DELETE POST
 

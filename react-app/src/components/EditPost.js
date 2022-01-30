@@ -24,7 +24,6 @@ function EditPost() {
     const oldImage = oldPostData?.url
     
     const [name, setName] = useState(`${oldName}`)
-    
     const [instructions, setInstructions] = useState(`${oldInstructions}`)
     const [url, setPhotoUrl] = useState(`${oldImage}`)
     const user = useSelector(state => state.session.user)    
@@ -35,24 +34,19 @@ function EditPost() {
     const onEditComplete = async (event) => {
         event.preventDefault()
         const createdPost = await dispatch(modifyPost(postId, user.id, name, instructions, url))
-        
         history.push(`/post/${createdPost.id}`)
     }
     
     useEffect(() => {
         dispatch(grabPosts())
-        
-        
     }, [dispatch]);
     
-    
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setPhotoUrl(file);
+    }
    
-    
-
-  
-	
-
-  return (
+    return (
     <>
         <h1 className="PostTitle">Edit Your Post</h1>
         <div className="PostCreationDiv">
@@ -74,14 +68,15 @@ function EditPost() {
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
                 ></input>
-                <div className="BoxIdentifierText" >Image:</div>
                 <input
-                className="ImageInputBox"
-                type="text"
-                name="url"
-                value={url}
-                onChange={(e) => setPhotoUrl(e.target.value)}
-                ></input>
+                  className="ImageInputBox"
+                  type="file"
+                  name="url"
+                  placeholder="Add a link to a url for a display photo"
+                  onChange={(e) => {
+                      updateImage(e)
+                      }}
+                  ></input>
                 <button className='postAddBtn' type='submit'>Submit Post</button>
 
             </form>

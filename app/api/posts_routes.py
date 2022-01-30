@@ -89,6 +89,31 @@ def createComment(postid):
         return CommentInfo
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
+@posts_routes.route('/<int:postId>/comments/edit/<int:commentId>', methods=["PUT"])
+def editComment(postId, commentId):
+
+    comment = Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = Comment(
+            userid = form.data["userid"],
+            postid = form.data["postid"],
+            commentText = form.data["commentText"]
+        )
+        db.session.add(comment)
+        db.session.commit()
+        user = User.query.filter(User.id == comment.userid).one()
+        CommentInfo = {
+            "comment": comment.to_dict(),
+            "user": user.to_dict()
+        }
+        return CommentInfo
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
 @posts_routes.route("/<int:postId>/comments/<int:commentId>/delete", methods=['DELETE'])
 def deleteComment(postId, commentId):
     comment = Comment.query.get(commentId)
