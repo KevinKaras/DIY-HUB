@@ -1,3 +1,4 @@
+from tkinter import E
 from .db import db
 
 class Comment(db.Model):
@@ -17,3 +18,6 @@ class Comment(db.Model):
             "postid": self.postid,
             "commentText": self.commentText
         }
+
+
+
