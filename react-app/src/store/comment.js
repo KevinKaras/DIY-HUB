@@ -73,9 +73,7 @@ export const grabComments = (postId) => async dispatch =>{
             "Content-Type": "application/json"
         }})
     const commentData = await response.json()
-    
     dispatch(obtainComm(commentData.comments))
-    // dispatch(obtainComm(commentData))
 }
 
 export const deleteComment = (postId, commentId) => async dispatch => {
@@ -101,22 +99,50 @@ export const deleteAllComments = (postId) => async dispatch => {
 }
 
 
-export default function reducer(state = [], action){
+export default function reducer(state = {}, action){
     switch(action.type){
         case OBTAIN:
-            return action.commentInfo
+            return {...action.commentInfo}
         case CREATE: 
-            return [...state, action.comment]
+            state[action.comment.comment.id] = action.comment
+            return {...state}
         case EDIT:
-            let filteredState = [...state.filter(state => state.comment.id != action.oldId)]
-            filteredState.push(action.comment)
-            return filteredState
+            delete state[action.oldId]
+            state[action.comment.comment.id] = action.comment
+            return {...state}
         case DELETE:
-            return [...state.filter(state => state.comment.id !== Number(action.commentId))]
+            delete state[action.commentId]
+            return {...state}
         case REMOVAL:
-            return [...state.filter(state => state.postid !== Number(action.postId))]
+            // REFACTOR THIS, THIS COULD BE CLEANER =============================================================
+            Object.entries(state)
+            .forEach((key, value) => 
+            {if(key[1].comment.postid == action.postId){
+                delete key[1]
+            }}
+            )
+            return {...state}
         default:
             return state;
     }
-
 }
+
+// export default function reducer(state = {}, action){
+//     let newState = {...state}
+//     switch(action.type){
+//         case OBTAIN:
+//             return {...action.commentInfo}
+//         case CREATE: 
+//             return [...state, action.comment]
+//         case EDIT:
+//             let filteredState = [...state.filter(state => state.comment.id != action.oldId)]
+//             filteredState.push(action.comment)
+//             return filteredState
+//         case DELETE:
+//             return [...state.filter(state => state.comment.id !== Number(action.commentId))]
+//         case REMOVAL:
+//             return [...state.filter(state => state.postid !== Number(action.postId))]
+//         default:
+//             return state;
+//     }
+// }

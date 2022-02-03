@@ -58,13 +58,14 @@ def comment(postId):
     # comments = Comment.query.filter_by(postid = postId).all() 
     # print(comments)
     
-    usefulComments_users = []
+    usefulComments_users = {}
     for C, U in comments_users:
-        commentObj = {
-            "comment": C.to_dict(),
-            "user": U.to_dict()
-        }
-        usefulComments_users.append(commentObj)
+        usefulComments_users.update({
+            C.id : {
+                "comment": C.to_dict(),
+                "user": U.to_dict()
+            }
+        })
 
         
     return {"comments": usefulComments_users}

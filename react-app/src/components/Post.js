@@ -163,7 +163,7 @@ function Post() {
           </div>
           <div className="Comments">
             {comments && 
-              comments.map(comment => <Comment commentCombo={comment} />)
+              Object.entries(comments).map((CommentArray) => <Comment commentCombo={CommentArray[1]} />)
             }
           </div>
         </div>

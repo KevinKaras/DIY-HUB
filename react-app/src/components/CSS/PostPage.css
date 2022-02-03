@@ -274,6 +274,7 @@
 }
 
 .Comment-Creation-Area{
+    width: 100vw;
     display: flex;
     justify-content: center;
     margin:3vh 0vw 3vh 0vw;
