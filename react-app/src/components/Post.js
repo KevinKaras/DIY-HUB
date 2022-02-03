@@ -5,6 +5,7 @@ import { grabPosts, deletePost } from "../store/posts"
 import { getViewPost } from "../store/ViewPost";
 import Comment from "./Comment.js"
 import LikeButton from "./LikeButton"
+import CommentLogo from "./CSS/photos/CommentLogo.png"
 import { addLike, grabLikes, removeLike, deleteAllLikes } from "../store/likes";
 import { grabPhoto } from '../store/photos'
 
@@ -107,13 +108,18 @@ function Post() {
               <div className="Author-Identifier">
                 <span>By</span> <span className="Author-Name">{currentPost?.Author?.username[0].toUpperCase() + currentPost?.Author?.username.slice(1)}</span>
               </div>
-              <div className="Likes-Numeric">
-                {likes.length} Likes
+              <div className="Likes-Info">
+                <div className="Like-Info-Text">Liked by </div>
+                <div className="Likes-Numeric">{likes.length} others</div>
               </div>
             </div>
             <div className="Info-Center-Row">
-              <button className="Comment-Button">
-                Comment
+              
+              <button className="Comment-Button" href="#Comment-Section-Start">
+                <a href="#Comment-Section-Start" className="Comment-Button">
+                  <img className="Comment-Logo-Image" src={CommentLogo}/>
+                  <div className="Comment-Button-Text">Comment</div>
+                </a>
               </button>
               {sessionUser && <LikeButton LikeRequirements={LikeRequirementObject} />}
             </div>
@@ -149,7 +155,7 @@ function Post() {
         </p>
       </div>
     </div>
-        <div className="Comment-Section">
+        <div className="Comment-Section" id="Comment-Section-Start">
           <div className="Comment-Banner">
             <div className="Comment-Numeric">
                 {comments?.length} Comments:
