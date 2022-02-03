@@ -91,7 +91,7 @@
 
 .Author-Name{
     font-size: 19px;
-    color:rgb(38, 134, 0);
+    color:rgb(97, 86, 255);
     text-decoration: underline;
 }
 
@@ -118,6 +118,7 @@
     width:7vw;
     height: 100%;
     cursor: pointer;
+    color: rgb(5, 110, 2);
 }
 
 .Liked-Button{

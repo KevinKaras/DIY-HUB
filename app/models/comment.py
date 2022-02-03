@@ -18,6 +18,3 @@ class Comment(db.Model):
             "postid": self.postid,
             "commentText": self.commentText
         }
-
-
-
