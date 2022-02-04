@@ -6,6 +6,8 @@ import { getViewPost } from "../store/ViewPost";
 import Comment from "./Comment.js"
 import LikeButton from "./LikeButton"
 import CommentLogo from "./CSS/photos/CommentLogo.png"
+import EditPostLogo from "./CSS/photos/EditPostLogo.png"
+import DeletePostLogo from "./CSS/photos/DeleteButtonLogo.png"
 import { addLike, grabLikes, removeLike, deleteAllLikes } from "../store/likes";
 import { grabPhoto } from '../store/photos'
 
@@ -105,36 +107,52 @@ function Post() {
           </div>
           <div className="Author-Post-Info">
             <div className="Info-Center-Row">
-              <div className="Author-Identifier">
-                <span>By</span> <span className="Author-Name">{currentPost?.Author?.username[0].toUpperCase() + currentPost?.Author?.username.slice(1)}</span>
+              <div className="Info-Center-Row-Contents">
+                <div className="Author-Identifier">
+                  <span className="Author-Name-Precursor">By</span> <span className="Author-Name">{currentPost?.Author?.username[0].toUpperCase() + currentPost?.Author?.username.slice(1)}</span>
+                </div>
               </div>
-              <div className="Likes-Info">
-                <div className="Like-Info-Text">Liked by </div>
-                <div className="Likes-Numeric">{likes.length} others</div>
+              <div className="Info-Center-Row-Contents">
+                <div className="Likes-Info">
+                  <div className="Like-Info-Text">Liked by </div>
+                  <div className="Likes-Numeric">{likes.length} others</div>
+                </div>
               </div>
             </div>
             <div className="Info-Center-Row">
-              
-              <button className="Comment-Button" href="#Comment-Section-Start">
-                <a href="#Comment-Section-Start" className="Comment-Button">
-                  <img className="Comment-Logo-Image" src={CommentLogo}/>
-                  <div className="Comment-Button-Text">Comment</div>
-                </a>
-              </button>
-              {sessionUser && <LikeButton LikeRequirements={LikeRequirementObject} />}
+              <div className="Info-Center-Row-Contents">
+                <button className="Comment-Button" href="#Comment-Section-Start">
+                  <a href="#Comment-Section-Start" className="Comment-Button">
+                    <img className="Comment-Logo-Image" src={CommentLogo}/>
+                    <div className="Comment-Button-Text">Comment</div>
+                  </a>
+                </button>
+              </div>
+              <div className="Info-Center-Row-Contents">
+                {<LikeButton LikeRequirements={LikeRequirementObject} />}
+              </div>
             </div>
+            {currentPost?.Post?.userid && sessionUser && currentPost?.Post?.userid === sessionUser.id &&
             <div className="Info-Center-Row">
-              {currentPost?.Post?.userid && sessionUser && currentPost?.Post?.userid === sessionUser.id &&
-                <>
+                <div className="Info-Center-Row-Contents">
                   <form>
-                    <button className='postEditBtn' onClick={e => onEditPost(e)}> Edit Post</button>
-                  </form>
+                      <button className='Post-Edit-Button' onClick={e => onEditPost(e)}> 
+                       <img className="Edit-Button-Image"src={EditPostLogo}></img>
+                        <div className="Edit-Button-Text">Edit</div>
+                      </button>
+                    </form>
+                </div>
+                <div className="Info-Center-Row-Contents">
                   <form>
-                    <button className='postDeleteBtn' onClick={e => onDelete(e)}> Delete Post</button>
+                    <button className='Post-Delete-Button' onClick={e => onDelete(e)}>
+                      <img className="Delete-Button-Image" src={DeletePostLogo}></img>
+                      <div className="Delete-Button-Text">Delete</div>
+                    </button>
                   </form>
-                </>
+                </div>
+              </div>
               }
-            </div>
+            
           </div>
           <div className="See-More-Container">
               <div className="See-More-Button">
