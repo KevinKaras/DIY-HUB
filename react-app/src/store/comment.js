@@ -145,15 +145,5 @@ export default function reducer(state = {}, action){
 //         default:
 //             return state;
 //     }
-z
+
 // }
-
-
-// let obj = {
-//     "car": "ford",
-//     "color" : "black"
-// }
-
-// let variable = Object.keys(obj).length
-
-// console.log(variable)
