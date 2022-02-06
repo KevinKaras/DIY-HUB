@@ -126,24 +126,3 @@ export default function reducer(state = {}, action){
             return state;
     }
 }
-
-// export default function reducer(state = {}, action){
-//     let newState = {...state}
-//     switch(action.type){
-//         case OBTAIN:
-//             return {...action.commentInfo}
-//         case CREATE: 
-//             return [...state, action.comment]
-//         case EDIT:
-//             let filteredState = [...state.filter(state => state.comment.id != action.oldId)]
-//             filteredState.push(action.comment)
-//             return filteredState
-//         case DELETE:
-//             return [...state.filter(state => state.comment.id !== Number(action.commentId))]
-//         case REMOVAL:
-//             return [...state.filter(state => state.postid !== Number(action.postId))]
-//         default:
-//             return state;
-//     }
-
-// }
