@@ -4,8 +4,11 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
-    demo = User(username='Demo', email='demo@aa.io',
-                password='password')
+    demo = User(username='Demo', 
+                email='demo@aa.io',
+                password='password', 
+                url='http://newinstructables.s3.amazonaws.com/f7b7065ecb414482ac3c72d5ea2362ee.jpg'
+                )
 
     db.session.add(demo)
 

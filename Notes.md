@@ -90,7 +90,14 @@ This is the backend for the Flask React project.
 
 9. set up your database:
 
+   ```
+   RESET DATABASE ON HEROKU
+   ```
+
+
    ```bash
+   heroku run -a {NAME_OF_HEROKU_APP} flask db stamp head
+   heroku run -a {NAME_OF_HEROKU_APP} flask db migrate
    heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
    heroku run -a {NAME_OF_HEROKU_APP} flask seed all
    ```
