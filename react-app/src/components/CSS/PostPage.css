@@ -337,6 +337,7 @@
     border-radius: 4vw;
     border: 1px solid rgb(180, 180, 180);
     box-shadow: 0vh 0vh 0.25vh;
+    object-fit: cover;
 }
 
 .Comment-Form {
@@ -406,7 +407,6 @@
 }
 
 .Comment-Upper{
-    background-color:;
     display:flex;
     align-items: center;
     height: 40%;
@@ -414,17 +414,19 @@
 }
 
 .Commenter-Icon{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    width: 5vw;
     
-    height: 5.5vh;
-    width: 3.5vw;
-    margin: 1vh 1vw 1vh 1vw;
     
 }
 
 .Commenter-Icon-Img{
     height: 5.5vh;
     width: 3.5vw;
-    object-fit: fill;
+    object-fit:cover;
     border-radius: 50%;
 }
 
@@ -504,6 +506,7 @@
     align-items: flex-start;
     height: 60%;
     width: 100%;
+    padding: 0.5vh
 }
 
 .Comment-Text{
