@@ -1,8 +1,8 @@
-"""migration message of your choosing
+"""Redeploying test
 
-Revision ID: fbfbc16e8c58
+Revision ID: d737647e1b9d
 Revises: 
-Create Date: 2022-01-27 18:43:50.691440
+Create Date: 2022-02-07 14:32:25.059383
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fbfbc16e8c58'
+revision = 'd737647e1b9d'
 down_revision = None
 branch_labels = None
 depends_on = None
