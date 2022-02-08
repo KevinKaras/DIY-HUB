@@ -1,5 +1,7 @@
 // Place heroku pushing instructions here 
 
+# UPDATING HEROKU POSTGRES DATABASE
+
 
 
 
