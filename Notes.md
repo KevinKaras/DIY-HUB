@@ -2,6 +2,8 @@
 
 # UPDATING HEROKU POSTGRES DATABASE
 
+1. Check config variables on heroku app interface, make sure config variables are set for database_url to match Heroku Postgres Database url. (click on your heroku app page, find heroku database and enter, go to settings on your heroku database, check settings, then check database credentials.) Your database_url config variable must match the database url.
+
 
 
 
