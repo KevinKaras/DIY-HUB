@@ -16,8 +16,7 @@
  
 2. Use the heroku cli database command to enter the database via your terminal, and delete the alembic table and any other tables present in the database to prepare for the migration.
 
-3.
-
+3. Head to the Heroku app page, click on "MORE", select "Run Console", Enter "Bash" into the command line and hit enter.
 
 
 
