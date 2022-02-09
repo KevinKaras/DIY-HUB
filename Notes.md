@@ -14,7 +14,9 @@
    1i. Click database credentials, 
    1j. Set up config variables on heroku app to make database credentials.
  
-2. 
+2. Use the heroku cli database command to enter the database via your terminal, and delete the alembic table and any other tables present in the database to prepare for the migration.
+
+3.
 
 
 
