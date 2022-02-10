@@ -18,6 +18,14 @@
 
 3. Head to the Heroku app page, click on "MORE", select "Run Console", Enter "Bash" into the command line and hit enter.
 
+4. Enter these commands in this order:
+   4a. Heroku login                                         (Log into your heroku account)
+   4b. Heroku:container login                               (This logs you into your docker container for your app)
+   4c. Heroku run --app {YOUR APP NAME HERE} bash           (Example: Heroku run --app Diyhub-kk bash)
+      4c1. cd into migrations folder, delete the alembic version file inside app folder.
+   4d. flask db migrate -m "{MIGRATION MESSAGE OF YOUR CHOOSING}"
+   4e. flask db upgrade.
+
 
 
 
