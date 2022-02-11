@@ -1,6 +1,8 @@
 // Place heroku pushing instructions here 
 
-# UPDATING HEROKU POSTGRES DATABASE
+# UPDATING HEROKU POSTGRES DATABASE  (REMOTE SIDE) 
+  # Do these commands any time that you make database table changes on the local side and wish to have those changes get pushed up to the remote heroku application database.
+
 
 1. 
    1a. Go to heroku app page, 
@@ -25,9 +27,6 @@
       4c1. cd into migrations folder, delete the alembic version file inside app folder.
    4d. flask db migrate -m "{MIGRATION MESSAGE OF YOUR CHOOSING}"
    4e. flask db upgrade.
-
-
-
 
 
 # Flask React Project
