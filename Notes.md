@@ -5,10 +5,10 @@
 
 
 1. 
-   1a. Go to heroku app page,
-   1b. Go to addons, 
-   1c. Click on heroku postgres, 
-   1d. Go to settings, 
+   1a. Go to heroku application page,
+   1b. Look at "Installed Add-ons" (or Add Ons), 
+   1c. Click on Heroku Postgres  (or add it), 
+   1d. In Heroku Postgres Main Page, go to settings, 
    1e. Destroy database, 
    1f. Go back to heroku app page, 
    1g. Go to addons, 
