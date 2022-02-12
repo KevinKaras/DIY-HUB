@@ -5,7 +5,7 @@
 
 
 1. 
-   1a. Go to heroku app page, 
+   1a. Go to heroku app page,
    1b. Go to addons, 
    1c. Click on heroku postgres, 
    1d. Go to settings, 
