@@ -11,11 +11,12 @@
    1d. In Heroku Postgres Main Page, go to settings, 
    1e. Destroy database, 
    1f. Go back to heroku app page, 
-   1g. Go to addons, 
-   1h. Go to heroku database settings, 
-   1i. Click database credentials, 
-   1j. Set up config variables on heroku app to make database credentials.
- 
+   1g. Go to addons,
+   1h  Add Heroku Postgres if not Installed
+   1i. Go to Heroku Database settings again, 
+   1j. Click database credentials, 
+   1k. Set up Config Variables on Heroku App to make Database Credentials match the new Installed database credentials. (Reference Database Settings -> Database Credentials)
+
 2. Use the heroku cli database command to enter the database via your terminal, and delete the alembic table and any other tables present in the database to prepare for the migration.
 
 3. Head to the Heroku app page, click on "MORE", select "Run Console", Enter "Bash" into the command line and hit enter.
