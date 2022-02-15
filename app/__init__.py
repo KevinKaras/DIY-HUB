@@ -46,8 +46,7 @@ CORS(app)
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
 # Therefore, we need to make sure that in production any 
-# request made over http is redirected to https.
-# Well.........
+# request made over http is redirected to https
 
 @app.before_request
 def https_redirect():
