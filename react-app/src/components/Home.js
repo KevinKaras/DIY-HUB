@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { useParams, NavLink } from "react-router-dom";
 import { grabPosts } from "../store/posts"
-import diy_photo from "./CSS/photos/diy_photo.jpg"
 import add_post_logo from './CSS/photos/add_post_logo.png'
 import HammerPic from './CSS/photos/HammerPic.jpeg'
 import Pug from './CSS/photos/Pug.jpg'
