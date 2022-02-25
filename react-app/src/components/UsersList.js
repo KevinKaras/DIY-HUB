@@ -26,24 +26,3 @@ export default UsersList;
 
 
 
-// async function fetchData() {
-    //   const response = await fetch("/api/users/");
-    //   const responseData = await response.json();
-    //   setUsers(responseData.users);
-    // }
-    // fetchData();
-    
-    
-    // const userComponents = users.map((user) => {
-  //   return (
-  //     <li key={user.id}>
-  //       <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
-  //     </li>
-  //   );
-  // });
-  
-  
-  // <>
-    //   <h1>A List Of My Clones: </h1>
-    //   <ul>{userComponents}</ul>
-    // </>
