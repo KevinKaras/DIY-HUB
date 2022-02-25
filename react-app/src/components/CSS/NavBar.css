@@ -49,6 +49,8 @@
 .HomeLogo {
     height: 5vh;
     width: 4vw;
+    color: black;
+    text-decoration: none;
 }
 
 .HomeLogoPhoto{

@@ -19,7 +19,9 @@ const NavBar = () => {
           <img src="https://i.gyazo.com/fa9f31bf8ba545bf037f27f78b82905b.png" alt="" className="HomeLogoPhoto"/>
         </a>
         <div className="Title-Container">
-          <div className="Title">DIY HUB</div>
+          <a href="/" className="HomeLogo">
+            <div className="Title">DIY HUB</div>
+          </a>
         </div>
       </div>
       
