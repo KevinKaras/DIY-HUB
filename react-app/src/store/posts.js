@@ -41,19 +41,21 @@ export const grabPosts = () => async dispatch => {
 
 // --------------------------------------------------------------------------------------------------------------- POST NEW-POST
 
-export const createPost = (userid, name, instructions, url) => async dispatch => {
+export const createPost = (userid, name, instructions, url, category) => async dispatch => {
     
     const formData = new FormData();
     formData.append("image", url);
     formData.append("userid", userid)
     formData.append("name", name)
     formData.append("instructions", instructions)
+    formData.append("category", category)
     
     const response = await fetch('/api/posts/create', {
         method: "POST",
         body: formData
     })
     const createdPost = await response.json()
+    console.log(createdPost)
     await dispatch(addPost(createdPost))
     return createdPost
 }

@@ -1,8 +1,8 @@
-"""Redeploying test
+"""migration message of your choosing
 
-Revision ID: d737647e1b9d
+Revision ID: c7bebbcda608
 Revises: 
-Create Date: 2022-02-07 14:32:25.059383
+Create Date: 2022-03-07 13:52:15.557678
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd737647e1b9d'
+revision = 'c7bebbcda608'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,6 +41,7 @@ def upgrade():
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('instructions', sa.String(length=5000), nullable=False),
     sa.Column('url', sa.String(length=1000), nullable=False),
+    sa.Column('category', sa.String(length=20), nullable=False),
     sa.ForeignKeyConstraint(['userid'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')

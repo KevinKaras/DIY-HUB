@@ -19,12 +19,14 @@ function CreatePost() {
     const [url, setPhotoUrl] = useState('')
     const user = useSelector(state => state.session.user)    
     const [imageLoading, setImageLoading] = useState(false);
+    const [category, setCategory] = useState('Miscellaneous')
+    
     
     
 
     const onCreate = async (event) => {
         event.preventDefault()
-        const createdPost = await dispatch(createPost(user.id, name, instructions, url))
+        const createdPost = await dispatch(createPost(user.id, name, instructions, url, category))
         history.push(`/post/${createdPost.id}`)
     }
     
@@ -35,6 +37,10 @@ function CreatePost() {
     const updateImage = (e) => {
         const file = e.target.files[0];
         setPhotoUrl(file);
+    }
+
+    const onSelect = (e) => {
+        setCategory(e.target.value)
     }
 
     return (
@@ -68,6 +74,15 @@ function CreatePost() {
                       updateImage(e)
                       }}
                   ></input>
+                  <label for="Categories" className="Category-Selection">Category Selection:</label>
+                  <select className="Categories" onChange={(e)=> onSelect(e)}>
+                      <option value="Miscellaneous">Miscellaneous</option>
+                      <option value="Home Improvements">Home Improvements</option>
+                      <option value="Outdoors">Outdoors</option>
+                      <option value="Indoors">Indoors</option>
+                      <option value="Knick-Knacks">Knick-Knacks</option>
+                      <option value="Children Projects">Children Projects</option>
+                  </select>
                   <button className='postAddBtn' type='submit'>Submit Post</button>
               </form>
           </div>

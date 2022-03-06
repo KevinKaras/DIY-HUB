@@ -3,11 +3,12 @@ from .db import db
 class Post(db.Model):
     __tablename__ ='posts'
 
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key=True)
     userid = db.Column(db.Integer, db.ForeignKey('users.id'))
-    name = db.Column(db.String(100), nullable = False, unique = True)
-    instructions = db.Column(db.String(5000), nullable = False)
-    url = db.Column(db.String(1000), nullable = False)
+    name = db.Column(db.String(100), nullable=False, unique=True)
+    instructions = db.Column(db.String(5000), nullable=False)
+    url = db.Column(db.String(1000), nullable=False)
+    category = db.Column(db.String(20), nullable=False)
 
     def to_dict(self):
         return {
@@ -15,7 +16,8 @@ class Post(db.Model):
             "userid": self.userid,
             "name": self.name,
             "instructions": self.instructions,
-            "url": self.url
+            "url": self.url,
+            "category": self.category
         }
 
     

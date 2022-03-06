@@ -7,4 +7,5 @@ class PostForm(FlaskForm):
     userid = IntegerField('userId', validators=[DataRequired()])
     name = StringField('name', validators=[DataRequired()])
     instructions = StringField('instructions', validators=[DataRequired()])
+    category = StringField('category', validators=[DataRequired()])
     

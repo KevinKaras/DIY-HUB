@@ -65,6 +65,7 @@ def sign_up():
         image = request.files['image']
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
+        print(upload)
         url = upload["url"]
 
     form = SignUpForm()

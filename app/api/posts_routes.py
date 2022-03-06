@@ -41,10 +41,11 @@ def create():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post(
-            userid = form.data["userid"],
-            name = form.data["name"],
-            instructions = form.data["instructions"],
-            url = url
+            userid=form.data["userid"],
+            name=form.data["name"],
+            instructions=form.data["instructions"],
+            url=url,
+            category=form.data["category"]
         )
         db.session.add(post)
         db.session.commit()
