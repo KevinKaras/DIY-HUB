@@ -92,6 +92,7 @@
 
 .Author-Name-Precursor{
     font-size: 1vw;
+    margin-right: 0.25em;
 }
 
 .Author-Name{
@@ -102,6 +103,8 @@
 
 .Author-Identifier{
     width: 7vw;
+    display:flex;
+    justify-content: center;
 }
 
 .Info-Center-Row {
