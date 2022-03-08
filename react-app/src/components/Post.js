@@ -94,6 +94,7 @@ function Post() {
             <div className="Post-Title-Container-Text">{currentPost?.Post?.name}</div>
         </div>
     </div>
+    <div>{currentPost?.Post?.category}</div>
     <div className="Post-Container">
         <img 
         className="Post-Container-Photo"
