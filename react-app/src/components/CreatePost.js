@@ -76,12 +76,12 @@ function CreatePost() {
                   ></input>
                   <label for="Categories" className="Category-Selection">Category Selection:</label>
                   <select className="Categories" onChange={(e)=> onSelect(e)}>
-                      <option value="Miscellaneous">Miscellaneous</option>
-                      <option value="Home Improvements">Home Improvements</option>
+                      <option value="Misc">Misc</option>
+                      <option value="Home">Home</option>
                       <option value="Outdoors">Outdoors</option>
                       <option value="Indoors">Indoors</option>
                       <option value="Knick-Knacks">Knick-Knacks</option>
-                      <option value="Children Projects">Children Projects</option>
+                      <option value="Children">Children</option>
                   </select>
                   <button className='postAddBtn' type='submit'>Submit Post</button>
               </form>

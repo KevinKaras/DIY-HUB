@@ -156,7 +156,9 @@ function Post() {
           </div>
           <div className="See-More-Container">
               <div className="See-More-Button">
-                <div className="See-More-Button-Text">EXPLORE {currentPost?.Post?.category.toUpperCase()}</div>
+                <div className="See-More-Button-Text">EXPLORE</div>
+                <div className="See-More-Button-Text">{currentPost?.Post?.category.toUpperCase()}</div> 
+                <div className="See-More-Button-Text">CATEGORY</div>
               </div>
           </div>
       </div>

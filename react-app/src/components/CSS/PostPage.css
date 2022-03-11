@@ -229,7 +229,7 @@
 .See-More-Button{
     display: flex;
     align-items: center;
-    align-items: center;
+    justify-content: center;
     height: 8vh;
     width: 6vw;
     border: 2px solid rgb(255, 255, 255);
@@ -237,14 +237,19 @@
     background-color: rgba(0, 0, 0, 0.863);
     margin: auto;
     cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
 .See-More-Button-Text{
+    height: 8vh;
+    width: 6vw;
     font-family: RobotoCondensed-Regular;
     text-align: center;
-    margin: 1.50%;
-    word-break: normal;
-    font-size: 1vw;    
+    overflow-wrap: normal;
+    font-size: auto;    
     color: white;
+    margin: 0.2em
 }
 
 .Instructions-Banner-Container{
