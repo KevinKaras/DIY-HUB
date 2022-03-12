@@ -238,7 +238,7 @@
     margin: auto;
     cursor: pointer;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     
 }
 .See-More-Button-Text{
