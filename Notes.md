@@ -3,7 +3,6 @@
 # UPDATING HEROKU POSTGRES DATABASE  (REMOTE SIDE) 
   # Do these commands any time that you make database table changes on the local side and wish to have those changes get pushed up to the remote heroku application database.
 
-
 1. 
    1a. Go to heroku application page,
    1b. Look at "Installed Add-ons" (or Add Ons), 

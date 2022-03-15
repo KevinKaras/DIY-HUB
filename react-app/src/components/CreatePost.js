@@ -19,7 +19,7 @@ function CreatePost() {
     const [url, setPhotoUrl] = useState('')
     const user = useSelector(state => state.session.user)    
     const [imageLoading, setImageLoading] = useState(false);
-    const [category, setCategory] = useState('Miscellaneous')
+    const [category, setCategory] = useState('Misc')
     
     
     
