@@ -112,7 +112,7 @@ function Home() {
           </div>
       </div>
       <div className="Explore-Area">
-          <div className="Explore-Topic">All Posts</div>
+          <div className="Explore-Topic">All Projects</div>
           <div className="PostsHolderContainer">
            {[postComponents, trailingAddPostComponent]}
           </div>

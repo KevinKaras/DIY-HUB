@@ -139,6 +139,14 @@
     font-family: "MyriadPro-Cond",Helvetica,Arial,sans-serif;
     font-weight: 1000;
 }
+.Explore-Topic{
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 34px;
+    font-family: "MyriadPro-Cond",Helvetica,Arial,sans-serif;
+    font-weight: 1000;
+    margin-left: 1em;
+}
 
 .Explore-Area{
     margin-left: 2.5vw;
