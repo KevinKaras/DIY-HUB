@@ -29,11 +29,12 @@ const obtainPosts = (posts) => ({
 
 // -------------------------------------------------------------------------------------------------------------- GET POSTS/POST
 
-export const grabPosts = () => async dispatch => {
-    const response = await fetch('/api/posts/', {
+export const grabPosts = (category) => async dispatch => {
+    const response = await fetch(`/api/posts/${category}`, {
         headers: {
         'Content-Type': 'application/json'
-      }})
+        }
+    })
     const data = await response.json();
     dispatch(obtainPosts(data))
 }

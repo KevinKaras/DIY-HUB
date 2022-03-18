@@ -19,7 +19,12 @@ function Home() {
     
 
   useEffect(() => {
-    dispatch(grabPosts())
+    dispatch(grabPosts("Misc"))
+    dispatch(grabPosts("Home"))
+    dispatch(grabPosts("Outdoors"))
+    dispatch(grabPosts("Indoors"))
+    dispatch(grabPosts("Knick-Knacks"))
+    dispatch(grabPosts("Children"))
   }, []);
 
   const trailingAddPostComponent = ( 

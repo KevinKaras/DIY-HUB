@@ -9,8 +9,10 @@ import json
 
 posts_routes = Blueprint('posts', __name__)
 
-@posts_routes.route('/')
-def posts():
+@posts_routes.route('/<string:category>')
+def posts(category):
+    print("Example grab", category, [post.to_dict() for post in db.session.query(Post).filter(Post.category==category)])
+    # return [post.to_dict() for post in Post.query.all.filter_by(post.category==category)]
     return {post.id: post.to_dict() for post in Post.query.all()}
 
 @posts_routes.route('/profile/<int:userId>')
