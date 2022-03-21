@@ -21,9 +21,10 @@ const addPost = (post) => ({
     post
 })
 
-const obtainPosts = (posts) => ({
+const obtainPosts = (posts, category) => ({
     type: OBTAIN,
-    posts
+    posts,
+    category
 })
 
 
@@ -36,7 +37,8 @@ export const grabPosts = (category) => async dispatch => {
         }
     })
     const data = await response.json();
-    dispatch(obtainPosts(data))
+    console.log("THIS IS DATA COMING BACK FROM ROUTE TO ADD", data)
+    dispatch(obtainPosts(data, category))
 }
 
 
@@ -103,7 +105,9 @@ export default function reducer(state = {}, action){
     let newState = {...state}
     switch(action.type){
         case OBTAIN: 
-            return action.posts
+            console.log(action.posts)
+            newState[action.category] = [...action.posts[action.category]]
+            return newState
         case CREATE: 
             newState[action.post.id] = action.post
             return newState
